@@ -19,7 +19,7 @@ public class Hunt implements Serializable{
 
     public Hunt() {
     }
-
+    
     public String getAnimal() {
         return animal;
     }

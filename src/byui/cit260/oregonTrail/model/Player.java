@@ -19,11 +19,17 @@ public class Player implements Serializable {
     private String name;
     private String occupation;
     private int playerHealth;
-    private ArrayList<Game> games = new ArrayList<Game>(); // 1..* relationship
+    
+    // relationship instances
+    private ArrayList<Game> games = new ArrayList<Game>();
+    private ArrayList<Hunt> hunts = new ArrayList<Hunt>();
+    private ArrayList<RandomEvent> events = new ArrayList<RandomEvent>();
+    private ArrayList<Trade> trades = new ArrayList<Trade>();
     
     public Player() {
     }
 
+    
     public String getName() {
         return name;
     }
@@ -48,6 +54,39 @@ public class Player implements Serializable {
         this.playerHealth = playerHealth;
     }
 
+    public ArrayList<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(ArrayList<Game> games) {
+        this.games = games;
+    }
+
+    public ArrayList<Hunt> getHunts() {
+        return hunts;
+    }
+
+    public void setHunts(ArrayList<Hunt> hunts) {
+        this.hunts = hunts;
+    }
+
+    public ArrayList<RandomEvent> getEvents() {
+        return events;
+    }
+
+    public void setEvents(ArrayList<RandomEvent> events) {
+        this.events = events;
+    }
+
+    public ArrayList<Trade> getTrades() {
+        return trades;
+    }
+
+    public void setTrades(ArrayList<Trade> trades) {
+        this.trades = trades;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 3;
