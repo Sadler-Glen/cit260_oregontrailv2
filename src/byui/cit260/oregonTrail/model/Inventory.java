@@ -27,7 +27,7 @@ private String stockPoint;
     private Player player;
     private Game game;
 
-    public Game getGame() {
+    public Game getGame() {   //1..1 relationship
         return game;
     }
 
