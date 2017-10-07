@@ -13,7 +13,12 @@ import java.util.Objects;
  * @author sadss
  */
 public class Actor implements Serializable{
-    
+
+        public static void main(String[] args) {
+      
+        Actor actorOne = new Actor();
+        System.out.println(actorOne);
+        }
     // class instance variables
     private String name;
     private int health;
