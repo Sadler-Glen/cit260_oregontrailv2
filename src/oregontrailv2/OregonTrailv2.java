@@ -26,8 +26,8 @@ public class OregonTrailv2 {
     Inventory stock = new Inventory(); //Casper  
     
     stock.setStockType("honey");
-    stock.setStockAmount(10);
     stock.setRequiredAmount(5);
+    stock.setStockAmount(10);
     stock.setStockPoint("Missouri");
     
     System.out.println(stock);
