@@ -33,8 +33,11 @@ public class OregonTrailv2 {
         
         /* 4.c call the tostring() function to display the contents of the Player
         class instance variables assigned in 4.b (Glen Sadler)
+        Note: either of the following lines will call the toString. The toString()
+        is implicit and therefore can be omitted.
         */
-        System.out.println(playerOne.toString());
+        //System.out.println(playerOne.toString());
+        System.out.println(playerOne);
 
         // 4.a create a new instance of the Game class (Glen Sadler)       
         Game gameOne = new Game();       
@@ -48,8 +51,11 @@ public class OregonTrailv2 {
 
         /* 4.c call the tostring() function to display the contents of the Game
         class instance variables assigned as above (Glen Sadler)
+        Note: either of the following lines will call the toString. The toString()
+        is implicit and therefore can be omitted.
         */        
-        System.out.println(gameOne.toString());
+        //System.out.println(gameOne.toString());
+        System.out.println(gameOne);
         
         // 4.a create a new instance of the Actor class (Glen Sadler)         
         Actor actorOne = new Actor();        
@@ -62,8 +68,11 @@ public class OregonTrailv2 {
 
         /* 4.c call the tostring() function to display the contents of the Actor
         class instance variables assigned as above (Glen Sadler)
+        Note: either of the following lines will call the toString. The toString()
+        is implicit and therefore can be omitted.
         */           
-        System.out.println(actorOne.toString());  
+        //System.out.println(actorOne.toString());
+        System.out.println(actorOne);  
     }
     
 }
