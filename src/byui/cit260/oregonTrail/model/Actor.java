@@ -6,6 +6,7 @@
 package byui.cit260.oregonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -13,11 +14,18 @@ import java.util.Objects;
  * @author sadss
  */
 public class Actor implements Serializable{
-    
+
+        public static void main(String[] args) {
+      
+        Actor actorOne = new Actor();
+        System.out.println(actorOne);
+        }
     // class instance variables
     private String name;
     private int health;
+    // relationship instances
     private Game game;
+    private ArrayList<RandomEvent> events = new ArrayList<RandomEvent>();
 
     public Actor() {
     }
@@ -28,6 +36,14 @@ public class Actor implements Serializable{
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public ArrayList<RandomEvent> getEvents() {
+        return events;
+    }
+
+    public void setEvents(ArrayList<RandomEvent> events) {
+        this.events = events;
     }
     
     public String getName() {

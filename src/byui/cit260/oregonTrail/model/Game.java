@@ -22,7 +22,7 @@ public class Game implements Serializable{
     
     // relationship instance variables
     private Player player;
-    private ArrayList<Actor> actors = new ArrayList<Actor>();
+    private ArrayList<Actor> actors = new ArrayList<Actor>(); // 1..* relationship
 
     public Game() {
     }
