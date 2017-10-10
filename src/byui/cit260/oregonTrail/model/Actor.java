@@ -15,14 +15,10 @@ import java.util.Objects;
  */
 public class Actor implements Serializable{
 
-        public static void main(String[] args) {
-      
-        Actor actorOne = new Actor();
-        System.out.println(actorOne);
-        }
     // class instance variables
     private String name;
     private int health;
+    
     // relationship instances
     private Game game;
     private ArrayList<RandomEvent> events = new ArrayList<RandomEvent>();
