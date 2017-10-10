@@ -76,8 +76,8 @@ public class OregonTrailv2 {
         is implicit and therefore can be omitted.
         */           
         //System.out.println(actorOne.toString());
-        System.out.println(actorOne);  
-
+        System.out.println(actorOne);
+        
     Inventory stock = new Inventory(); //Casper  
     
     stock.setStockType("honey");
