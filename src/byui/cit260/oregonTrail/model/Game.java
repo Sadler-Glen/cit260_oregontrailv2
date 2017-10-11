@@ -24,9 +24,10 @@ public class Game implements Serializable{
     private Player player;
     private ArrayList<Actor> actors = new ArrayList<Actor>(); // 1..* relationship
 
+    // constructor
     public Game() {
     }
-
+    // getter and setter functions
     public ArrayList<Actor> getActors() {
         return actors;
     }
@@ -66,7 +67,7 @@ public class Game implements Serializable{
     public void setClimate(String climate) {
         this.climate = climate;
     }
-
+    // hashcode function
     @Override
     public int hashCode() {
         int hash = 3;
@@ -75,12 +76,12 @@ public class Game implements Serializable{
         hash = 13 * hash + Objects.hashCode(this.climate);
         return hash;
     }
-
+    // toString function 
     @Override
     public String toString() {
         return "Game{" + "noPeople=" + noPeople + ", totalTime=" + totalTime + ", climate=" + climate + '}';
     }
-    
+    // equals function
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
