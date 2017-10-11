@@ -8,10 +8,13 @@ package oregontrailv2;
 
 import byui.cit260.oregonTrail.model.Actor;
 import byui.cit260.oregonTrail.model.Game;
+import byui.cit260.oregonTrail.model.Hunt;
 import byui.cit260.oregonTrail.model.Player;
 
 import byui.cit260.oregonTrail.model.Inventory;
 import byui.cit260.oregonTrail.model.LandMark;
+import byui.cit260.oregonTrail.model.RandomEvent;
+import byui.cit260.oregonTrail.model.Trade;
 
 
 
@@ -97,6 +100,34 @@ public class OregonTrailv2 {
     feature.setDisplaySymbol("open");
     
     System.out.println(feature);
+    
+    
+    
+    
+    Hunt huntingGoods = new Hunt();
+    
+    huntingGoods.setAnimal("boar");
+    huntingGoods.setAnimalWeight(100);
+    
+    System.out.println(huntingGoods);
+    
+    Trade wares = new Trade();
+    
+    wares.setTradeItem("lumber");
+    wares.setTradeItemAmount(50);
+    
+    System.out.println(wares);
+    
+    RandomEvent eventOne = new RandomEvent();
+    
+    eventOne.setEventType("disease");
+    eventOne.setEventLevel(10);
+    
+    System.out.println(eventOne);
+    
+    
     }
+    
+    
     
 }
