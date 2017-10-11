@@ -104,21 +104,21 @@ public class OregonTrailv2 {
     
     
     
-    Hunt huntingGoods = new Hunt();
+    Hunt huntingGoods = new Hunt(); // Ignacio Pineda
     
     huntingGoods.setAnimal("boar");
     huntingGoods.setAnimalWeight(100);
     
     System.out.println(huntingGoods);
     
-    Trade wares = new Trade();
+    Trade wares = new Trade(); // Ignacio Pineda
     
     wares.setTradeItem("lumber");
     wares.setTradeItemAmount(50);
     
     System.out.println(wares);
     
-    RandomEvent eventOne = new RandomEvent();
+    RandomEvent eventOne = new RandomEvent(); // Ignacio Pineda
     
     eventOne.setEventType("disease");
     eventOne.setEventLevel(10);
