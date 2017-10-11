@@ -37,7 +37,7 @@ public class Map {
         this.columnCount = columnCount;
         
         // create 2-D array for Location objects
-        this.locations = new Location[rowCount][columnCount];
+        /*this.locations = new Location[rowCount][columnCount];
         
         for (int row = 0; row < rowCount; row++) {
             for (int column = 0; column < columnCount; column++) {
@@ -59,7 +59,7 @@ public class Map {
                 // assign the Location object to the current position in array
                 locations[row][column] = location;
             }
-        }
+        }*/
     }
 
     // getters and setters
