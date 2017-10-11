@@ -23,9 +23,11 @@ public class Actor implements Serializable{
     private Game game;
     private ArrayList<RandomEvent> events = new ArrayList<RandomEvent>();
 
+    // constructor function
     public Actor() {
     }
-
+    
+    // getter and setter functions
     public Game getGame() {
         return game;
     }
@@ -53,7 +55,7 @@ public class Actor implements Serializable{
     public int getHealth() {
         return health;
     }
-
+    // hashcode function
     @Override
     public int hashCode() {
         int hash = 7;
@@ -61,12 +63,12 @@ public class Actor implements Serializable{
         hash = 59 * hash + this.health;
         return hash;
     }
-
+    // toString function
     @Override
     public String toString() {
         return "Actor{" + "name=" + name + ", health=" + health + '}';
     }
-    
+    // equals function
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
