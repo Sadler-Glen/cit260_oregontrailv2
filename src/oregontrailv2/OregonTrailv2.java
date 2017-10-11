@@ -7,10 +7,13 @@ package oregontrailv2;
 
 import byui.cit260.oregonTrail.model.Actor;
 import byui.cit260.oregonTrail.model.Game;
+import byui.cit260.oregonTrail.model.Hunt;
 import byui.cit260.oregonTrail.model.Player;
 
 import byui.cit260.oregonTrail.model.Inventory;
 import byui.cit260.oregonTrail.model.LandMark;
+import byui.cit260.oregonTrail.model.RandomEvent;
+import byui.cit260.oregonTrail.model.Trade;
 
 
 
@@ -96,6 +99,42 @@ public class OregonTrailv2 {
     feature.setDisplaySymbol("open");
     
     System.out.println(feature);
+     // 4.a create a new instance of the Hunt class(Ignacio Pineda)
+     Hunt huntingGoods = new Hunt();
+    
+      /* 4.b assign values to each of the Hunt class instance variables
+        using the "setter" method (Ignacio Pineda)
+        */
+      huntingGoods.setAnimal("boar");
+      huntingGoods.setAnimalWeight(100);
+       
+      System.out.println(huntingGoods);
+      
+      // 4.a create a new instance of the Trade class(Ignacio Pineda)
+      
+      Trade wares = new Trade();
+      
+      /* 4.b assign values to each of the Trade class instance variables
+        using the "setter" method (Ignacio Pineda)
+        */
+      wares.setTradeItem("Lumber");
+      wares.setTradeItemAmount(50);
+      
+      System.out.println(wares);
+      
+       // 4.a create a new instance of the RandomEvent class(Ignacio Pineda)
+       
+       RandomEvent eventOne = new RandomEvent();
+       
+       /* 4.b assign values to each of the RandomEvent class instance variables
+        using the "setter" method (Ignacio Pineda)
+        */
+       
+       eventOne.setEventType("Disease");
+       eventOne.setEventLevel(10);
+       
+       System.out.println(eventOne);
+      
     }
     
 }
