@@ -48,9 +48,9 @@ public class HealthLevelControlTest {
         noOfPeople = 2.0;
         noDaysTravelled = 2.0;
         rationType = 1.0;
-        initialFood = 996.0;
+        initialFood = 1000.0;
         //HealthLevelControl instance = new HealthLevelControl();
-        expResult = 992.0;
+        expResult = 996.0;
         result = instance.calcRemainingFood(noOfPeople, noDaysTravelled, rationType, initialFood);
         assertEquals(expResult, result, 0.0001);
         
@@ -85,12 +85,12 @@ public class HealthLevelControlTest {
         assertEquals(expResult, result, 0.0001);
         
         System.out.println("test 7 calcRemainingFood");
-        noOfPeople = 2.0;
-        noDaysTravelled = 2.0;
+        noOfPeople = 1.0;
+        noDaysTravelled = 1.0;
         rationType = 5.0;
         initialFood = 2001.0;
         //HealthLevelControl instance = new HealthLevelControl();
-        expResult = -5.0;
+        expResult = -1;
         result = instance.calcRemainingFood(noOfPeople, noDaysTravelled, rationType, initialFood);
         assertEquals(expResult, result, 0.0001);
     }

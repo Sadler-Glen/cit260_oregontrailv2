@@ -17,7 +17,7 @@ public class HealthLevelControl {
             return -1;
         }
         
-        if (initialFood > 2000){
+        if (initialFood > 2000 || initialFood < 1){
             return -1;
         }
         remainingFood = initialFood - (noOfPeople * noDaysTravelled * rationType);
