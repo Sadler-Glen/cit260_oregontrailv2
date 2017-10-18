@@ -26,10 +26,11 @@ public class Player implements Serializable {
     private ArrayList<RandomEvent> events = new ArrayList<RandomEvent>();
     private ArrayList<Trade> trades = new ArrayList<Trade>();
     
+    //constructor function
     public Player() {
     }
 
-    
+    // getter and setter functions
     public String getName() {
         return name;
     }
@@ -86,7 +87,7 @@ public class Player implements Serializable {
         this.trades = trades;
     }
     
-    
+    // hashcode function
     @Override
     public int hashCode() {
         int hash = 3;
@@ -95,7 +96,8 @@ public class Player implements Serializable {
         hash = 67 * hash + this.playerHealth;
         return hash;
     }
-
+    
+    // toString function
     @Override
     public String toString() {
         return "Player{" + "name=" + name + ", occupation=" + occupation + ", playerHealth=" + playerHealth + '}';
