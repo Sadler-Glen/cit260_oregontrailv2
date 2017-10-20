@@ -7,7 +7,7 @@ package byui.cit260.oregonTrail.control;
 
 /**
  *
- * @author Glen Sadler (Team Members Casper, Ignacio, Felix, and Glen
+ * @author Glen Sadler (Team Members Casper, Ignacio, Felix, and Glen)
  */
 public class FoodControl {
     public double calcRemainingFood(double noOfPeople, double noDaysTravelled, 
