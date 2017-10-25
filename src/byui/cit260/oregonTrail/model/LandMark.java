@@ -22,8 +22,15 @@ public class LandMark implements Serializable{
     private int travelTime;
     private boolean blockedLocation;
     private String displaySymbol;
-    
     private Inventory inventory;
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
 
     public String getDescription() {
         return description;
