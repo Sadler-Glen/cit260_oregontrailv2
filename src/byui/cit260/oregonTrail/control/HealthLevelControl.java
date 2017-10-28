@@ -11,7 +11,8 @@ package byui.cit260.oregonTrail.control;
  */
 public class HealthLevelControl {
 public double evalHealthLevel(double days, double ration, double pace) {
-
+    int health = 0;
+    
     if(ration <0 || ration >3){ // ration range 1-3
         return -1;
     }
@@ -49,8 +50,6 @@ public double evalHealthLevel(double days, double ration, double pace) {
     if(days== 0 || days >= 136){
         return -1;
     }
-    double healthLevel = (days + ration + pace);//Note this is a dummy and never gets tested because all the cases above do the evaluaion
-        return healthLevel;
-
+    return health;
     }   
 }
