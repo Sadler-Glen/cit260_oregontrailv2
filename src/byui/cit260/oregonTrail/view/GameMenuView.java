@@ -11,7 +11,7 @@ package byui.cit260.oregonTrail.view;
  */
 public class GameMenuView {
 
-    void displayMenu() {
+    public void displayMenu() {
         
         System.out.println("\n*** displayMenu() function called ***");
         
