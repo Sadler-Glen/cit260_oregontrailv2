@@ -79,7 +79,7 @@ public class HelpInfoView {
         this.promptMessage = "Please press 'C' to continue...";       
     }
 
-    void displayHelpInfo() {
+    public void displayHelpInfo() {
         boolean done = false; // set flag to not done
         do{
             // continue will exit loop
