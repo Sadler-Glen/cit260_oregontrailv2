@@ -104,9 +104,13 @@ public MainMenuView(){
         // create a new game
         GameControl.createNewGame(OregonTrailv2.getPlayer());
         
-        // display the game menu
+        // display the game menu 
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayMenu();
+        
+        //display the choose month menu
+        ChooseMonthView chooseMonth = new ChooseMonthView();
+        chooseMonth.displayChooseMonth();
     }
 
     private void startExistingGame() {
