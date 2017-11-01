@@ -41,7 +41,7 @@ public class OccupationMenuView {
      * displays the occupation menu view
      */        
     
-    public void displayOccupation() {
+    public void displayOccupationMenuView() {
         boolean done = false; // set flag to not done
         do{
             // prompt for and get menu option
