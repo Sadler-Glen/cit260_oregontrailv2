@@ -113,7 +113,7 @@ public MainMenuView(){
         //chooseMonth.displayChooseMonth();
         
         OccupationMenuView occupation = new OccupationMenuView();
-        occupation.displayOccupation();
+        occupation.displayOccupationMenuView();
     }
 
     private void startExistingGame() {
