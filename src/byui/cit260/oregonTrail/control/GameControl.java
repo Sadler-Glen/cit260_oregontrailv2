@@ -14,20 +14,22 @@ import oregontrailv2.OregonTrailv2;
  */
 public class GameControl {
 
-    public static Player createPlayer(String name) {
-        if(name == null){
-            return null;
-        }
+
+
+public static Player createPlayer(String name){
+
+    if(name == null){
+        return null;
+    }
     Player player = new Player();
     player.setName(name);
     
     OregonTrailv2.setPlayer(player); // save the player
+  
     return player;
-    }
+}    
 
     public static void createNewGame(Player player) {
-        
         System.out.println("\n*** createNewGame() function called ***");
-        
     }
-}    
+}

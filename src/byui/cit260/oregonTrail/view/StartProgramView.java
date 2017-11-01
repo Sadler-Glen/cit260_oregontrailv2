@@ -10,7 +10,7 @@ import byui.cit260.oregonTrail.model.Player;
 import java.util.Scanner;
 /**
  *
- * @author EQUIPO
+ * @author Glen Sadler
  */
 public class StartProgramView {
     

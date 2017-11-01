@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 /**
  *
- * @author EQUIPO
+ * @author Glen Sadler 
  */
-class HelpInfoView {
-    
+public class HelpInfoView {
+
     private final String helpInfoPart1;
     private final String helpInfoPart2;
     private final String helpInfoPart3;    
@@ -79,7 +79,7 @@ class HelpInfoView {
         this.promptMessage = "Please press 'C' to continue...";       
     }
 
-    void displayHelpInfo() {
+    public void displayHelpInfo() {
         boolean done = false; // set flag to not done
         do{
             // continue will exit loop
@@ -193,4 +193,4 @@ class HelpInfoView {
         return false;
     }
     
-}
+}    

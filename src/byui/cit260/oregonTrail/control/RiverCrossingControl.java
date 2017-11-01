@@ -7,7 +7,7 @@ package byui.cit260.oregonTrail.control;
 
 /**
  *
- * @author EQUIPO
+ * @author Casper
  */
 public class RiverCrossingControl {
     public int riverCrossing (int river, int crossingType) {
