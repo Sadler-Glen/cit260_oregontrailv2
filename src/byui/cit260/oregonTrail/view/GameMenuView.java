@@ -5,15 +5,15 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Glen Sadler
  */
 public class GameMenuView {
-
+    
     public void displayMenu() {
-        
-        System.out.println("\n*** displayMenu() function called ***");
-        
-    }    
+        System.out.println("\n*** displayMenu() stub function called ***");  
+    }
 }

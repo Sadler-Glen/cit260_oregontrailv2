@@ -5,47 +5,45 @@
  */
 package byui.cit260.oregonTrail.view;
 
-import byui.cit260.oregonTrail.control.GameControl;
 import java.util.Scanner;
-import oregontrailv2.OregonTrailv2;
 
 /**
  *
  * @author sadss
  */
-public class MainMenuView {
-    
+public class OccupationMenuView {
     private String menu;
     private String promptMessage;
-    
-public MainMenuView(){
-    
-    this.menu = "\n"
+
+    public OccupationMenuView() {
+        
+            this.menu = "\n"
             + "\n===============Oregon Trail Game================="
             + "\n                                                 "
-            + "\n                   Main Menu                     "
+            + "\n            Choose your occupation?              "
             + "\n                                                 "
-            + "\n  T - Travel the trail                           "
-            + "\n  G - Get and save an existing Game              "
-            + "\n  I - Information about the trail                "
-            + "\n  S - Save Game                                  "
-            + "\n  Q - Quit                                       "
+            + "\n  B - Banker from Boston                         "
+            + "\n  C - Carpenter from Ohio                        "
+            + "\n  F - Farmer from Illinois                       "
+            + "\n  W - Which one should I choose?                 "
+            + "\n  X - Exit                                       "
             + "\n                                                 "
             + "\n=================================================";
     
     this.promptMessage = "\nPlease enter your choice: ";
-    
-}
+        
+    }
+
     /**
-     * displays the start program view
+     * displays the occupation menu view
      */        
     
-    public void displayMainMenuView() {
+    public void displayOccupation() {
         boolean done = false; // set flag to not done
         do{
             // prompt for and get menu option
             String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q"))// user wants to quit
+            if(menuOption.toUpperCase().equals("X"))// user wants to quit
                 return; // exit the game
             
             // do the requested action and display the next view
@@ -81,42 +79,39 @@ public MainMenuView(){
         choice = choice.toUpperCase(); // convert choice to upper cas
         
         switch (choice) {
-            case "T": //create and start a new game
-                this.chooseOccupation();
+            case "B": //choose to be a banker
+                this.banker();
                 break;
-            case "G": //get and start an existing game
-                this.startExistingGame();
+            case "C": //choose to be a carpenter
+                this.carpenter();
                 break;
-            case "I": //display information about the trail
-                this.displayHelpInfo();
+            case "F": //choose to be a farmer
+                this.farmer();
                 break;
-            case "S": //save the current game
-                this.saveGame();
+            case "W": //display information abouteach occupation
+                this.occupationHelpInfo();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
+    }    
+
+    private void banker() {
+        System.out.println("\n*** banker() function called ***");
     }
 
-    private void chooseOccupation() {
-        // display the chooseOccupation menu
-        OccupationMenuView occupation = new OccupationMenuView();
-        occupation.displayOccupation();       
+    private void carpenter() {
+        System.out.println("\n*** carpenter() function called ***");        
     }
 
-    private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+    private void farmer() {
+        System.out.println("\n*** farmer() function called ***");
     }
 
-    private void displayHelpInfo() {
-        // display the help menu
-        HelpInfoView helpInfo = new HelpInfoView();
-        helpInfo.displayHelpInfo();
-    }
-
-    private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
-    }
+    private void occupationHelpInfo() {
+        OccupationHelpInfoView helpInfo = new OccupationHelpInfoView();
+        helpInfo.displayOccupationHelpInfo();
+    }    
 }

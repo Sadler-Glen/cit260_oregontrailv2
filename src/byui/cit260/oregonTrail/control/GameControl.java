@@ -6,6 +6,7 @@
 package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.model.Player;
+import byui.cit260.oregonTrail.view.GameMenuView;
 import oregontrailv2.OregonTrailv2;
 
 /**
@@ -28,6 +29,6 @@ public static Player createPlayer(String name){
 }    
 
     public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame() function called ***");
+        System.out.println("\n*** createNewGame stub function called ***");
     }
 }
