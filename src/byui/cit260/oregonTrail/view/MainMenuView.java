@@ -82,7 +82,7 @@ public MainMenuView(){
         
         switch (choice) {
             case "T": //create and start a new game
-                this.chooseOccupation();
+                this.startNewGame();
                 break;
             case "G": //get and start an existing game
                 this.startExistingGame();
@@ -100,10 +100,20 @@ public MainMenuView(){
         return false;
     }
 
-    private void chooseOccupation() {
-        // display the chooseOccupation menu
+    private void startNewGame() {
+        // create a new game
+        GameControl.createNewGame(OregonTrailv2.getPlayer());
+        
+        // display the game menu
+        //GameMenuView gameMenu = new GameMenuView();
+        //gameMenu.displayMenu();
+        
+        //display choose month menu
+        //ChooseMonthView chooseMonth = new ChooseMonthView();
+        //chooseMonth.displayChooseMonth();
+        
         OccupationMenuView occupation = new OccupationMenuView();
-        occupation.displayOccupation();       
+        occupation.displayOccupation();
     }
 
     private void startExistingGame() {

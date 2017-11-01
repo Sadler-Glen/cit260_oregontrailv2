@@ -15,8 +15,10 @@ import oregontrailv2.OregonTrailv2;
  */
 public class GameControl {
 
+
+
 public static Player createPlayer(String name){
-    
+
     if(name == null){
         return null;
     }
@@ -24,7 +26,7 @@ public static Player createPlayer(String name){
     player.setName(name);
     
     OregonTrailv2.setPlayer(player); // save the player
-    
+  
     return player;
 }    
 

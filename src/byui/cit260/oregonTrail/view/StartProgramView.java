@@ -8,7 +8,6 @@ package byui.cit260.oregonTrail.view;
 import byui.cit260.oregonTrail.control.GameControl;
 import byui.cit260.oregonTrail.model.Player;
 import java.util.Scanner;
-
 /**
  *
  * @author Glen Sadler
@@ -44,7 +43,7 @@ public class StartProgramView {
             String playersName = this.getPlayersName();
             if(playersName.toUpperCase().equals("Q")) // user wants to quit
                 return; // exit the game
-            // do the requested action and display the next iew
+            // do the requested action and display the next view
             done = this.doAction(playersName);
                     
         } while (!done);

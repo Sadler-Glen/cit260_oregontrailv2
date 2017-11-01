@@ -20,12 +20,15 @@ public class OccupationMenuView {
             this.menu = "\n"
             + "\n===============Oregon Trail Game================="
             + "\n                                                 "
-            + "\n            Choose your occupation?              "
+            + "\n  Many kinds of people made the trip to Oregon   "
             + "\n                                                 "
-            + "\n  B - Banker from Boston                         "
-            + "\n  C - Carpenter from Ohio                        "
-            + "\n  F - Farmer from Illinois                       "
-            + "\n  W - Which one should I choose?                 "
+            + "\n  You may:                                       "
+            + "\n                                                 "
+            + "\n  B - Be a Banker from Boston                    "
+            + "\n  C - Be a Carpenter from Ohio                   "
+            + "\n  F - Be a Farmer from Illinois                  "
+            + "\n  D - Find out the differences between these     "
+            + "\n      choices                                    "
             + "\n  X - Exit                                       "
             + "\n                                                 "
             + "\n=================================================";
@@ -88,7 +91,7 @@ public class OccupationMenuView {
             case "F": //choose to be a farmer
                 this.farmer();
                 break;
-            case "W": //display information abouteach occupation
+            case "D": //display information abouteach occupation
                 this.occupationHelpInfo();
                 break;
             default:
@@ -99,15 +102,18 @@ public class OccupationMenuView {
     }    
 
     private void banker() {
-        System.out.println("\n*** banker() function called ***");
+        WagonPartyView partyMember = new WagonPartyView();
+        partyMember.displayPartyList();
     }
 
     private void carpenter() {
-        System.out.println("\n*** carpenter() function called ***");        
+        WagonPartyView partyMember = new WagonPartyView();
+        partyMember.displayPartyList();       
     }
 
     private void farmer() {
-        System.out.println("\n*** farmer() function called ***");
+        WagonPartyView partyMember = new WagonPartyView();
+        partyMember.displayPartyList();
     }
 
     private void occupationHelpInfo() {
