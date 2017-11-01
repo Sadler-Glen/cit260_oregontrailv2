@@ -19,13 +19,17 @@ class MonthJuneView {
 
 public MonthJuneView(){
 this.text = "\n"
-        +"\n ============================================================    "
-        +"\n    Before leaving your current location,                        "
-        +"\n    first you should step by Glen´s store                        "
-        +"\n    and buy supplies for your journey                            "
-        +"\n    right now you have a certain amount of money.                "
-        +"\n                        ***                                      "
-        +"\n                Use it wisely.                                   ";
+        +"\n===============Oregon Trail Game================="
+        +"\n                                                 "
+        +"\n    Before leaving your current location,        "
+        +"\n    first you should step by Glen´s store        "
+        +"\n    and buy supplies for your journey            "
+        +"\n    right now you have a certain amount          "
+        +"\n    of money.                                    "
+        +"\n                      ***                        "
+        +"\n                 Use it wisely.                  "
+        +"\n                                                 "
+        +"\n=================================================";
         
    this.promptMessage = "\n Please press 'C' to continue:  ";     
 
