@@ -12,7 +12,7 @@ package byui.cit260.oregonTrail.control;
 public class FoodControl {
     public double calcRemainingFood(double noOfPeople, double noDaysTravelled, 
         
-            double rationType, double initialFood){
+        double rationType, double initialFood){
         double remainingFood;
         if(noOfPeople < 1 || noDaysTravelled < 0  || initialFood < 0){ // test for invalid cases
             return -1;
