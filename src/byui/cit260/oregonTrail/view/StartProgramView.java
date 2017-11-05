@@ -86,7 +86,7 @@ public class StartProgramView {
     }
     
     // display next view
-    this.displayNextView(player);
+        this.displayNextView(player);
     
     return true; // success!
     }
