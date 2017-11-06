@@ -21,8 +21,8 @@ public class WagonPartyView {
     private String promptMessage1;
 
     public WagonPartyView() {
-        
-            this.partyList1 = "\n"
+
+        this.partyList1 = "\n"
             + "\n===============Oregon Trail Game================="
             + "\n                                                 "
             + "\n      Enter the names of those in your party     "
@@ -182,7 +182,7 @@ public class WagonPartyView {
             break; // end the loop
         }
         
-        return value; // return the value entered
+        return value; // return the value entered      
     }
     
     private String getPartyList2() {
