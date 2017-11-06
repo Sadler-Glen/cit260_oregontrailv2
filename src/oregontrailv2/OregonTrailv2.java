@@ -23,6 +23,13 @@ import byui.cit260.oregonTrail.view.StartProgramView;
  */
 public class OregonTrailv2 {
     
+    public static void main(String[] args) {
+
+    // create StartProgramViewOrig and display the start program view
+    StartProgramView startProgramView = new StartProgramView();
+    startProgramView.displayStartProgramView();
+    }
+    
     private static Game currentGame = null;
     private static Player player = null;
 
@@ -48,13 +55,5 @@ public class OregonTrailv2 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        
-
-    
-   
-        // create StartProgramViewOrig and display the start program view
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
-    }                
+                
 }

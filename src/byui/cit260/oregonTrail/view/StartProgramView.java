@@ -33,7 +33,8 @@ public class StartProgramView {
               + "\n                                                "
               + "\n           Good Luck on your journey            "
               + "\n                                                "          
-              + "\n================================================");
+              + "\n================================================"
+              );
     }
 
     public void displayStartProgramView() {
