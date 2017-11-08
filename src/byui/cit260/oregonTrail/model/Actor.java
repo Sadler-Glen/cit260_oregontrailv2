@@ -17,7 +17,7 @@ public class Actor implements Serializable{
 
     // class instance variables
     private String name;
-    private int health;
+    private int health = 3;
     
     // relationship instances
     private Game game;

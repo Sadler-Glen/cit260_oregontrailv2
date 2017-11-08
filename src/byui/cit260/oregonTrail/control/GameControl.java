@@ -5,6 +5,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.model.Actor;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.view.GameMenuView;
 import oregontrailv2.OregonTrailv2;
@@ -17,18 +18,33 @@ public class GameControl {
 
 
 
-public static Player createPlayer(String name){
+    public static Player createPlayer(String name){
 
-    if(name == null){
-        return null;
+        if(name == null){
+            return null;
+        }
+        Player player = new Player();
+        player.setName(name);
+
+        OregonTrailv2.setPlayer(player); // save the player
+
+        return player;
     }
-    Player player = new Player();
-    player.setName(name);
-    
-    OregonTrailv2.setPlayer(player); // save the player
-  
-    return player;
-}    
+
+    public static Actor createActor(String name){
+        
+        if(name == null){
+            return null;
+        }    
+        Actor actor = new Actor();
+        actor.setName(name);
+        
+        OregonTrailv2.setActor(actor);
+        
+        return actor;
+            
+                
+    }
 
     public static void createNewGame(Player player) {
         System.out.println("\n*** createNewGame stub function called ***");

@@ -156,7 +156,7 @@ public class WagonPartyView {
         } while(!done);
         
             ChooseMonthView chooseMonth = new ChooseMonthView();
-            chooseMonth.displayChooseMonth();        
+            chooseMonth.display();        
     }
 
         
@@ -281,7 +281,7 @@ public class WagonPartyView {
         return value; // return the value entered
     }
     
-    private boolean doAction(String choice) {        
+    private boolean doAction(String value) {        
         System.out.println("\n*** Invalid selection *** Try again");
         return false;
     }

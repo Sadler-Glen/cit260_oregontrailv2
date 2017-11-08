@@ -11,76 +11,35 @@ import oregontrailv2.OregonTrailv2;
 
 /**
  *
- * @author sadss
+ * @author Glen Sadler
  */
-public class MainMenuView {
-    
-    private String menu;
-    private String promptMessage;
-    
-public MainMenuView(){
-    
-    this.menu = "\n"
-            + "\n===============Oregon Trail Game================="
-            + "\n                                                 "
-            + "\n                   Main Menu                     "
-            + "\n                                                 "
-            + "\n  T - Travel the trail                           "
-            + "\n  G - Get and save an existing Game              "
-            + "\n  I - Information about the trail                "
-            + "\n  S - Save Game                                  "
-            + "\n  Q - Quit                                       "
-            + "\n                                                 "
-            + "\n=================================================";
-    
-    this.promptMessage = "\nPlease enter your choice: ";
-    
-}
-    /**
-     * displays the start program view
-     */        
-    
-    public void displayMainMenuView() {
-        boolean done = false; // set flag to not done
-        do{
-            // prompt for and get menu option
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q"))// user wants to quit
-                return; // exit the game
-            
-            // do the requested action and display the next view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-    }
+public class MainMenuView extends View{
 
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; // value to be returned
-        boolean valid = false; // initialize to not valid
-        
-        while(!valid) { // loop while an invalid value is entered
-            System.out.println(this.menu);
-            System.out.print("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if(value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            break; // end the loop
-        }
-        
-        return value; // return the value entered
-    }
+    
+    public MainMenuView(){
 
-    private boolean doAction(String choice) {
+        super( "\n"
+                + "\n===============Oregon Trail Game================="
+                + "\n                                                 "
+                + "\n                   Main Menu                     "
+                + "\n                                                 "
+                + "\n  T - Travel the trail                           "
+                + "\n  G - Get and save an existing Game              "
+                + "\n  I - Information about the trail                "
+                + "\n  S - Save Game                                  "
+                + "\n  Q - Quit                                       "
+                + "\n                                                 "
+                + "\n================================================="
+        ,"\nPlease enter your choice: ");
+
+    }
+    
+    @Override
+    public boolean doAction(String value) {
         
-        choice = choice.toUpperCase(); // convert choice to upper cas
+        value = value.toUpperCase(); // convert choice to upper cas
         
-        switch (choice) {
+        switch (value) {
             case "T": //create and start a new game
                 this.startNewGame();
                 break;
@@ -113,7 +72,7 @@ public MainMenuView(){
         //chooseMonth.displayChooseMonth();
         
         OccupationMenuView occupation = new OccupationMenuView();
-        occupation.displayOccupationMenuView();
+        occupation.display();
     }
 
     private void startExistingGame() {
@@ -123,7 +82,7 @@ public MainMenuView(){
     private void displayHelpInfo() {
         // display the help menu
         HelpInfoView helpInfo = new HelpInfoView();
-        helpInfo.displayHelpInfo();
+        helpInfo.display();
     }
 
     private void saveGame() {
