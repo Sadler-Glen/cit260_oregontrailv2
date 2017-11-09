@@ -29,7 +29,7 @@ public class OccupationHelpInfoView extends View {
             +"\n                                                 "
             +"\n                                                 "
             +"\n================================================="
-            ,"\nPlease press 'C' to continue...");       
+            ,"\nPlease press 'C' to continue: ");       
     }
   
     @Override

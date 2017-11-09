@@ -32,7 +32,7 @@ public class ChooseMonthView extends View{
                 + "\n  6 - Ask For Advice                             "
                 + "\n  X - Exit                                       "
                 + "\n================================================="
-                ,"\nPlease make a choice: ");
+                ,"\nPlease enter your choice: ");
     }
     
     @Override

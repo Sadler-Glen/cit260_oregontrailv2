@@ -36,7 +36,7 @@ public class WagonPartyView {
             + "\n=================================================";
     
     this.promptMessage1 = "\nPlease enter name: ";
-    this.promptMessage = "\nPlease press 'C' to continue...";
+    this.promptMessage = "\nPlease press 'C' to continue: ";
 
             this.partyList2 = "\n"
             + "\n===============Oregon Trail Game================="

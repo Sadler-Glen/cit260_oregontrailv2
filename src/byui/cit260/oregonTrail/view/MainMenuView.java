@@ -23,10 +23,10 @@ public class MainMenuView extends View{
                 + "\n                                                 "
                 + "\n                   Main Menu                     "
                 + "\n                                                 "
-                + "\n  T - Travel the trail                           "
-                + "\n  G - Get and save an existing Game              "
-                + "\n  I - Information about the trail                "
-                + "\n  S - Save Game                                  "
+                + "\n  1 - Travel the trail                           "
+                + "\n  2 - Get and save an existing Game              "
+                + "\n  3 - Information about the trail                "
+                + "\n  4 - Save Game                                  "
                 + "\n  Q - Quit                                       "
                 + "\n                                                 "
                 + "\n================================================="
@@ -40,16 +40,16 @@ public class MainMenuView extends View{
         value = value.toUpperCase(); // convert choice to upper cas
         
         switch (value) {
-            case "T": //create and start a new game
+            case "1": //create and start a new game
                 this.startNewGame();
                 break;
-            case "G": //get and start an existing game
+            case "2": //get and start an existing game
                 this.startExistingGame();
                 break;
-            case "I": //display information about the trail
+            case "3": //display information about the trail
                 this.displayHelpInfo();
                 break;
-            case "S": //save the current game
+            case "4": //save the current game
                 this.saveGame();
                 break;
             default:

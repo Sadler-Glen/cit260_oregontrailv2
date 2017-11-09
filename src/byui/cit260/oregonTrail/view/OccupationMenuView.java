@@ -23,10 +23,10 @@ public class OccupationMenuView extends View{
             + "\n                                                 "
             + "\n  You may:                                       "
             + "\n                                                 "
-            + "\n  B - Be a Banker from Boston                    "
-            + "\n  C - Be a Carpenter from Ohio                   "
-            + "\n  F - Be a Farmer from Illinois                  "
-            + "\n  D - Find out the differences between these     "
+            + "\n  1 - Be a Banker from Boston                    "
+            + "\n  2 - Be a Carpenter from Ohio                   "
+            + "\n  3 - Be a Farmer from Illinois                  "
+            + "\n  4 - Find out the differences between these     "
             + "\n      choices                                    "
             + "\n  X - Exit                                       "
             + "\n                                                 "
@@ -41,16 +41,16 @@ public class OccupationMenuView extends View{
         choice = choice.toUpperCase(); // convert choice to upper cas
         
         switch (choice) {
-            case "B": //choose to be a banker
+            case "1": //choose to be a banker
                 this.banker();
                 break;
-            case "C": //choose to be a carpenter
+            case "2": //choose to be a carpenter
                 this.carpenter();
                 break;
-            case "F": //choose to be a farmer
+            case "3": //choose to be a farmer
                 this.farmer();
                 break;
-            case "D": //display information abouteach occupation
+            case "4": //display information abouteach occupation
                 this.occupationHelpInfo();
                 break;
             default:

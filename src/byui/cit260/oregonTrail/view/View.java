@@ -32,10 +32,10 @@ public abstract class View implements ViewInterface {
             String value = this.getInput();
             if(value.toUpperCase().equals("Q"))// user wants to quit
                 return; // exit the game
-            if(value.toUpperCase().equals("X"))// user wants to quit
+            if(value.toUpperCase().equals("X"))// user wants to exit
                 return; // return to previous
-            if(value.toUpperCase().equals("C"))// user wants to quit
-                return; // rturn to previous            
+            if(value.toUpperCase().equals("C"))// user wants to continue
+                return; //         
             // do the requested action and display the next view
             done = this.doAction(value);
             
