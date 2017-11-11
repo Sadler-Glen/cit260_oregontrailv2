@@ -5,6 +5,7 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import byui.cit260.oregonTrail.control.GameControl;
 import java.util.Scanner;
 
 /**
@@ -13,26 +14,39 @@ import java.util.Scanner;
  */
 public class ChooseMonthView extends View{
 
-
     public ChooseMonthView(){
-        super("\n"
-                + "\n===============Oregon Trail Game================="
-                + "\n  It is 1848. Your jumping off                   "
-                + "\n  place for Oregon it´s Independence, Missouri.  "
-                + "\n  You must decide which month to leave           "
-                + "\n  independence."
-                + "\n                                                 "
-                + "\n  Choose Your Month                              "
-                + "\n                                                 "
-                + "\n  1 - March                                      "
-                + "\n  2 - April                                      "
-                + "\n  3 - May                                        "
-                + "\n  4 - June                                       "
-                + "\n  5 - July                                       "
-                + "\n  6 - Ask For Advice                             "
-                + "\n  X - Exit                                       "
-                + "\n================================================="
-                ,"\nPlease enter your choice: ");
+        super( "\n"
+            + "\n===============Oregon Trail Game================="
+            + "\n  It is 1848. Your jumping off place for         "
+            + "\n  Oregon is Independence, Missouri. You must     "
+            + "\n  decide which month to leave Independence.      "
+            + "\n                                                 "
+            + "\n  Choose Your Month                              "
+            + "\n                                                 "
+            + "\n  1 - March                                      "
+            + "\n  2 - April                                      "
+            + "\n  3 - May                                        "
+            + "\n  4 - June                                       "
+            + "\n  5 - July                                       "
+            + "\n  6 - Ask For Advice                             "
+            + "\n  X - Exit                                       "
+            + "\n================================================="
+            ,"\nPlease enter your choice: ");
+
+    } 
+    
+    @Override
+    public void display(){  
+
+        boolean done = false; // set flag to not done
+        do{                
+            // prompt for and get menu option
+            String value = this.getInput();
+            if(value.toUpperCase().equals("X"))// user wants to exit view                
+            // do the requested action and display the next view
+                return; // exit view
+            done = this.doAction(value);        
+        } while(!done);
     }
     
     @Override
@@ -41,19 +55,24 @@ public class ChooseMonthView extends View{
         
         switch (menu) {
             case "1": //Select March
-                this.monthMarch();
+                GameControl.setStartMonth("March");
+                this.monthStartGame();
                 break;
             case "2": //Select April
-                this.monthApril();
+                GameControl.setStartMonth("April");
+                this.monthStartGame();
                 break;
-            case "3": //Select Msy
-                this.monthMay();
+            case "3": //Select May
+                GameControl.setStartMonth("May");
+                this.monthStartGame();
                 break;
             case "4": //Select June
-                this.monthJune();
+                GameControl.setStartMonth("June");
+                this.monthStartGame();
                 break;
             case "5": //Select July
-                this.monthJuly();
+                GameControl.setStartMonth("July");
+                this.monthStartGame();
                 break;
             case "6": //Go to the advice information page
                 this.askAdvice();
@@ -64,32 +83,10 @@ public class ChooseMonthView extends View{
         }
         return false;
     }
-    
-    
-    
-    private void monthMarch(){
-        MonthMarchView monthMarch = new MonthMarchView();
-        monthMarch.display();
-    }
-
-    private void monthApril() {
-        MonthAprilView monthApril= new MonthAprilView();
-        monthApril.display();
-    }
-
-    private void monthMay() {
-       MonthMayView monthMay = new MonthMayView();
-       monthMay.display();
-    }
-
-    private void monthJune() {
-       MonthJuneView monthJune = new MonthJuneView();
-       monthJune.display();
-    }
-
-    private void monthJuly() {
-         MonthJulyView monthJuly = new MonthJulyView();
-         monthJuly.display();
+       
+    private void monthStartGame(){
+        StartMonthView startMonth = new StartMonthView();
+        startMonth.display();
     }
 
     private void askAdvice() {

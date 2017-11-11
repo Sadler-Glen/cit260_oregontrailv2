@@ -27,14 +27,14 @@ public class StartProgramView {
     private void displayBanner() {
         
         System.out.println(
-                "\n================================================"
-              + "\n                                                "
-              + "\n    Welcome to the Game of The Oregon Trail     "
-              + "\n                                                "
-              + "\n           Good Luck on your journey            "
-              + "\n                                                "          
-              + "\n================================================"
-              );
+            "\n================================================"
+            + "\n                                                "
+            + "\n    Welcome to the Game of The Oregon Trail     "
+            + "\n                                                "
+            + "\n           Good Luck on your journey            "
+            + "\n                                                "          
+             + "\n================================================"
+            );
     }
 
     public void displayStartProgramView() {
@@ -95,12 +95,12 @@ public class StartProgramView {
     private void displayNextView(Player player) {
         // display a custom welcome message
         System.out.println("\n================================================"
-                          +"\n                                                "
-                          +"\n    Welcome to the Oregon Trail "+ player.getName()
-                          +"\n                                                "
-                          +"\n    We wish you God Speed!                      "
-                          +"\n                                                "
-                          +"\n================================================");
+            +"\n                                                "
+            +"\n    Welcome to the Oregon Trail "+ player.getName()
+            +"\n                                                "
+            +"\n    We wish you God Speed!                      "
+            +"\n                                                "
+            +"\n================================================");
         
         // Create MainMenuView object
         MainMenuView mainMenuView = new MainMenuView();

@@ -7,6 +7,7 @@ package byui.cit260.oregonTrail.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -14,10 +15,10 @@ import java.util.Objects;
  * @author sadss
  */
 public class Actor implements Serializable{
-
+    
     // class instance variables
     private String name;
-    private int health = 3;
+    private int health = 100;
     
     // relationship instances
     private Game game;
@@ -64,10 +65,12 @@ public class Actor implements Serializable{
         return hash;
     }
     // toString function
+
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", health=" + health + '}';
+        return "Actor{" + "name=" + name + ", health=" + health + ", game=" + game + ", events=" + events + '}';
     }
+
     // equals function
     @Override
     public boolean equals(Object obj) {
@@ -93,6 +96,6 @@ public class Actor implements Serializable{
     public void setHealth(int health) {
         this.health = health;
     }
-    
+
     
 }

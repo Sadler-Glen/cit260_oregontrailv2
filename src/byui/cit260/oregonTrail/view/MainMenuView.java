@@ -19,18 +19,18 @@ public class MainMenuView extends View{
     public MainMenuView(){
 
         super( "\n"
-                + "\n===============Oregon Trail Game================="
-                + "\n                                                 "
-                + "\n                   Main Menu                     "
-                + "\n                                                 "
-                + "\n  1 - Travel the trail                           "
-                + "\n  2 - Get and save an existing Game              "
-                + "\n  3 - Information about the trail                "
-                + "\n  4 - Save Game                                  "
-                + "\n  Q - Quit                                       "
-                + "\n                                                 "
-                + "\n================================================="
-        ,"\nPlease enter your choice: ");
+            + "\n===============Oregon Trail Game================="
+            + "\n                                                 "
+            + "\n                   Main Menu                     "
+            + "\n                                                 "
+            + "\n  1 - Travel the trail                           "
+            + "\n  2 - Get and save an existing Game              "
+            + "\n  3 - Information about the trail                "
+            + "\n  4 - Save Game                                  "
+            + "\n  Q - Quit                                       "
+            + "\n                                                 "
+            + "\n================================================="
+            ,"\nPlease enter your choice: ");
 
     }
     
