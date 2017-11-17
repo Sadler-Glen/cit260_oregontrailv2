@@ -54,7 +54,11 @@ public class GeneralStoreView extends View  {
             + "\n                                                 "
             + "\n  4 - Ammunition            $"+GameControl.getAmmo()
             + "\n                                                 "
-            + "\n  5 - Spare Parts           $"+GameControl.getWheel()
+            + "\n  5 - Wheels                $"+GameControl.getWheel()
+            + "\n                                                 "
+            + "\n  6 - Axles                 $"+GameControl.getAxle()
+            + "\n                                                 "
+            + "\n  7 - Tongues               $"+GameControl.getTongue()
             + "\n                                                 "
             + "\n  Total Bill:               $"+GameControl.getTotalBill()
             + "\n                                                 "
@@ -118,8 +122,16 @@ public class GeneralStoreView extends View  {
                 break;
              
             case "5": //Choose Spare Parts
-                this.partsChoice();
+                this.wheelsChoice();
                 break;
+                
+            case "6": //Choose Spare Parts
+                this.axleChoice();
+                break;
+                
+            case "7": //Choose Spare Parts
+                this.tongueChoice();
+                break;  
                 
             default: //Get error message
                 System.out.println("\n*** Invalid Selection. Try Again ***");
@@ -172,7 +184,8 @@ public class GeneralStoreView extends View  {
                 System.out.println("\n Don´t forget you´ll need oxen to pull your wagon");
                 continue;
             }
-            break; // end the loop
+            break; // end the loopx
+            
         }
         
         return value; // return the value entered      
@@ -195,5 +208,18 @@ public class GeneralStoreView extends View  {
     }
     private void partsChoice() {
          System.out.println("\n*** partsChoice() function called ***");
+    }
+
+    private void wheelsChoice() {
+        System.out.println("\n*** wheelsChoice() function called ***");
+    }
+
+    private void axleChoice() {
+        System.out.println("\n*** axleChoice() function called ***");
+    }
+    
+
+    private void tongueChoice() {
+        System.out.println("\n*** tongueChoice() function called ***");
     }
 }
