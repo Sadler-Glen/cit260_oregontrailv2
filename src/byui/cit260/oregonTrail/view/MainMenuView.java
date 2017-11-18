@@ -33,7 +33,7 @@ public class MainMenuView extends View {
             + "\n  5 - View inventory sorted by description       "
             + "\n  6 - View inventory sorted by item cost         "
             + "\n  7 - View inventory sorted by quantity in stock "
-            + "\n  7 - Save Game                                  "
+            + "\n  8 - Save Game                                  "
             + "\n  Q - Quit                                       "
             + "\n                                                 "
             + "\n================================================="
