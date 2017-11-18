@@ -30,8 +30,10 @@ public class MainMenuView extends View {
             + "\n  2 - Get and save an existing Game              "
             + "\n  3 - Information about the trail                "
             + "\n  4 - View Map                                   "
-            + "\n  5 - View sorted inventory list                  "
-            + "\n  6 - Save Game                                  "
+            + "\n  5 - View inventory sorted by description       "
+            + "\n  6 - View inventory sorted by item cost         "
+            + "\n  7 - View inventory sorted by quantity in stock "
+            + "\n  7 - Save Game                                  "
             + "\n  Q - Quit                                       "
             + "\n                                                 "
             + "\n================================================="
@@ -70,10 +72,16 @@ public class MainMenuView extends View {
             case "4": //display the map
                 this.viewMap();
                 break;
-            case "5": //display the map
-                this.viewInventory();
+            case "5": //display Inventory sorted by description
+                this.viewInventoryDescription();
                 break;
-            case "6": //save the current game
+            case "6": //display Inventory sorted by item cost
+                this.viewInventoryCost();
+                break;
+            case "7": //display Inventory sorted by quantity in stock
+                this.viewInventoryInStock();
+                break;
+            case "8": //save the current game
                 this.saveGame();
                 break;    
             default:
@@ -206,14 +214,14 @@ public class MainMenuView extends View {
 //        viewLocationView.display();
 //    }
 
-    private void viewInventory() {
+    private void viewInventoryDescription() {
         GameControl.createNewGame(OregonTrailv2.getPlayer());
         MapControl.createMap();
         MapControl.createLocations(5, 5);
         MapControl.createScenes();
 //        MapControl.createQuestions();
         // get the sorted list of inventory items for the current game
-        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        InventoryItem[] inventory = GameControl.getSortedInventoryListDescription();
         
         System.out.println("\n===============Oregon Trail Game================="
             + "\n\n       Sorted List of Inventory Items            "
@@ -235,7 +243,80 @@ public class MainMenuView extends View {
             double extCost = (inventoryItem.getCost()* inventoryItem.getQuantityInStock()*100)/100.0;
             line.insert(38, extCost);
             
-            // DISPLAY the description, the required amount and amount in stock
+            // DISPLAY the description, the amount in stock, the cost and the extended cost
+            System.out.println(line.toString());
+        }
+        
+        System.out.println("\n=================================================");
+    }
+    
+    // THIS FUNCTION CREATED BY IGNACIO
+    private void viewInventoryCost() {
+        GameControl.createNewGame(OregonTrailv2.getPlayer());
+        MapControl.createMap();
+        MapControl.createLocations(5, 5);
+        MapControl.createScenes();
+//        MapControl.createQuestions();
+        // get the sorted list of inventory items for the current game
+        InventoryItem[] inventory = GameControl.getSortedInventoryListCost();
+        
+        System.out.println("\n===============Oregon Trail Game================="
+            + "\n\n       Sorted List of Inventory Items            "
+            + "\n-------------------------------------------------");
+        StringBuilder line = new StringBuilder("                                                          ");
+        line.insert(0, "Description"); 
+        line.insert(15, "In Stock");
+        line.insert(26, "Cost");
+        line.insert(38, "Ext-Cost");
+        System.out.println(line.toString());
+        System.out.println("=================================================");
+        
+        // for each inventory item
+        for (InventoryItem inventoryItem : inventory) {
+            line = new StringBuilder("                                                          ");
+            line.insert(0, inventoryItem.getDescription());
+            line.insert(15, inventoryItem.getQuantityInStock());
+            line.insert(26, inventoryItem.getCost());
+            double extCost = (inventoryItem.getCost()* inventoryItem.getQuantityInStock()*100)/100.0;
+            line.insert(38, extCost);
+            
+            // DISPLAY the description, the amount in stock, the cost and the extended cost
+            System.out.println(line.toString());
+        }
+        
+        System.out.println("\n=================================================");
+    }
+
+        private void viewInventoryInStock() {
+        GameControl.createNewGame(OregonTrailv2.getPlayer());
+        MapControl.createMap();
+        MapControl.createLocations(5, 5);
+        MapControl.createScenes();
+//        MapControl.createQuestions();
+        // get the sorted list of inventory items for the current game
+        InventoryItem[] inventory = GameControl.getSortedInventoryListInStock();
+        
+        System.out.println("\n===============Oregon Trail Game================="
+            + "\n\n       Sorted List of Inventory Items            "
+            + "\n-------------------------------------------------");
+        StringBuilder line = new StringBuilder("                                                          ");
+        line.insert(0, "Description"); 
+        line.insert(15, "In Stock");
+        line.insert(26, "Cost");
+        line.insert(38, "Ext-Cost");
+        System.out.println(line.toString());
+        System.out.println("=================================================");
+        
+        // for each inventory item
+        for (InventoryItem inventoryItem : inventory) {
+            line = new StringBuilder("                                                          ");
+            line.insert(0, inventoryItem.getDescription());
+            line.insert(15, inventoryItem.getQuantityInStock());
+            line.insert(26, inventoryItem.getCost());
+            double extCost = (inventoryItem.getCost()* inventoryItem.getQuantityInStock()*100)/100.0;
+            line.insert(38, extCost);
+            
+            // DISPLAY the description, the amount in stock, the cost and the extended cost
             System.out.println(line.toString());
         }
         

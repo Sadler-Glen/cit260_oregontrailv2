@@ -333,7 +333,7 @@ public class GameControl {
         return OregonTrailv2.getCurrentGame().getMap().getLocations();
     }
 
-        public static InventoryItem[] getSortedInventoryList() {
+        public static InventoryItem[] getSortedInventoryListDescription() {
         
         // get inventory list for the current game
         InventoryItem[] originalInventoryList = 
@@ -342,7 +342,7 @@ public class GameControl {
         // make a copy of orignalList
         InventoryItem[] inventoryList = originalInventoryList.clone();
         
-       // using a BubbleSort to sort the list of inventoryList by name
+       // using a BubbleSort to sort the list of inventoryList by description
         InventoryItem tempInventoryItem;
         for (int i = 0; i < inventoryList.length-1; i++) {
             for (int j = 0; j < inventoryList.length-1-i; j++) {
@@ -353,8 +353,53 @@ public class GameControl {
                     inventoryList[j+1] = tempInventoryItem;
                 }
             }
-        }
-        
+        }    
         return inventoryList;
     }
+        //THIS FUNCTION CREATED BY IGNACIO
+        public static InventoryItem[] getSortedInventoryListCost() {
+        
+        // get inventory list for the current game
+        InventoryItem[] originalInventoryList = 
+                OregonTrailv2.getCurrentGame().getInventory();
+        
+        // make a copy of orignalList
+        InventoryItem[] inventoryList = originalInventoryList.clone();
+        
+       // using a BubbleSort to sort the list of inventoryList by cost
+        InventoryItem tempInventoryItem;
+        for (int i = 0; i < inventoryList.length-1; i++) {
+            for (int j = 0; j < inventoryList.length-1-i; j++) {
+                if (inventoryList[j].getCost()< inventoryList[j + 1].getCost()) {
+                    tempInventoryItem = inventoryList[j];
+                    inventoryList[j] = inventoryList[j+1];
+                    inventoryList[j+1] = tempInventoryItem;
+                }
+            }
+        }    
+        return inventoryList;
+    }        
+
+        public static InventoryItem[] getSortedInventoryListInStock() {
+        
+        // get inventory list for the current game
+        InventoryItem[] originalInventoryList = 
+                OregonTrailv2.getCurrentGame().getInventory();
+        
+        // make a copy of orignalList
+        InventoryItem[] inventoryList = originalInventoryList.clone();
+        
+       // using a BubbleSort to sort the list of inventoryList by cost
+        InventoryItem tempInventoryItem;
+        for (int i = 0; i < inventoryList.length-1; i++) {
+            for (int j = 0; j < inventoryList.length-1-i; j++) {
+                if (inventoryList[j].getQuantityInStock()< inventoryList[j + 1].getQuantityInStock()) {
+                    tempInventoryItem = inventoryList[j];
+                    inventoryList[j] = inventoryList[j+1];
+                    inventoryList[j+1] = tempInventoryItem;
+                }
+            }
+        }    
+        return inventoryList;
+    }            
 }

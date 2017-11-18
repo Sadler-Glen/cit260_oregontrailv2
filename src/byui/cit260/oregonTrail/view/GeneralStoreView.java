@@ -23,7 +23,7 @@ public class GeneralStoreView extends View  {
     
     public GeneralStoreView(){
         
-        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        InventoryItem[] inventory = GameControl.getSortedInventoryListDescription();
         
         this.storePage1 = "\n"
             + "\n=============Glen´s General Store================"

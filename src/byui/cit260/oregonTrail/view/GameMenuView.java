@@ -119,7 +119,7 @@ public class GameMenuView extends View {
 
     private void viewInventory() {
         // get the sorted list of inventory items for the current game
-        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        InventoryItem[] inventory = GameControl.getSortedInventoryListDescription();
         
         System.out.println("\nList of Inventory Items");
         StringBuilder line = new StringBuilder("                                                          ");
