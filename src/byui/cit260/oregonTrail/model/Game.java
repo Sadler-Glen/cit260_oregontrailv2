@@ -7,6 +7,7 @@ package byui.cit260.oregonTrail.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -19,6 +20,29 @@ public class Game implements Serializable{
     private int noPeople;
     private double totalTime;
     private String climate;
+    private InventoryItem[] inventory;
+    private OccupationType[] occupation;
+    private Map map;
+
+    
+    
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public OccupationType[] getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(OccupationType[] occupation) {
+        this.occupation = occupation;
+    }
+    
+    
     
     // relationship instance variables
     private Player player;
@@ -67,21 +91,28 @@ public class Game implements Serializable{
     public void setClimate(String climate) {
         this.climate = climate;
     }
-    // hashcode function
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 13 * hash + this.noPeople;
-        hash = 13 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
-        hash = 13 * hash + Objects.hashCode(this.climate);
+        int hash = 7;
+        hash = 47 * hash + this.noPeople;
+        hash = 47 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
+        hash = 47 * hash + Objects.hashCode(this.climate);
+        hash = 47 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 47 * hash + Objects.hashCode(this.map);
+        hash = 47 * hash + Objects.hashCode(this.player);
+        hash = 47 * hash + Objects.hashCode(this.actors);
         return hash;
     }
-    // toString function 
-    @Override
-    public String toString() {
-        return "Game{" + "noPeople=" + noPeople + ", totalTime=" + totalTime + ", climate=" + climate + '}';
-    }
-    // equals function
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -103,8 +134,24 @@ public class Game implements Serializable{
         if (!Objects.equals(this.climate, other.climate)) {
             return false;
         }
+        if (!Arrays.deepEquals(this.inventory, other.inventory)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
+        if (!Objects.equals(this.actors, other.actors)) {
+            return false;
+        }
         return true;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Game{" + "noPeople=" + noPeople + ", totalTime=" + totalTime + ", climate=" + climate + ", inventory=" + inventory + ", map=" + map + ", player=" + player + ", actors=" + actors + '}';
+    }
     
 }

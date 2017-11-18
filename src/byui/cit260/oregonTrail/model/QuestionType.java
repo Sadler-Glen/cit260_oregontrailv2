@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.oregonTrail.view;
+package byui.cit260.oregonTrail.model;
+
+import java.io.Serializable;
 
 /**
  *
- * @author sadss
+ * @author Glen Sadler
  */
-public interface ViewInterface {
-    
-    public void display();
-    public String getInput();
-    public boolean doAction(String value);       
+public enum QuestionType implements Serializable{
+    start,
+    riverCross,
+    trade;
 }

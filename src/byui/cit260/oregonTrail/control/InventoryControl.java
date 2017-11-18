@@ -15,7 +15,7 @@ import java.util.Scanner;
 */
 public class InventoryControl {
     public int calcRemainingFunds(int initFunds, int totalBill, int remainingFunds,
-            int oxen, int food, int ammo, int wheel, int axle, int tongue ){
+            int oxen, int food, int clothing, int ammo, int wheel, int axle, int tongue ){
       
         if(initFunds < 0 || initFunds > 1600 ){
             return -1;
@@ -24,6 +24,10 @@ public class InventoryControl {
             return -1;
         }
         if(food > 2000 || food <0) {
+            return -1;
+        }
+        
+        if(clothing < 0) {
             return -1;
         }
         if(ammo > 10 || ammo <0) {

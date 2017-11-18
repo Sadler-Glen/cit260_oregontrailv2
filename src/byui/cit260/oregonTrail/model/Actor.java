@@ -15,6 +15,10 @@ import java.util.Objects;
  * @author sadss
  */
 public class Actor implements Serializable{
+
+    static Iterable<Actor> values() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     // class instance variables
     private String name;
@@ -96,6 +100,6 @@ public class Actor implements Serializable{
     public void setHealth(int health) {
         this.health = health;
     }
-
-    
 }
+
+

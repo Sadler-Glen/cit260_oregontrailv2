@@ -57,7 +57,6 @@ public class WagonPartyView {
    
     private String getPartyList() {
         String value = "";
-        System.out.print("\033[H\033[2J");
             System.out.println("\n===============Oregon Trail Game================="
             + "\n                                                 "
             + "\n      Enter the names of those in your party     "

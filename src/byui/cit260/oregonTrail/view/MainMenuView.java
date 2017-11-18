@@ -6,15 +6,18 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
-import java.util.Scanner;
+import byui.cit260.oregonTrail.control.MapControl;
+import byui.cit260.oregonTrail.model.InventoryItem;
+import byui.cit260.oregonTrail.model.Location;
+import byui.cit260.oregonTrail.model.Scene;
+import static java.lang.Double.sum;
 import oregontrailv2.OregonTrailv2;
 
 /**
  *
- * @author Glen Sadler
+ * @author sadss
  */
-public class MainMenuView extends View{
-
+public class MainMenuView extends View {
     
     public MainMenuView(){
 
@@ -26,20 +29,35 @@ public class MainMenuView extends View{
             + "\n  1 - Travel the trail                           "
             + "\n  2 - Get and save an existing Game              "
             + "\n  3 - Information about the trail                "
-            + "\n  4 - Save Game                                  "
+            + "\n  4 - View Map                                   "
+            + "\n  5 - View sorted inventory list                  "
+            + "\n  6 - Save Game                                  "
             + "\n  Q - Quit                                       "
             + "\n                                                 "
             + "\n================================================="
-            ,"\nPlease enter your choice: ");
-
+                ,"\nPlease enter your choice: " );
     }
     
     @Override
-    public boolean doAction(String value) {
+    public void display(){  
+
+        boolean done = false; // set flag to not done
+        do{                
+            // prompt for and get menu option
+            String value = this.getInput();
+            if(value.toUpperCase().equals("Q"))// user wants to quit
+                return; // exit game
+            done = this.doAction(value);
         
-        value = value.toUpperCase(); // convert choice to upper cas
+        } while(!done);
+    }    
+    
+    @Override
+    public boolean doAction(String choice) {
         
-        switch (value) {
+        choice = choice.toUpperCase(); // convert choice to upper cas
+        
+        switch (choice) {
             case "1": //create and start a new game
                 this.startNewGame();
                 break;
@@ -49,9 +67,15 @@ public class MainMenuView extends View{
             case "3": //display information about the trail
                 this.displayHelpInfo();
                 break;
-            case "4": //save the current game
-                this.saveGame();
+            case "4": //display the map
+                this.viewMap();
                 break;
+            case "5": //display the map
+                this.viewInventory();
+                break;
+            case "6": //save the current game
+                this.saveGame();
+                break;    
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -61,18 +85,20 @@ public class MainMenuView extends View{
 
     private void startNewGame() {
         // create a new game
-        GameControl.createNewGame(OregonTrailv2.getPlayer());
-        
-        // display the game menu
-        //GameMenuView gameMenu = new GameMenuView();
-        //gameMenu.displayMenu();
-        
-        //display choose month menu
-        //ChooseMonthView chooseMonth = new ChooseMonthView();
-        //chooseMonth.displayChooseMonth();
-        
+       GameControl.createNewGame(OregonTrailv2.getPlayer());
+       MapControl.createMap();
+       MapControl.createLocations(5, 5);
+       MapControl.createScenes();
+//       MapControl.createQuestions();
+//       MapControl.assignQuestionsToScenes(questions, scenes);
+//       MapControl.assignQuestionsToScenes(questions, scenes);
+//       MapControl.assignScenesToLocations(scenes, locations);
+       
+        //Create OccupationMenuView Object
         OccupationMenuView occupation = new OccupationMenuView();
-        occupation.display();
+        
+        //Display the OccupationMenuView
+        occupation.display();        
     }
 
     private void startExistingGame() {
@@ -81,11 +107,138 @@ public class MainMenuView extends View{
 
     private void displayHelpInfo() {
         // display the help menu
+        //Create HelpInfoView
         HelpInfoView helpInfo = new HelpInfoView();
+        
+        //Display HelpInfoView
         helpInfo.display();
     }
 
     private void saveGame() {
         System.out.println("\n*** saveGame function called ***");
     }
+
+    private void viewMap() {
+       GameControl.createNewGame(OregonTrailv2.getPlayer());
+       MapControl.createMap();
+       MapControl.createLocations(5, 5);
+       MapControl.createScenes();
+//       MapControl.createQuestions();
+       this.displayMap();
+    }
+
+    private void displayMap() {
+        int lineLength = 0;
+        
+        // get the map for the game
+        Location[][] locations = GameControl.getMapLocations();
+        int noColumns = locations[0].length; // get number columns in row
+        
+        this.printTitle(noColumns, "THE OREGON TRAIL");
+        this.printColumnHeaders(noColumns);
+        
+        for (int i = 0; i < locations.length; i++) {    
+            Location[] rowLocations = locations[i];
+            this.printRowDivider(noColumns);
+            System.out.println(); // move down one i
+            if (i < 9)
+                System.out.print(" " + (i+1));
+            else 
+                System.out.print(i+1);
+            
+            // for every column in the row
+            for (int column = 0; column < noColumns; column++) {
+                System.out.print("|"); // print column divider
+                Location location = rowLocations[column];
+                if (location.isVisited() || location == null) { // if location is visited 
+                    Scene scene = location.getScene();
+                    System.out.print(scene.getMapSymbol());
+                }
+                else {
+                    System.out.print(" ?? ");
+                }  
+                
+                Scene scene = location.getScene();
+                System.out.print("");//(scene.getMapSymbol());
+                
+            }
+            System.out.print("|"); // print column divider
+        }
+        
+        this.printRowDivider(noColumns);    }
+    
+    private void printColumnHeaders(int noOfColumns) {
+        for (int i = 1; i < noOfColumns+1; i++) {
+            if (i < 10) {
+                System.out.print("   " + i + " ");
+            }
+            else {
+                System.out.print("  " + i + " ");
+            }
+        }
+    }
+
+    private void printRowDivider(int noColumns) {
+        System.out.println();
+        System.out.print("  ");
+        for (int i = 0; i < noColumns; i++) { // print row divider
+                System.out.print("-----");
+        }
+        System.out.print("-");
+    }
+
+    private void printTitle(int noOfColumns, String title) {
+        
+        int titleLength = title.length();
+        int lineLength = noOfColumns * 5 + 3;
+        int startPosition = (lineLength / 2) - (titleLength / 2);
+        System.out.println("\n");
+        for (int i = 0; i < startPosition; i++) {
+            System.out.print(" ");  
+        }
+        System.out.print(title);
+        System.out.println("\n");
+        
+    }
+
+//    private void viewLocation() {
+//        ViewLocationView viewLocationView = new ViewLocationView();
+//        viewLocationView.display();
+//    }
+
+    private void viewInventory() {
+        GameControl.createNewGame(OregonTrailv2.getPlayer());
+        MapControl.createMap();
+        MapControl.createLocations(5, 5);
+        MapControl.createScenes();
+//        MapControl.createQuestions();
+        // get the sorted list of inventory items for the current game
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        
+        System.out.println("\n===============Oregon Trail Game================="
+            + "\n\n       Sorted List of Inventory Items            "
+            + "\n-------------------------------------------------");
+        StringBuilder line = new StringBuilder("                                                          ");
+        line.insert(0, "Description"); 
+        line.insert(15, "In Stock");
+        line.insert(26, "Cost");
+        line.insert(38, "Ext-Cost");
+        System.out.println(line.toString());
+        System.out.println("=================================================");
+        
+        // for each inventory item
+        for (InventoryItem inventoryItem : inventory) {
+            line = new StringBuilder("                                                          ");
+            line.insert(0, inventoryItem.getDescription());
+            line.insert(15, inventoryItem.getQuantityInStock());
+            line.insert(26, inventoryItem.getCost());
+            double extCost = (inventoryItem.getCost()* inventoryItem.getQuantityInStock()*100)/100.0;
+            line.insert(38, extCost);
+            
+            // DISPLAY the description, the required amount and amount in stock
+            System.out.println(line.toString());
+        }
+        
+        System.out.println("\n=================================================");
+    } 
 }

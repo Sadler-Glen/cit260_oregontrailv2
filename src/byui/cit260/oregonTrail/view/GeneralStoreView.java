@@ -6,6 +6,7 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
+import byui.cit260.oregonTrail.model.InventoryItem;
 import java.util.Scanner;
 
 /**
@@ -22,21 +23,23 @@ public class GeneralStoreView extends View  {
     
     public GeneralStoreView(){
         
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        
         this.storePage1 = "\n"
             + "\n=============Glen´s General Store================"
             + "\n                                                 "
             + "\n  Hello, I´m Glen. So you´re going to Oregon!    "
             + "\n  I can fix you up with whatever you need:       "
             + "\n                                                 "
-            + "\n  -A team of oxen to pull your wagon             "
+            + "\n  - A team of oxen to pull your wagon            "
             + "\n                                                 "
-            + "\n  -Clothing for both summer and winter           "
+            + "\n  - Clothing for both summer and winter          "
             + "\n                                                 "
-            + "\n  -Plenty of food for your trip                  "
+            + "\n  - Plenty of food for your trip                 "
             + "\n                                                 "
-            + "\n  -Ammunition for your rifles                    "
+            + "\n  - Ammunition for your rifles                   "
             + "\n                                                 "
-            + "\n  -Spare parts for your wagon                    "
+            + "\n  - Spare parts for your wagon                   "
             + "\n=================================================";
                
         
@@ -44,25 +47,27 @@ public class GeneralStoreView extends View  {
         
         this.storePage2 = "\n"
             + "\n=============Glen´s General Store================"
+            + "\n                                                 "
             + "\n            Independence, Missouri               "
             + "\n                                                 "
-            + "\n  1 - Oxen                  $"+GameControl.getOxen()
+            + "\n      Item\t\tQuantity\tCost             "
+            + "\n  1 - Oxen\t\t"+GameControl.getOxen()+"\t\t$"+GameControl.getOxenCost()
             + "\n                                                 "
-            + "\n  2 - Food                  $"+GameControl.getFood()
+            + "\n  2 - Food\t\t"+GameControl.getFood()+"\t\t$"+GameControl.getFoodCost()
             + "\n                                                 "
-            + "\n  3 - Clothing              $"+GameControl.getClothing()
+            + "\n  3 - Clothing\t\t"+GameControl.getClothing()+"\t\t$"+GameControl.getClothingCost()
             + "\n                                                 "
-            + "\n  4 - Ammunition            $"+GameControl.getAmmo()
+            + "\n  4 - Ammunition\t"+GameControl.getAmmo()+"\t\t$"+GameControl.getAmmoCost()
             + "\n                                                 "
-            + "\n  5 - Wheels                $"+GameControl.getWheel()
+            + "\n  5 - Wheels\t\t"+GameControl.getWheel()+"\t\t$"+GameControl.getWheelCost()
             + "\n                                                 "
-            + "\n  6 - Axles                 $"+GameControl.getAxle()
+            + "\n  6 - Axles\t\t"+GameControl.getAxle()+"\t\t$"+GameControl.getAxleCost()
             + "\n                                                 "
-            + "\n  7 - Tongues               $"+GameControl.getTongue()
+            + "\n  7 - Tongues\t\t"+GameControl.getTongue()+"\t\t$"+GameControl.getTongueCost()
             + "\n                                                 "
-            + "\n  Total Bill:               $"+GameControl.getTotalBill()
+            + "\n  Total Bill:\t\t\t\t$"+GameControl.getTotalBill()
             + "\n                                                 "
-            + "\n  Amount you have:          $"+GameControl.getFundAmount()
+            + "\n  Amount you have:\t\t\t$"+GameControl.getFundAmount()
             + "\n=================================================";
         
         this.promptMessage1 = "\n Which item would you like to buy?";

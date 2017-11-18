@@ -5,11 +5,10 @@
  */
 package oregontrailv2;
 
-import byui.cit260.oregonTrail.model.Actor;
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.Player;
 
-import byui.cit260.oregonTrail.model.Inventory;
+import byui.cit260.oregonTrail.model.InventoryItem;
 import byui.cit260.oregonTrail.model.LandMark;
 import byui.cit260.oregonTrail.model.RandomEvent;
 import byui.cit260.oregonTrail.model.Trade;
@@ -26,7 +25,6 @@ public class OregonTrailv2 {
 
     private static Game currentGame = null;
     private static Player player = null;
-    private static Actor actor = null;
     
     public static void main(String[] args) {
 
@@ -51,12 +49,9 @@ public class OregonTrailv2 {
         OregonTrailv2.player = player;
     }
 
-    public static Actor getActor() {
-        return actor;
-    }
 
-    public static void setActor(Actor actor) {
-        OregonTrailv2.actor = actor;
-    }
+    /**
+     * @param args the command line arguments
+     */
                 
 }

@@ -88,6 +88,7 @@ public class OccupationMenuView extends View{
 
     private void carpenter() {
         GameControl.setFundAmount(800);
+        
         WagonPartyView partyMember = new WagonPartyView();
         partyMember.displayPartyList();       
     }
