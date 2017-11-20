@@ -265,42 +265,42 @@ public class GameControl {
         inventory[Item.oxen.ordinal()] = oxen;
         
         InventoryItem food = new InventoryItem();
-        food.setDescription("food");
+        food.setDescription("Food");
         food.setQuantityInStock(2000);
         food.setRequiredAmount(0);
         food.setCost(00.20);
         inventory[Item.food.ordinal()] = food;
         
         InventoryItem clothing = new InventoryItem();
-        clothing.setDescription("clothing");
+        clothing.setDescription("Clothing");
         clothing.setQuantityInStock(20);
         clothing.setRequiredAmount(0);
         clothing.setCost(10.00);
         inventory[Item.clothing.ordinal()] = clothing;
         
         InventoryItem ammunition = new InventoryItem();
-        ammunition.setDescription("ammunition");
-        ammunition.setQuantityInStock(20);
+        ammunition.setDescription("Ammunition");
+        ammunition.setQuantityInStock(10);
         ammunition.setRequiredAmount(0);
         ammunition.setCost(2.00);
         inventory[Item.ammunition.ordinal()] = ammunition;
         
         InventoryItem wheel = new InventoryItem();
-        wheel.setDescription("wheel");
+        wheel.setDescription("Wheel");
         wheel.setQuantityInStock(3);
         wheel.setRequiredAmount(0);
         wheel.setCost(10.00);
         inventory[Item.wheel.ordinal()] = wheel;
         
         InventoryItem axle = new InventoryItem();
-        axle.setDescription("axle");
+        axle.setDescription("Axle");
         axle.setQuantityInStock(3);
         axle.setRequiredAmount(0);
         axle.setCost(10.00);
         inventory[Item.axle.ordinal()] = axle;
         
         InventoryItem tongue = new InventoryItem();
-        tongue.setDescription("tongue");
+        tongue.setDescription("Tongue");
         tongue.setQuantityInStock(3);
         tongue.setRequiredAmount(0);
         tongue.setCost(10.00);
@@ -323,7 +323,7 @@ public class GameControl {
         occupation[Occupation.carpenter.ordinal()] = carpenter;
         
         OccupationType farmer = new OccupationType();
-        farmer.setDescription("farmer");
+        farmer.setDescription("Farmer");
         farmer.setFundAmount(400);
         occupation[Occupation.farmer.ordinal()] = farmer;
         
@@ -332,7 +332,7 @@ public class GameControl {
         public static Location[][] getMapLocations() {
         return OregonTrailv2.getCurrentGame().getMap().getLocations();
     }
-
+        //function to sort Inventory by description - Glen Sadler 
         public static InventoryItem[] getSortedInventoryListDescription() {
         
         // get inventory list for the current game
@@ -355,7 +355,7 @@ public class GameControl {
             }
         }    
         return inventoryList;
-    }
+    }   // function to sort by Inventory item cost
         //THIS FUNCTION CREATED BY IGNACIO
         public static InventoryItem[] getSortedInventoryListCost() {
         
@@ -370,7 +370,7 @@ public class GameControl {
         InventoryItem tempInventoryItem;
         for (int i = 0; i < inventoryList.length-1; i++) {
             for (int j = 0; j < inventoryList.length-1-i; j++) {
-                if (inventoryList[j].getCost()< inventoryList[j + 1].getCost()) {
+                if (inventoryList[j+1].getCost()< inventoryList[j].getCost()) {
                     tempInventoryItem = inventoryList[j];
                     inventoryList[j] = inventoryList[j+1];
                     inventoryList[j+1] = tempInventoryItem;
@@ -379,7 +379,7 @@ public class GameControl {
         }    
         return inventoryList;
     }        
-
+        //function to sort inventory by quantity in stock - Glen Sadler 
         public static InventoryItem[] getSortedInventoryListInStock() {
         
         // get inventory list for the current game
@@ -393,7 +393,7 @@ public class GameControl {
         InventoryItem tempInventoryItem;
         for (int i = 0; i < inventoryList.length-1; i++) {
             for (int j = 0; j < inventoryList.length-1-i; j++) {
-                if (inventoryList[j].getQuantityInStock()< inventoryList[j + 1].getQuantityInStock()) {
+                if (inventoryList[j+1].getQuantityInStock()< inventoryList[j].getQuantityInStock()) {
                     tempInventoryItem = inventoryList[j];
                     inventoryList[j] = inventoryList[j+1];
                     inventoryList[j+1] = tempInventoryItem;

@@ -10,8 +10,8 @@ import byui.cit260.oregonTrail.control.MapControl;
 import byui.cit260.oregonTrail.model.InventoryItem;
 import byui.cit260.oregonTrail.model.Location;
 import byui.cit260.oregonTrail.model.Scene;
-import static java.lang.Double.sum;
 import oregontrailv2.OregonTrailv2;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -31,8 +31,8 @@ public class MainMenuView extends View {
             + "\n  3 - Information about the trail                "
             + "\n  4 - View Map                                   "
             + "\n  5 - View inventory sorted by description       "
-            + "\n  6 - View inventory sorted by item cost         "
-            + "\n  7 - View inventory sorted by quantity in stock "
+            + "\n  6 - View inventory sorted by quantity in stock "
+            + "\n  7 - View inventory sorted by item cost         "
             + "\n  8 - Save Game                                  "
             + "\n  Q - Quit                                       "
             + "\n                                                 "
@@ -75,11 +75,11 @@ public class MainMenuView extends View {
             case "5": //display Inventory sorted by description
                 this.viewInventoryDescription();
                 break;
-            case "6": //display Inventory sorted by item cost
-                this.viewInventoryCost();
-                break;
-            case "7": //display Inventory sorted by quantity in stock
+            case "6": //display Inventory sorted by quantity in stock
                 this.viewInventoryInStock();
+                break;
+            case "7": //display Inventory sorted by item cost
+                this.viewInventoryCost();
                 break;
             case "8": //save the current game
                 this.saveGame();
@@ -90,7 +90,7 @@ public class MainMenuView extends View {
         }
         return false;
     }
-
+    
     private void startNewGame() {
         // create a new game
        GameControl.createNewGame(OregonTrailv2.getPlayer());
@@ -213,7 +213,10 @@ public class MainMenuView extends View {
 //        ViewLocationView viewLocationView = new ViewLocationView();
 //        viewLocationView.display();
 //    }
-
+    //L10 individual assignment - function calling bubble sort(Line 225) on 
+    //inventory description and displaying to user. Also adds extCost to display
+    //extCost is calculated using the getCost * getQuantityInStock getters (Line 246)
+    //sum of extCost to variable sumExtCost and displayed to user as total cost of bill
     private void viewInventoryDescription() {
         GameControl.createNewGame(OregonTrailv2.getPlayer());
         MapControl.createMap();
@@ -224,8 +227,8 @@ public class MainMenuView extends View {
         InventoryItem[] inventory = GameControl.getSortedInventoryListDescription();
         
         System.out.println("\n===============Oregon Trail Game================="
-            + "\n\n       Sorted List of Inventory Items            "
-            + "\n-------------------------------------------------");
+            + "\n\n   Sorted List of Inventory Items(Description)   "
+            +   "\n-------------------------------------------------");
         StringBuilder line = new StringBuilder("                                                          ");
         line.insert(0, "Description"); 
         line.insert(15, "In Stock");
@@ -235,21 +238,24 @@ public class MainMenuView extends View {
         System.out.println("=================================================");
         
         // for each inventory item
+        DecimalFormat decForm = new DecimalFormat("$#,##0.00");
+        double sumExCost = 0;
         for (InventoryItem inventoryItem : inventory) {
             line = new StringBuilder("                                                          ");
             line.insert(0, inventoryItem.getDescription());
             line.insert(15, inventoryItem.getQuantityInStock());
-            line.insert(26, inventoryItem.getCost());
-            double extCost = (inventoryItem.getCost()* inventoryItem.getQuantityInStock()*100)/100.0;
-            line.insert(38, extCost);
-            
+            line.insert(26, decForm.format(inventoryItem.getCost()));
+            double extCost = (inventoryItem.getCost()* inventoryItem.getQuantityInStock());
+            line.insert(38, decForm.format(extCost));
+            sumExCost += extCost;         
             // DISPLAY the description, the amount in stock, the cost and the extended cost
             System.out.println(line.toString());
         }
-        
+        System.out.print("-------------------------------------------------");
+        System.out.print("\nCost of Bill                          "+decForm.format(sumExCost));
         System.out.println("\n=================================================");
     }
-    
+    //function calling bubble sort on inventory cost and displaying to user
     // THIS FUNCTION CREATED BY IGNACIO
     private void viewInventoryCost() {
         GameControl.createNewGame(OregonTrailv2.getPlayer());
@@ -261,8 +267,8 @@ public class MainMenuView extends View {
         InventoryItem[] inventory = GameControl.getSortedInventoryListCost();
         
         System.out.println("\n===============Oregon Trail Game================="
-            + "\n\n       Sorted List of Inventory Items            "
-            + "\n-------------------------------------------------");
+            + "\n\n    Sorted List of Inventory Items(Item Cost)    "
+            +   "\n-------------------------------------------------");
         StringBuilder line = new StringBuilder("                                                          ");
         line.insert(0, "Description"); 
         line.insert(15, "In Stock");
@@ -272,21 +278,27 @@ public class MainMenuView extends View {
         System.out.println("=================================================");
         
         // for each inventory item
+        DecimalFormat decForm = new DecimalFormat("$#,##0.00");
+        double sumExCost = 0;
         for (InventoryItem inventoryItem : inventory) {
             line = new StringBuilder("                                                          ");
             line.insert(0, inventoryItem.getDescription());
             line.insert(15, inventoryItem.getQuantityInStock());
-            line.insert(26, inventoryItem.getCost());
-            double extCost = (inventoryItem.getCost()* inventoryItem.getQuantityInStock()*100)/100.0;
-            line.insert(38, extCost);
+            line.insert(26, decForm.format(inventoryItem.getCost()));
+            double extCost = (inventoryItem.getCost()* inventoryItem.getQuantityInStock());
+            line.insert(38, decForm.format(extCost));
+            sumExCost += extCost; 
             
             // DISPLAY the description, the amount in stock, the cost and the extended cost
             System.out.println(line.toString());
         }
         
+        System.out.print("-------------------------------------------------");
+        System.out.print("\nCost of Bill                          "+decForm.format(sumExCost));
         System.out.println("\n=================================================");
     }
-
+        // L10 individual assignment - calls bubble sort in gamecontrol line 298
+        // 
         private void viewInventoryInStock() {
         GameControl.createNewGame(OregonTrailv2.getPlayer());
         MapControl.createMap();
@@ -297,8 +309,8 @@ public class MainMenuView extends View {
         InventoryItem[] inventory = GameControl.getSortedInventoryListInStock();
         
         System.out.println("\n===============Oregon Trail Game================="
-            + "\n\n       Sorted List of Inventory Items            "
-            + "\n-------------------------------------------------");
+            + "\n\n  Sorted List of Inventory Items (QTY in Stock)  "
+            +   "\n-------------------------------------------------");
         StringBuilder line = new StringBuilder("                                                          ");
         line.insert(0, "Description"); 
         line.insert(15, "In Stock");
@@ -308,18 +320,25 @@ public class MainMenuView extends View {
         System.out.println("=================================================");
         
         // for each inventory item
+        DecimalFormat decForm = new DecimalFormat("$#,##0.00");
+        double sumExCost = 0;
+        int itemNo = 0;
         for (InventoryItem inventoryItem : inventory) {
+            itemNo +=1;
             line = new StringBuilder("                                                          ");
             line.insert(0, inventoryItem.getDescription());
             line.insert(15, inventoryItem.getQuantityInStock());
-            line.insert(26, inventoryItem.getCost());
-            double extCost = (inventoryItem.getCost()* inventoryItem.getQuantityInStock()*100)/100.0;
-            line.insert(38, extCost);
+            line.insert(26, decForm.format(inventoryItem.getCost()));
+            double extCost = (inventoryItem.getCost()* inventoryItem.getQuantityInStock());
+            line.insert(38, decForm.format(extCost));
+            sumExCost += extCost; 
             
             // DISPLAY the description, the amount in stock, the cost and the extended cost
             System.out.println(line.toString());
         }
         
+        System.out.print("-------------------------------------------------");
+        System.out.print("\nCost of Bill                          "+decForm.format(sumExCost));
         System.out.println("\n=================================================");
     } 
 }
