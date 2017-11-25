@@ -13,20 +13,20 @@ import java.util.Objects;
  * @author sadss
  */
 public class Question implements Serializable {
-    
+
     // class instance variables
     private String question;
     private String answer;
 
-    public Question(){
-        
+    public Question() {
+
     }
-    
+
     public Question(String question, String answer) {
         this.question = question;
         this.answer = answer;
-    }    
-    
+    }
+
     public String getQuestion() {
         return question;
     }
@@ -76,5 +76,5 @@ public class Question implements Serializable {
         }
         return true;
     }
-        
+
 }

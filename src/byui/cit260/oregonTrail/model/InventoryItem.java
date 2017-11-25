@@ -12,13 +12,12 @@ import java.util.Objects;
  *
  * @author Casper
  */
-public class InventoryItem implements Serializable  {
+public class InventoryItem implements Serializable {
 
     public InventoryItem() {
     }
-    
-    // class instance variables
 
+    // class instance variables
     private String description;
     private int requiredAmount;
     private int quantityInStock;
@@ -28,14 +27,13 @@ public class InventoryItem implements Serializable  {
     private Player player;
     private Game game;
 
-    public Game getGame() {   
+    public Game getGame() {
         return game;
     }
 
     public void setGame(Game game) {
         this.game = game;
     }
-    
 
     public Player getPlayer() {
         return player;
@@ -127,5 +125,4 @@ public class InventoryItem implements Serializable  {
         return true;
     }
 
-   
 }

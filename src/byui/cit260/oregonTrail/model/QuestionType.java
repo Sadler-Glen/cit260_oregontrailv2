@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Glen Sadler
  */
-public enum QuestionType implements Serializable{
+public enum QuestionType implements Serializable {
     start,
     riverCross,
     trade;

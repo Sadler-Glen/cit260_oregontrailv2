@@ -11,32 +11,32 @@ import java.io.Serializable;
  *
  * @author adm-achina
  */
-public class Location implements Serializable{
-    
-    
+public class Location implements Serializable {
+
     // variables
     private int row;
     private int column;
     private boolean visited;
     private Scene scene;
     private Actor actor; // only one actor per location
-    
+
     // default constructor function
     public Location() {
-    }   
-    
+    }
+
     public Location(int row, int column, Scene scene, Actor[] actors) {
-    this.row = row;
-    this.column = column;
-    this.visited = false;
-    this.scene = scene;
-    this.actor = actor;
+        this.row = row;
+        this.column = column;
+        this.visited = false;
+        this.scene = scene;
+        this.actor = actor;
     }
 
     public Location(int row, int column) {
         this.row = row;
         this.column = column;
-    }    
+    }
+
     // getters and setters
     public int getRow() {
         return row;
@@ -61,19 +61,19 @@ public class Location implements Serializable{
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
-    
+
     public Scene getScene() {
         return scene;
     }
-    
+
     public void setScene(Scene scene) {
         this.scene = scene;
     }
-    
+
     public Actor getActor() {
         return actor;
     }
-    
+
     public void setActor(Actor actor) {
         this.actor = actor;
     }
@@ -112,14 +112,11 @@ public class Location implements Serializable{
         }
         return true;
     }
-    
+
     // toString function
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
     }
-    
+
 }
-
-    
-

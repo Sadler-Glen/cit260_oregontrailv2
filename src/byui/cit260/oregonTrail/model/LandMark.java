@@ -12,11 +12,11 @@ import java.util.Objects;
  *
  * @author Casper
  */
-public class LandMark implements Serializable{
+public class LandMark implements Serializable {
 
     public LandMark() {
     }
-    
+
     //class instance variables
     private String description;
     private int travelTime;
@@ -105,5 +105,5 @@ public class LandMark implements Serializable{
         }
         return true;
     }
-    
+
 }

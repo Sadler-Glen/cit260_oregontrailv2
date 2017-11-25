@@ -21,14 +21,14 @@ import oregontrailv2.OregonTrailv2;
  * @author Glen Sadler
  */
 public class MapControl {
-    
-    public static Map createMap(){
+
+    public static Map createMap() {
         // create the map
         Map map = new Map(5, 5);
         return map;
-    }   
-    
-    public static Location[][] createLocations(int rows, int columns){
+    }
+
+    public static Location[][] createLocations(int rows, int columns) {
 //        IF rows < 1 OR columns < 1 THEN
 //            RETURN null
 //        ENDIF
@@ -41,14 +41,14 @@ public class MapControl {
 //                Assign location to the row, and column in array
 //        ENDFOR
 //        RETURN locations
-        
-        if(rows < 1 || columns < 1){
+
+        if (rows < 1 || columns < 1) {
             return null;
         }
         int noOfRows = 5;
         int noOfColumns = 5;
         Location[][] locations = new Location[noOfRows][noOfColumns];
-        
+
 //        for(int i = 0; i < noOfRows.length; i++ ){
 //            for(int j = 0; j < noOfColumns.length; j++ ){
 //                Location[][] location = new Location[][];
@@ -56,13 +56,13 @@ public class MapControl {
 //            }
 //        }
         return locations;
-    }    
-    
+    }
+
     public static Scene[] createScenes() {
         // create scenes
         Game game = OregonTrailv2.getCurrentGame();
         Scene[] scenes = new Scene[SceneType.values().length];
-        
+
         Scene start = new Scene();
         start.setSceneType(0);
         start.setDescription("Start");
@@ -70,7 +70,7 @@ public class MapControl {
         start.setMapSymbol("");
         start.setTravelTime(0);
         scenes[SceneType.start.ordinal()] = start;
-        
+
         Scene store = new Scene();
         store.setSceneType(0);
         store.setDescription("Store");
@@ -94,7 +94,7 @@ public class MapControl {
         river.setMapSymbol("");
         river.setTravelTime(0);
         scenes[SceneType.river.ordinal()] = river;
-        
+
         Scene wilderness = new Scene();
         wilderness.setSceneType(0);
         wilderness.setDescription("Wilderness");
@@ -102,7 +102,7 @@ public class MapControl {
         wilderness.setMapSymbol("");
         wilderness.setTravelTime(0);
         scenes[SceneType.wilderness.ordinal()] = wilderness;
-        
+
         Scene hunt = new Scene();
         hunt.setSceneType(0);
         hunt.setDescription("Hunt");
@@ -110,7 +110,7 @@ public class MapControl {
         hunt.setMapSymbol("");
         hunt.setTravelTime(0);
         scenes[SceneType.hunt.ordinal()] = hunt;
-        
+
         Scene fort = new Scene();
         fort.setSceneType(0);
         fort.setDescription("Fort");
@@ -118,7 +118,7 @@ public class MapControl {
         fort.setMapSymbol("");
         fort.setTravelTime(0);
         scenes[SceneType.fort.ordinal()] = fort;
-        
+
         Scene bridge = new Scene();
         bridge.setSceneType(0);
         bridge.setDescription("Bridge");
@@ -126,7 +126,7 @@ public class MapControl {
         bridge.setMapSymbol("");
         bridge.setTravelTime(0);
         scenes[SceneType.bridge.ordinal()] = bridge;
-        
+
         Scene finish = new Scene();
         finish.setSceneType(0);
         finish.setDescription("finish");
@@ -134,10 +134,10 @@ public class MapControl {
         finish.setMapSymbol("");
         finish.setTravelTime(0);
         scenes[SceneType.finish.ordinal()] = finish;
-        
+
         return scenes;
     }
-    
+
 //    public static Question[] createQuestions(){
 //        Question[] questions = new Question[QuestionType.values().length];
 //        
@@ -174,6 +174,3 @@ public class MapControl {
 //        System.out.println("\n*** assignScensToLocations called ***");
 //    }           
 }
-
-
-

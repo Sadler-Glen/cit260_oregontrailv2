@@ -14,8 +14,8 @@ import java.util.Objects;
  *
  * @author sadss
  */
-public class Game implements Serializable{
-    
+public class Game implements Serializable {
+
     // class instance variables
     private int noPeople;
     private double totalTime;
@@ -24,8 +24,6 @@ public class Game implements Serializable{
     private OccupationType[] occupation;
     private Map map;
 
-    
-    
     public InventoryItem[] getInventory() {
         return inventory;
     }
@@ -41,9 +39,7 @@ public class Game implements Serializable{
     public void setOccupation(OccupationType[] occupation) {
         this.occupation = occupation;
     }
-    
-    
-    
+
     // relationship instance variables
     private Player player;
     private ArrayList<Actor> actors = new ArrayList<Actor>(); // 1..* relationship
@@ -51,6 +47,7 @@ public class Game implements Serializable{
     // constructor
     public Game() {
     }
+
     // getter and setter functions
     public ArrayList<Actor> getActors() {
         return actors;
@@ -59,7 +56,7 @@ public class Game implements Serializable{
     public void setActors(ArrayList<Actor> actors) {
         this.actors = actors;
     }
-    
+
     public Player getPlayer() {
         return player;
     }
@@ -67,7 +64,7 @@ public class Game implements Serializable{
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
+
     public int getNoPeople() {
         return noPeople;
     }
@@ -153,5 +150,5 @@ public class Game implements Serializable{
     public String toString() {
         return "Game{" + "noPeople=" + noPeople + ", totalTime=" + totalTime + ", climate=" + climate + ", inventory=" + inventory + ", map=" + map + ", player=" + player + ", actors=" + actors + '}';
     }
-    
+
 }

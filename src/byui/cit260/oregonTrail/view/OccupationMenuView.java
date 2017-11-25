@@ -13,53 +13,54 @@ import java.util.Scanner;
  *
  * @author sadss
  */
-public class OccupationMenuView extends View{
+public class OccupationMenuView extends View {
 
     public OccupationMenuView() {
-        
-        super( "\n"
-        + "\n===============Oregon Trail Game================="
-        + "\n                                                 "
-        + "\n  Many kinds of people made the trip to Oregon   "
-        + "\n                                                 "
-        + "\n  You may:                                       "
-        + "\n                                                 "
-        + "\n  1 - Be a Banker from Boston                    "
-        + "\n  2 - Be a Carpenter from Ohio                   "
-        + "\n  3 - Be a Farmer from Illinois                  "
-        + "\n  4 - Find out the differences between these     "
-        + "\n      choices                                    "
-        + "\n  X - Exit                                       "
-        + "\n                                                 "
-        + "\n================================================="
-        ,"\nPlease enter your choice: ");        
+
+        super("\n"
+                + "\n===============Oregon Trail Game================="
+                + "\n                                                 "
+                + "\n  Many kinds of people made the trip to Oregon   "
+                + "\n                                                 "
+                + "\n  You may:                                       "
+                + "\n                                                 "
+                + "\n  1 - Be a Banker from Boston                    "
+                + "\n  2 - Be a Carpenter from Ohio                   "
+                + "\n  3 - Be a Farmer from Illinois                  "
+                + "\n  4 - Find out the differences between these     "
+                + "\n      choices                                    "
+                + "\n  X - Exit                                       "
+                + "\n                                                 "
+                + "\n=================================================",
+                 "\nPlease enter your choice: ");
     }
 
     @Override
-    public void display(){  
+    public void display() {
 
         boolean done = false; // set flag to not done
-        do{                
+        do {
             // prompt for and get menu option
             String value = this.getInput();
 //            if(value.toUpperCase().equals("Q"))// user wants to quit
 //                return; // exit game
-            if(value.toUpperCase().equals("X"))// user wants to exit view                
+            if (value.toUpperCase().equals("X"))// user wants to exit view                
             // do the requested action and display the next view
+            {
                 return; // exit view
-//            if(value.toUpperCase().equals("C"))// user wants to exit view                
+            }//            if(value.toUpperCase().equals("C"))// user wants to exit view                
 //            // do the requested action and display the next view
 //                return; // exit view
             done = this.doAction(value);
-        
-        } while(!done);
-    }    
-    
+
+        } while (!done);
+    }
+
     @Override
     public boolean doAction(String choice) {
-        
+
         choice = choice.toUpperCase(); // convert choice to upper cas
-        
+
         switch (choice) {
             case "1": //choose to be a banker
                 this.banker();
@@ -78,7 +79,7 @@ public class OccupationMenuView extends View{
                 break;
         }
         return false;
-    }    
+    }
 
     private void banker() {
         GameControl.setFundAmount(1600);
@@ -88,9 +89,9 @@ public class OccupationMenuView extends View{
 
     private void carpenter() {
         GameControl.setFundAmount(800);
-        
+
         WagonPartyView partyMember = new WagonPartyView();
-        partyMember.displayPartyList();       
+        partyMember.displayPartyList();
     }
 
     private void farmer() {
@@ -102,5 +103,5 @@ public class OccupationMenuView extends View{
     private void occupationHelpInfo() {
         OccupationHelpInfoView helpInfo = new OccupationHelpInfoView();
         helpInfo.display();
-    }    
+    }
 }

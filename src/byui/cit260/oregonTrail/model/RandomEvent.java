@@ -1,5 +1,5 @@
-
 package byui.cit260.oregonTrail.model;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -8,15 +8,14 @@ import java.util.Objects;
  *
  * @author Ignacio
  */
+public class RandomEvent implements Serializable {
 
-public class RandomEvent implements Serializable{
-    
     //Class instance variables
     private String eventType;
     private int eventLevel;
-    
+
     //relationship instance variables
-   private ArrayList<Actor> actors = new ArrayList<Actor>();
+    private ArrayList<Actor> actors = new ArrayList<Actor>();
 
     public RandomEvent() {
     }
@@ -58,10 +57,6 @@ public class RandomEvent implements Serializable{
         return "RandomEvent{" + "eventType=" + eventType + ", eventLevel=" + eventLevel + '}';
     }
 
-    
-    
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -82,10 +77,5 @@ public class RandomEvent implements Serializable{
         }
         return true;
     }
- 
 
-
-
-
-   
 }

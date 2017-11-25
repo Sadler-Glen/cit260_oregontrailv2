@@ -7,14 +7,6 @@ package oregontrailv2;
 
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.Player;
-
-import byui.cit260.oregonTrail.model.InventoryItem;
-import byui.cit260.oregonTrail.model.LandMark;
-import byui.cit260.oregonTrail.model.RandomEvent;
-import byui.cit260.oregonTrail.model.Trade;
-import byui.cit260.oregonTrail.view.StartProgramView;
-
-
 import byui.cit260.oregonTrail.view.StartProgramView;
 
 /**
@@ -25,14 +17,21 @@ public class OregonTrailv2 {
 
     private static Game currentGame = null;
     private static Player player = null;
-    
+
     public static void main(String[] args) {
 
-    // create StartProgramViewOrig and display the start program view
-    StartProgramView startProgramView = new StartProgramView();
-    startProgramView.displayStartProgramView();
+        // create StartProgramViewOrig and display the start program view
+        StartProgramView startProgramView = new StartProgramView();
+        try {
+            // create startProgramView and start the program
+            startProgramView.displayStartProgramView();
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.displayStartProgramView();
+        }
     }
-    
+
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -49,9 +48,7 @@ public class OregonTrailv2 {
         OregonTrailv2.player = player;
     }
 
-
     /**
      * @param args the command line arguments
      */
-                
 }

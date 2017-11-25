@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author Casper
  */
 public class RiverCrossingControlTest {
-    
+
     public RiverCrossingControlTest() {
     }
 
@@ -31,77 +31,77 @@ public class RiverCrossingControlTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
-        
+
         System.out.println("Test #2 riverCrossing");
         river = 1;
         crossingType = 2;
         expResult = 1;
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
-        
+
         System.out.println("Test #3 riverCrossing");
         river = 1;
         crossingType = 3;
         expResult = 1;
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
-        
+
         System.out.println("Test #4 riverCrossing");
         river = 1;
         crossingType = 4;
         expResult = 1;
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
-        
+
         System.out.println("Test #5 riverCrossing");
         river = 2;
         crossingType = 2;
         expResult = 1;
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
-        
+
         System.out.println("Test #6 riverCrossing");
         river = 2;
         crossingType = 3;
         expResult = 1;
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
-        
+
         System.out.println("Test #7 riverCrossing");
         river = 2;
         crossingType = 4;
         expResult = 1;
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
-        
+
         System.out.println("Test #8 riverCrossing");
         river = 3;
         crossingType = 3;
         expResult = 1;
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
-        
+
         System.out.println("Test #9 riverCrossing");
         river = 3;
         crossingType = 4;
         expResult = 1;
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
-        
+
         System.out.println("Test #10 riverCrossing");
         river = 2;
         crossingType = 1;
         expResult = -1;
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
-        
+
         System.out.println("Test #11 riverCrossing");
         river = 3;
         crossingType = 1;
         expResult = -1;
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
-        
+
         System.out.println("Test #12 riverCrossing");
         river = 3;
         crossingType = 2;
@@ -109,5 +109,5 @@ public class RiverCrossingControlTest {
         result = instance.riverCrossing(river, crossingType);
         assertEquals(expResult, result);
     }
-    
+
 }

@@ -22,11 +22,11 @@ public class Scene implements Serializable {
 
     public Scene() {
     }
-    
+
     public Scene(int sceneType, String description, String mapSymbol, double travelTime, boolean blocked) {
         this.sceneType = sceneType;
         this.description = description;
-        this.mapSymbol = "**";
+        this.mapSymbol = " ** ";
         this.travelTime = travelTime;
         this.blocked = blocked;
     }
@@ -116,8 +116,5 @@ public class Scene implements Serializable {
         }
         return true;
     }
-   
 
-    
-    
 }

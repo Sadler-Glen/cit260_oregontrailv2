@@ -1,5 +1,5 @@
-
 package byui.cit260.oregonTrail.model;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -7,19 +7,18 @@ import java.util.Objects;
  *
  * @author Ignacio
  */
+public class Hunt implements Serializable {
 
-public class Hunt implements Serializable{
-    
     //Class instance variables
     private String animal;
     private int animalWeight;
-    
+
     //Relationship instance variables
     private Player player;
 
     public Hunt() {
     }
-    
+
     public String getAnimal() {
         return animal;
     }
@@ -57,9 +56,6 @@ public class Hunt implements Serializable{
         return "Hunt{" + "animal=" + animal + ", animalWeight=" + animalWeight + '}';
     }
 
-    
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -80,9 +76,5 @@ public class Hunt implements Serializable{
         }
         return true;
     }
-        
-
-
-
 
 }

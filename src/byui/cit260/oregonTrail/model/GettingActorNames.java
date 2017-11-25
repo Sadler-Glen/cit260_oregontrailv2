@@ -15,15 +15,16 @@ import java.util.Scanner;
  * @author sadss
  */
 public class GettingActorNames {
+
     //private static List<Actor> actors = new ArrayList<>();
-    public static void main(String [] args){
+    public static void main(String[] args) {
         getActorNamesFromUser();
         printActors();
     }
 
     private static void getActorNamesFromUser() {
         Scanner keyboard = new Scanner(System.in);
-        for(int i = 0;  i < 5; i++){
+        for (int i = 0; i < 5; i++) {
             System.out.print("Please enter actor " + (i + 1) + ": ");
             String actorName = keyboard.nextLine();
             Actor actorOne = new Actor();

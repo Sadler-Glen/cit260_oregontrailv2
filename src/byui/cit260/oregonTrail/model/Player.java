@@ -14,18 +14,18 @@ import java.util.Objects;
  * @author sadss
  */
 public class Player implements Serializable {
-    
+
     // class instance variables
     private String name;
     private String occupation;
     private int playerHealth;
-    
+
     // relationship instances
     private ArrayList<Game> games = new ArrayList<Game>();
     private ArrayList<Hunt> hunts = new ArrayList<Hunt>();
     private ArrayList<RandomEvent> events = new ArrayList<RandomEvent>();
     private ArrayList<Trade> trades = new ArrayList<Trade>();
-    
+
     //constructor function
     public Player() {
     }
@@ -86,7 +86,7 @@ public class Player implements Serializable {
     public void setTrades(ArrayList<Trade> trades) {
         this.trades = trades;
     }
-    
+
     // hashcode function
     @Override
     public int hashCode() {
@@ -96,13 +96,13 @@ public class Player implements Serializable {
         hash = 67 * hash + this.playerHealth;
         return hash;
     }
-    
+
     // toString function
     @Override
     public String toString() {
         return "Player{" + "name=" + name + ", occupation=" + occupation + ", playerHealth=" + playerHealth + '}';
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -126,6 +126,5 @@ public class Player implements Serializable {
         }
         return true;
     }
-    
-    
+
 }

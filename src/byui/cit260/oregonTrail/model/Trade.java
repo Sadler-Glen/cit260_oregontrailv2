@@ -1,4 +1,3 @@
-
 package byui.cit260.oregonTrail.model;
 
 import java.io.Serializable;
@@ -8,13 +7,12 @@ import java.util.Objects;
  *
  * @author Ignacio
  */
+public class Trade implements Serializable {
 
-public class Trade implements Serializable{
-    
     //class instance variables
     private String tradeItem;
     private double tradeItemAmount;
-    
+
     //relationship instance variables
     private Player player;
 
@@ -58,9 +56,6 @@ public class Trade implements Serializable{
         return "Trade{" + "tradeItem=" + tradeItem + ", tradeItemAmount=" + tradeItemAmount + '}';
     }
 
-    
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -81,7 +76,5 @@ public class Trade implements Serializable{
         }
         return true;
     }
-    
-    
-    
+
 }

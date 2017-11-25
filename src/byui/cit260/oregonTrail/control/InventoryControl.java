@@ -5,45 +5,45 @@
  */
 package byui.cit260.oregonTrail.control;
 
-import java.util.ArrayList;
-import java.util.Scanner;
- 
- 
+import byui.cit260.oregonTrail.exceptions.InventoryControlException;
+import byui.cit260.oregonTrail.model.ItemType;
+
 /**
-*
-* @author Ignacio
-*/
+ *
+ * @author Ignacio
+ */
 public class InventoryControl {
-    public int calcRemainingFunds(int initFunds, int totalBill, int remainingFunds,
-            int oxen, int food, int clothing, int ammo, int wheel, int axle, int tongue ){
-      
-        if(initFunds < 0 || initFunds > 1600 ){
-            return -1;
+
+    public static void checkInventoryLimits(/*int oxen, int food, int clothing, int ammo, int wheel, int axle, int tongue*/)
+            throws InventoryControlException {
+
+        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getQuantityInStock() > 8
+                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getQuantityInStock() < 0) {
+            throw new InventoryControlException("Oxen out of range: >0 and <= 8");
         }
-        if(oxen > 8 || oxen < 0){
-            return -1;
+        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getQuantityInStock() > 2000
+                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getQuantityInStock() < 0) {
+            throw new InventoryControlException("Food out of range: > 0lbs and <= 2000lbs");
         }
-        if(food > 2000 || food <0) {
-            return -1;
+
+        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()].getQuantityInStock() < 0) {
+            throw new InventoryControlException("Clothiing out of range: >0 items");
         }
-        
-        if(clothing < 0) {
-            return -1;
+        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getQuantityInStock() > 10
+                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getQuantityInStock() < 0) {
+            throw new InventoryControlException("Ammunition out of range: > 0 boxes and <= 10 boxes");
         }
-        if(ammo > 10 || ammo <0) {
-               return -1;
+        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getQuantityInStock() > 3
+                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getQuantityInStock() < 0) {
+            throw new InventoryControlException("Wheels out of range: > 0 wheels and <= 3 wheels");
         }
-        if(wheel > 3 || wheel <0) {
-            return -1;
+        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getQuantityInStock() > 3
+                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getQuantityInStock() < 0) {
+            throw new InventoryControlException("Axles out of range: > 0 axles and <= 3 axles");
         }
-        if(axle > 3 || axle <0) {
-            return -1;
+        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getQuantityInStock() > 3
+                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getQuantityInStock() < 0) {
+            throw new InventoryControlException("Tongues out of range: > 0 tongues or <= 3 togues");
         }
-        if (tongue > 3 ||tongue <0) {
-            return -1;
-        }
-        remainingFunds=initFunds-totalBill;
-        return remainingFunds;
-             
     }
 }

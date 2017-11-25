@@ -9,12 +9,12 @@ package byui.cit260.oregonTrail.model;
  *
  * @author sadss
  */
-public enum Item {
-    oxen,
-    food,
-    clothing,
-    ammunition,
-    wheel,
-    axle,
-    tongue;    
+public enum ItemType {
+    Oxen,
+    Food,
+    Clothing,
+    Ammunition,
+    Wheel,
+    Axle,
+    Tongue;
 }

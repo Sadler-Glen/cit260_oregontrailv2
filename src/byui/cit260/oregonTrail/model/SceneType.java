@@ -10,13 +10,13 @@ package byui.cit260.oregonTrail.model;
  * @author sadss
  */
 public enum SceneType {
-    start,          //0
-    store,          //1
-    mountain,       //2
-    river,          //3
-    wilderness,     //4
-    hunt,           //5
-    fort,           //6
-    bridge,         //7
+    start, //0
+    store, //1
+    mountain, //2
+    river, //3
+    wilderness, //4
+    hunt, //5
+    fort, //6
+    bridge, //7
     finish;         //8
 }

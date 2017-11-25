@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author EQUIPO
  */
 public class InventoryControlTest {
-    
+
     public InventoryControlTest() {
     }
 
@@ -23,9 +23,8 @@ public class InventoryControlTest {
     @Test
     public void testCalcRemainingFunds() {
         System.out.println("calcRemainingFunds");
-        
+
         //This is test case #1
-        
         System.out.println("Test case #1");
         int initFunds = 1600;
         int totalBill = 930;
@@ -38,24 +37,16 @@ public class InventoryControlTest {
         int axle = 3;
         int tongue = 3;
         InventoryControl instance = new InventoryControl();
-        
+
         //Expected output return
-        
         int expResult = 670;
-        
+
         //Call the function to run test
-        
-        int result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
+//        int result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         // fail("The test case is a prototype.");
-        
-        
-        
-        
-        
         //This is test case #2
-        
         System.out.println("Test case #2");
         initFunds = 600;
         totalBill = 410;
@@ -67,23 +58,14 @@ public class InventoryControlTest {
         wheel = 2;
         axle = 2;
         tongue = 2;
-        
-        
+
         //Expected output return
-        
         expResult = 190;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-        
-         //This is test case #3
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
+        //This is test case #3
         System.out.println("Test case #3");
         initFunds = 400;
         totalBill = 400;
@@ -95,22 +77,14 @@ public class InventoryControlTest {
         wheel = 2;
         axle = 2;
         tongue = 2;
-        
-        
+
         //Expected output return
-        
         expResult = 0;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-         //This is test case #4
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
+        //This is test case #4
         System.out.println("Test case #4");
         initFunds = -1;
         totalBill = 350;
@@ -122,23 +96,14 @@ public class InventoryControlTest {
         wheel = 2;
         axle = 2;
         tongue = 2;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-        
-         //This is test case #5
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
+        //This is test case #5
         System.out.println("Test case #5");
         initFunds = 600;
         totalBill = 230;
@@ -150,23 +115,14 @@ public class InventoryControlTest {
         wheel = 2;
         axle = 2;
         tongue = 2;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-        
-         //This is test case #6
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
+        //This is test case #6
         System.out.println("Test case #6");
         initFunds = 600;
         totalBill = 149;
@@ -178,22 +134,14 @@ public class InventoryControlTest {
         wheel = 2;
         axle = 2;
         tongue = 2;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-         //This is test case #7
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
+        //This is test case #7
         System.out.println("Test case #7");
         initFunds = 600;
         totalBill = 338;
@@ -205,23 +153,14 @@ public class InventoryControlTest {
         wheel = 2;
         axle = 2;
         tongue = 2;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-        
-         //This is test case #8
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
+        //This is test case #8
         System.out.println("Test case #8");
         initFunds = 600;
         totalBill = 320;
@@ -233,23 +172,14 @@ public class InventoryControlTest {
         wheel = -1;
         axle = 2;
         tongue = 2;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-        
-         //This is test case #9
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
+        //This is test case #9
         System.out.println("Test case #9");
         initFunds = 600;
         totalBill = 320;
@@ -261,23 +191,14 @@ public class InventoryControlTest {
         wheel = 2;
         axle = -1;
         tongue = 2;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-        
-         //This is test case #10
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
+        //This is test case #10
         System.out.println("Test case #10");
         initFunds = 600;
         totalBill = 320;
@@ -289,24 +210,14 @@ public class InventoryControlTest {
         wheel = 2;
         axle = 2;
         tongue = -1;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-        
-        
-         //This is test case #11
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
+        //This is test case #11
         System.out.println("Test case #11");
         initFunds = 1600;
         totalBill = 830;
@@ -318,24 +229,14 @@ public class InventoryControlTest {
         wheel = 3;
         axle = 3;
         tongue = 3;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-        
-    
-         //This is test case #12
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
+        //This is test case #12
         System.out.println("Test case #12");
         initFunds = 1601;
         totalBill = 830;
@@ -347,22 +248,14 @@ public class InventoryControlTest {
         wheel = 3;
         axle = 3;
         tongue = 3;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
         //This is test case #13
-        
         System.out.println("Test case #13");
         initFunds = 1600;
         totalBill = 832;
@@ -374,23 +267,14 @@ public class InventoryControlTest {
         wheel = 3;
         axle = 3;
         tongue = 3;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
         //This is test case #14
-        
         System.out.println("Test case #14");
         initFunds = 1600;
         totalBill = 840;
@@ -402,21 +286,14 @@ public class InventoryControlTest {
         wheel = 4;
         axle = 3;
         tongue = 3;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
         //This is test case #15
-        
         System.out.println("Test case #15");
         initFunds = 1600;
         totalBill = 840;
@@ -428,22 +305,14 @@ public class InventoryControlTest {
         wheel = 3;
         axle = 4;
         tongue = 3;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
-        
-        
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
         //This is test case #16
-        
         System.out.println("Test case #16");
         initFunds = 1600;
         totalBill = 840;
@@ -455,19 +324,14 @@ public class InventoryControlTest {
         wheel = 3;
         axle = 3;
         tongue = 4;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
         //This is test case #17
-        
         System.out.println("Test case #17");
         initFunds = 1600;
         totalBill = 840;
@@ -479,17 +343,13 @@ public class InventoryControlTest {
         wheel = 3;
         axle = 3;
         tongue = 4;
-        
-        
+
         //Expected output return
-        
         expResult = -1;
-        
+
         //Call the function to run test
-        
-        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
-        assertEquals(expResult, result);
-        
+//        result = instance.calcRemainingFunds(initFunds, totalBill, remainingFunds, oxen, food, clothing, ammo, wheel, axle, tongue);
+//        assertEquals(expResult, result);
     }
-    
+
 }

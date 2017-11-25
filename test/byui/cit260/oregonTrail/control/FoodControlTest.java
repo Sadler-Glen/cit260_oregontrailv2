@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author Glen Sadler
  */
 public class FoodControlTest {
-    
+
     public FoodControlTest() {
     }
 
@@ -22,10 +22,10 @@ public class FoodControlTest {
      */
     @Test
     public void testCalcRemainingFood() {
-        
+
         /*
         * Valid Cases Tests #1 - #3
-        */
+         */
         System.out.println("Test#1 calcRemainingFood");
         double noOfPeople = 2.0;
         double noDaysTravelled = 2.0;
@@ -44,7 +44,7 @@ public class FoodControlTest {
         expResult = 992;
         result = instance.calcRemainingFood(noOfPeople, noDaysTravelled, rationType, initialFood);
         assertEquals(expResult, result, 0.0001);
-        
+
         System.out.println("Test#3 calcRemainingFood");
         noOfPeople = 2.0;
         noDaysTravelled = 2.0;
@@ -53,10 +53,10 @@ public class FoodControlTest {
         expResult = 996;
         result = instance.calcRemainingFood(noOfPeople, noDaysTravelled, rationType, initialFood);
         assertEquals(expResult, result, 0.0001);
-        
+
         /*
         * Invalid Test Cases #4 & #5
-        */
+         */
         System.out.println("Test#4 calcRemainingFood");
         noOfPeople = 0.0;
         noDaysTravelled = 2.0;
@@ -65,7 +65,7 @@ public class FoodControlTest {
         expResult = -1;
         result = instance.calcRemainingFood(noOfPeople, noDaysTravelled, rationType, initialFood);
         assertEquals(expResult, result, 0.0001);
-    
+
         System.out.println("Test#5 calcRemainingFood");
         noOfPeople = 2.0;
         noDaysTravelled = -1;
@@ -74,11 +74,10 @@ public class FoodControlTest {
         expResult = -1;
         result = instance.calcRemainingFood(noOfPeople, noDaysTravelled, rationType, initialFood);
         assertEquals(expResult, result, 0.0001);
-        
+
         /*
         * Boundary Test Cases #6 & #7
-        */
-        
+         */
         System.out.println("Test#6 calcRemainingFood"); // Boundary 1 is 0 pounds
         noOfPeople = 1.0;
         noDaysTravelled = 1.0;
@@ -88,7 +87,6 @@ public class FoodControlTest {
         result = instance.calcRemainingFood(noOfPeople, noDaysTravelled, rationType, initialFood);
         assertEquals(expResult, result, 0.0001);
 
-        
         System.out.println("Test#7 calcRemainingFood");// Boundary 2 more than 2000 pounds
         noOfPeople = 1.0;
         noDaysTravelled = 1.0;
@@ -98,5 +96,5 @@ public class FoodControlTest {
         result = instance.calcRemainingFood(noOfPeople, noDaysTravelled, rationType, initialFood);
         assertEquals(expResult, result, 0.0001);
     }
-    
+
 }

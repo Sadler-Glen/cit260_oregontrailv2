@@ -14,16 +14,16 @@ import java.util.Objects;
  *
  * @author sadss
  */
-public class Actor implements Serializable{
+public class Actor implements Serializable {
 
     static Iterable<Actor> values() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     // class instance variables
     private String name;
     private int health = 100;
-    
+
     // relationship instances
     private Game game;
     private ArrayList<RandomEvent> events = new ArrayList<RandomEvent>();
@@ -31,7 +31,7 @@ public class Actor implements Serializable{
     // constructor function
     public Actor() {
     }
-    
+
     // getter and setter functions
     public Game getGame() {
         return game;
@@ -48,7 +48,7 @@ public class Actor implements Serializable{
     public void setEvents(ArrayList<RandomEvent> events) {
         this.events = events;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -60,6 +60,7 @@ public class Actor implements Serializable{
     public int getHealth() {
         return health;
     }
+
     // hashcode function
     @Override
     public int hashCode() {
@@ -96,10 +97,8 @@ public class Actor implements Serializable{
         }
         return true;
     }
-    
+
     public void setHealth(int health) {
         this.health = health;
     }
 }
-
-
