@@ -23,7 +23,7 @@ public class GameMenuView extends View {
                 + "\n                   Game Menu                     "
                 + "\n                                                 "
                 + "\n1 - View map                                     "
-                + "\n2 - View sorted List of items in inventory       "
+                + "\n2 - View Inventory                               "
                 //            + "\n3 - View location                                "
                 + "\n3 - Display help menu                            "
                 + "\nQ - Quit                                         "
