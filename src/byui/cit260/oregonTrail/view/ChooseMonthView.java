@@ -39,6 +39,7 @@ public class ChooseMonthView extends View {
     public void display() {
 
         boolean done = false; // set flag to not done
+        try{
         do {
             // prompt for and get menu option
             String value = this.getInput();
@@ -49,6 +50,9 @@ public class ChooseMonthView extends View {
             }
             done = this.doAction(value);
         } while (!done);
+        } catch(NumberFormatException nfe){
+            System.out.println("Invalid numer");
+        }
     }
 
     @Override

@@ -36,9 +36,9 @@ public class Game implements Serializable {
         return occupation;
     }
 
-    public void setOccupation(OccupationType[] occupation) {
-        this.occupation = occupation;
-    }
+//    public void setOccupation(OccupationType[] occupation) {
+//        this.occupation = occupation;
+//    }
 
     // relationship instance variables
     private Player player;

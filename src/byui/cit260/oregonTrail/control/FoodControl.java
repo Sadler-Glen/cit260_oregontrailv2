@@ -5,24 +5,24 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.FoodControlException;
+
 /**
  *
  * @author Glen Sadler (Team Members Casper, Ignacio, Felix, and Glen)
  */
 public class FoodControl {
 
-    public double calcRemainingFood(double noOfPeople, double noDaysTravelled,
-            double rationType, double initialFood) {
-        double remainingFood;
+    public static void calcRemainingFood(int noOfPeople, int noDaysTravelled,
+            int rationType, int initialFood) throws FoodControlException{
+        int remainingFood;
         if (noOfPeople < 1 || noDaysTravelled < 0 || initialFood < 0) { // test for invalid cases
-            return -1;
+            throw new FoodControlException("You cannot enter a negative number");
         }
         if (initialFood == 0 || initialFood > 2000) { // test for boundary cases
-            return -1;
+            throw new FoodControlException("Out of range: must be between 0 and 2000Ibs inclusive");
         } else {
         }
         remainingFood = initialFood - (noOfPeople * noDaysTravelled * rationType);
-
-        return remainingFood;
     }
 }

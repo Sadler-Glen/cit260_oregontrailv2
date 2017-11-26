@@ -5,6 +5,8 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.FoodControlException;
+import byui.cit260.oregonTrail.exceptions.MapControlException;
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.InventoryItem;
 import byui.cit260.oregonTrail.model.Location;
@@ -12,8 +14,10 @@ import byui.cit260.oregonTrail.model.Map;
 import byui.cit260.oregonTrail.model.Question;
 import byui.cit260.oregonTrail.model.QuestionType;
 import byui.cit260.oregonTrail.model.Scene;
+import byui.cit260.oregonTrail.model.SceneGroup;
 import byui.cit260.oregonTrail.model.SceneType;
 import static byui.cit260.oregonTrail.model.SceneType.start;
+import java.awt.Point;
 import oregontrailv2.OregonTrailv2;
 
 /**
@@ -43,7 +47,6 @@ public class MapControl {
 //        RETURN locations
 
         if (rows < 1 || columns < 1) {
-            return null;
         }
         int noOfRows = 5;
         int noOfColumns = 5;
@@ -172,5 +175,65 @@ public class MapControl {
 //    public static void assignScenesToLocations(Scene[] scenes, 
 //                                                Location[][] locations){
 //        System.out.println("\n*** assignScensToLocations called ***");
-//    }           
+//    }
+
+//    public static int moveActorsToStartingLocation(Map map) {
+//        // for every actor
+//        Actor[] actors = Actor.values();
+//
+//        for (Actor actor : actors) {
+//            int returnValue = MapControl.moveActorToLocation(actor, actor.getCoordinates());
+//            if (returnValue < 0) {
+//                return returnValue;
+//            }
+//        }
+//        return 0;
+//        
+//    }
+//    
+//    
+//        
+//    
+//    public static void moveActorToLocation(OregonTrailv2 actor, Point coordinates)
+//                            throws MapControlException{
+//        
+//        Map map = OregonTrailv2.getCurrentGame().getMap();
+//        int newRow = coordinates.x-1;
+//        int newColumn = coordinates.y-1;
+//        
+//        if (newRow < 0  || newRow >= map.getNoOfRows() ||
+//            newColumn < 0  || newColumn >= map.getNoOfColumns()) {
+//            throw new MapControlException("Cannot move actor to location"
+//                    + coordinates.x + ", " + coordinates.y
+//                    + " because the location is outside"
+//                    + "the bounds of the map.");
+//        }
+//        
+//        Location newLocation = map.getLocations()[newRow][newColumn];
+//        Point actorCoordinates = actor.getCoordinates();
+//        Location oldLocation = map.getLocations()[actorCoordinates.x][actorCoordinates.y];
+//        
+//        // check to see if the actor is in the current location
+//        if (oldLocation != null) {
+//            oldLocation.removeActor(actor); // remove actor from old location
+//        }
+//        
+//        newLocation.addActor(actor); // add actor to new location
+//        actorCoordinates.x = newRow;
+//        actorCoordinates.y = newColumn; // set actor to new location
+//        newLocation.setVisited(true); // mark as a visted locations
+//        
+//    }
+//    
+//    
+//    
+//    public static Location getLocation(Point coordinates) {
+//        System.out.println("*** getLocation() called");
+//        Location location = new Location();
+//        location.setRow(coordinates.x);
+//        location.setScene(new Scene(SceneGroup.regular, "You are in the ocean", "~~~", 0, true));
+//        location.setColumn(coordinates.y);
+//        return location;
+//    }
+    
 }

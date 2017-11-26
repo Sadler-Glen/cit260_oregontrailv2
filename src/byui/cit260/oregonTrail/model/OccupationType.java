@@ -12,10 +12,10 @@ import java.util.Objects;
  *
  * @author sadss
  */
-public class OccupationType implements Serializable {
+public class OccupationType implements Serializable{
 
     public OccupationType() {
-
+        
     }
     // class instance variables
     private String description;
@@ -99,4 +99,6 @@ public class OccupationType implements Serializable {
         return true;
     }
 
+   
+    
 }

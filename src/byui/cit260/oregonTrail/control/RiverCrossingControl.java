@@ -5,31 +5,31 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.RiverCrossingControlException;
+
 /**
  *
  * @author Casper
  */
-public class RiverCrossingControl {
+public class RiverCrossingControl  {
 
-    public int riverCrossing(int river, int crossingType) {
+    public void riverCrossing(int river, int crossingType) throws RiverCrossingControlException{
         int success = 1;
 
         if (river == 2 && crossingType == 1) {
-            return -1;
+            throw new RiverCrossingControlException("Failed to cross"); 
         }
 
         if (river == 3 && crossingType == 1) {
-            return -1;
+            throw new RiverCrossingControlException("Failed to cross"); 
         }
 
         if (river == 3 && crossingType == 2) {
-            return -1;
+            throw new RiverCrossingControlException("Failed to cross"); 
         }
 
         if (river == 1 && crossingType == 1 - 4) {
-            return 1;
-        }
-
-        return success;
+            throw new RiverCrossingControlException("Failed to cross"); 
+        }      
     }
 }

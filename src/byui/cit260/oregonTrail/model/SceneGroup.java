@@ -7,10 +7,11 @@ package byui.cit260.oregonTrail.model;
 
 /**
  *
- * @author sadss
+ * @author Glen Sadler
  */
-public enum Occupation {
-    Banker,
-    Carpenter,
-    Farmer;
+public enum SceneGroup {
+    regular,
+    knowledge,
+    resource,
+    generalStore;  
 }

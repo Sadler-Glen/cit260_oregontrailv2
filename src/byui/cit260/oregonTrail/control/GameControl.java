@@ -105,6 +105,7 @@ public class GameControl {
         GameControl.startMonth = startMonth;
     }
 
+
     public static void createNewGame(Player player) {
         Game game = new Game(); // create new game
         OregonTrailv2.setCurrentGame(game); // save in OregonTrailv2
@@ -187,17 +188,17 @@ public class GameControl {
         OccupationType banker = new OccupationType();
         banker.setDescription("Banker");
         banker.setFundAmount(1600);
-        occupation[Occupation.banker.ordinal()] = banker;
+        occupation[Occupation.Banker.ordinal()] = banker;
 
         OccupationType carpenter = new OccupationType();
         carpenter.setDescription("Carpenter");
         carpenter.setFundAmount(800);
-        occupation[Occupation.carpenter.ordinal()] = carpenter;
+        occupation[Occupation.Carpenter.ordinal()] = carpenter;
 
         OccupationType farmer = new OccupationType();
         farmer.setDescription("Farmer");
         farmer.setFundAmount(400);
-        occupation[Occupation.farmer.ordinal()] = farmer;
+        occupation[Occupation.Farmer.ordinal()] = farmer;
 
         return occupation;
     }

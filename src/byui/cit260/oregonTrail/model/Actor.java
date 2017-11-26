@@ -16,14 +16,14 @@ import java.util.Objects;
  */
 public class Actor implements Serializable {
 
-    static Iterable<Actor> values() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    static Iterable<Actor> values() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     // class instance variables
     private String name;
     private int health = 100;
-
+    private int coordinates;
     // relationship instances
     private Game game;
     private ArrayList<RandomEvent> events = new ArrayList<RandomEvent>();

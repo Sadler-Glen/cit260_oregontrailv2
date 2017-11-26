@@ -31,6 +31,10 @@ public class Scene implements Serializable {
         this.blocked = blocked;
     }
 
+    public Scene(SceneGroup sceneGroup, String you_are_in_the_ocean, String string, int i, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getSceneType() {
         return sceneType;
     }

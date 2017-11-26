@@ -46,12 +46,16 @@ public class MainMenuView extends View {
         boolean done = false; // set flag to not done
         do {
             // prompt for and get menu option
+            try{
             String value = this.getInput();
-            if (value.toUpperCase().equals("Q"))// user wants to quit
-            {
+            
+            if (value.toUpperCase().equals("Q")){// user wants to quit
                 return; // exit game
             }
             done = this.doAction(value);
+            }catch(NumberFormatException nfe){
+                System.out.println("Invalid number");
+            }
 
         } while (!done);
     }
@@ -96,9 +100,11 @@ public class MainMenuView extends View {
     private void startNewGame() {
         // create a new game
         GameControl.createNewGame(OregonTrailv2.getPlayer());
+        GameControl.createOccupation();
         MapControl.createMap();
         MapControl.createLocations(5, 5);
         MapControl.createScenes();
+        
 //       MapControl.createQuestions();
 //       MapControl.assignQuestionsToScenes(questions, scenes);
 //       MapControl.assignQuestionsToScenes(questions, scenes);

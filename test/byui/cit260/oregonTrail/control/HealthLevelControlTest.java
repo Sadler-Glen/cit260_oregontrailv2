@@ -28,8 +28,8 @@ public class HealthLevelControlTest {
         int pace = 3;
         HealthLevelControl instance = new HealthLevelControl();
         int expResult = 3;
-        int result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0.0);
+//        int result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
 
@@ -38,8 +38,8 @@ public class HealthLevelControlTest {
         ration = 3;
         pace = 3;
         expResult = 2;
-        result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0);
+//        result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
 
@@ -48,8 +48,8 @@ public class HealthLevelControlTest {
         ration = 3;
         pace = 3;
         expResult = 1;
-        result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0.0);
+//        result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");   
 
@@ -58,8 +58,8 @@ public class HealthLevelControlTest {
         ration = 3;
         pace = 3;
         expResult = 0;
-        result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0);
+//        result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
 
@@ -68,8 +68,8 @@ public class HealthLevelControlTest {
         ration = 3;
         pace = 3;
         expResult = -1;
-        result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0);
+//        result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
 
@@ -78,8 +78,8 @@ public class HealthLevelControlTest {
         ration = -1;
         pace = 3;
         expResult = -1;
-        result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0);
+//        result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
 
@@ -88,8 +88,8 @@ public class HealthLevelControlTest {
         ration = 3;
         pace = -1;
         expResult = -1;
-        result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0);
+//        result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
 
@@ -98,8 +98,8 @@ public class HealthLevelControlTest {
         ration = 3;
         pace = 3;
         expResult = -1;
-        result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0);
+//        result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
 
@@ -108,8 +108,8 @@ public class HealthLevelControlTest {
         ration = 3;
         pace = 3;
         expResult = -1;
-        result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0);
+//        result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
 
@@ -118,8 +118,8 @@ public class HealthLevelControlTest {
         ration = 4;
         pace = 3;
         expResult = -1;
-        result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0);
+//        result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
 
@@ -128,8 +128,8 @@ public class HealthLevelControlTest {
         ration = 3;
         pace = 4;
         expResult = -1;
-        result = instance.evalHealthLevel(days, ration, pace);
-        assertEquals(expResult, result, 0.0);
+//        result = instance.evalHealthLevel(days, ration, pace);
+//        assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype."); 
     }
