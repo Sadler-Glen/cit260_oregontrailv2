@@ -5,11 +5,9 @@
  */
 package byui.cit260.oregonTrail.view;
 
-import byui.cit260.oregonTrail.control.FoodControl;
 import byui.cit260.oregonTrail.control.GameControl;
 import byui.cit260.oregonTrail.control.InventoryControl;
 import byui.cit260.oregonTrail.exceptions.InventoryControlException;
-import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.InventoryItem;
 import byui.cit260.oregonTrail.model.ItemType;
 import byui.cit260.oregonTrail.model.OccupationType;
@@ -22,11 +20,10 @@ import java.util.Scanner;
  */
 public class GeneralStoreView extends View {
 
-    private String storePage1;
-    private String storePage2;
-    private String promptMessage;
-    private String promptMessage1;
-    private String promptMessage2;
+    private final String storePage1;
+    private final String promptMessage;
+    private final String promptMessage1;
+    private final String promptMessage2;
 
     public GeneralStoreView() {
 
@@ -47,76 +44,11 @@ public class GeneralStoreView extends View {
                 + "\n  - Spare parts for your wagon                   "
                 + "\n=================================================";
 
-        this.promptMessage = "\n Please press 'C' to continue: ";
+        this.promptMessage = "\nPlease press 'C' to continue: ";
 
-//        DecimalFormat decForm = new DecimalFormat("$#,##0.00");
-//        this.storePage2 = "\n"
-//                + "\n=============Glen´s General Store================"
-//                + "\n                                                 "
-//                + "\n            Independence, Missouri               "
-//                + "\n                                                 "
-//                + "\n      Item\t\tQty\tCost\tExt-Cost                     "
-//                + "\n  1 - " + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getDescription()
-//                + "\t\t" + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getQuantityInStock()
-//                + "\t" + decForm.format(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getCost())
-//                + "\t" + decForm.format((oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getQuantityInStock())
-//                *(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getCost()))
-//                
-//                + "\n  2 - " + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getDescription()
-//                + "\t\t" + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getQuantityInStock()
-//                + "\t" + decForm.format(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getCost())
-//                + "\t" + decForm.format((oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getQuantityInStock())
-//                *(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getCost()))
-//                
-//                
-//                + "\n  3 - " + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()].getDescription()
-//                + "\t\t" + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()].getQuantityInStock()
-//                + "\t" + decForm.format(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()].getCost())
-//                + "\t" + decForm.format((oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()].getQuantityInStock())
-//                *(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()].getCost()))
-//                
-//                
-//                + "\n  4 - " + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getDescription()
-//                + "\t" + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getQuantityInStock()
-//                + "\t" + decForm.format(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getCost())
-//                + "\t" + decForm.format((oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getQuantityInStock())
-//                *(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getCost()))
-//                
-//                
-//                + "\n  5 - " + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getDescription()
-//                + "\t\t" + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getQuantityInStock()
-//                + "\t" + decForm.format(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getCost())
-//                + "\t" + decForm.format((oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getQuantityInStock())
-//                *(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getCost()))
-//                
-//                
-//                + "\n  6 - " + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getDescription()
-//                + "\t\t" + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getQuantityInStock()
-//                + "\t" + decForm.format(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getCost())
-//                + "\t" + decForm.format((oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getQuantityInStock())
-//                *(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getCost()))
-//                
-//                
-//                + "\n  7 - " + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getDescription()
-//                + "\t\t" + oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getQuantityInStock()
-//                + "\t" + decForm.format(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getCost())
-//                + "\t" + decForm.format((oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getQuantityInStock())
-//                *(oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getCost()))
-//                
-//                
-//                + "\n  Total Bill:\t\t\t\t$" + (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getCost()+ 
-//                oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getCost()+
-//                oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()].getCost()+
-//                oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getCost()+
-//                oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getCost()+
-//                oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getCost()+
-//                oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getCost())
-//                + "\n  Amount you have:\t\t\t$" + GameControl.getFundAmount()
-//                + "\n=================================================";
-//
-        this.promptMessage1 = "\n Which item would you like to buy?";
+        this.promptMessage1 = "\nPlease choose an item to buy...";
 
-        this.promptMessage2 = "\n Press 'C' to leave the store: ";
+        this.promptMessage2 = "OR - Press 'C' to leave the store: ";
     }
 
     void displayStorePage() {
@@ -132,15 +64,14 @@ public class GeneralStoreView extends View {
             done = this.doAction(displayStorePage1);
         } while (!done);
 
-//        this.storeTest();
-        //boolean done = false; // set flag to not done
         do {
             // continue will exit loop
 
             String displayStorePage2 = this.getStorePage2();
-            if (displayStorePage2.toUpperCase().equals("C"))// user wants to return to main menu
+            if (displayStorePage2.toUpperCase().equals("C"))// user wants move to game menu
             {
-                return; // Temp return to previous menu - Awaiting new code!!
+                GameMenuView gameMenu = new GameMenuView();
+                gameMenu.display();
             }
             // do the requested action and display the next view
             done = this.doAction(displayStorePage2);
@@ -184,7 +115,7 @@ public class GeneralStoreView extends View {
                 break;
 
             default: //Get error message
-                System.out.println("\n*** Invalid Selection. Try Again ***");
+                ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
                 break;
         }
 
@@ -194,74 +125,91 @@ public class GeneralStoreView extends View {
 
     private String getStorePage1() {
 
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+//        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         String value = ""; // value to be returned
         boolean valid = false; // initialize to not valid
+        try {
+            while (!valid) { // loop while an invalid value is entered
+                this.console.println(this.storePage1);
+                this.console.println(this.promptMessage);
 
-        while (!valid) { // loop while an invalid value is entered
-            System.out.println(this.storePage1);
-            System.out.print(" " + this.promptMessage);
+                value = keyboard.readLine(); // get next line typed on keyboard
 
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim().toUpperCase(); // trim off leading and trailing blanks
+                value = value.trim().toUpperCase(); // trim off leading and trailing blanks
 
-            if (value.length() < 1) { // value is blank
-                System.out.println("\n Don´t forget you´ll need oxen to pull your wagon");
-                continue;
+                if (value.length() < 1) { // value is blank
+                    ErrorView.display(this.getClass().getName(), "You must enter a value.");
+                    continue;
+                }
+                break; // end the loop
             }
-            break; // end the loop
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
         }
-
         return value; // return the value entered      
     }
 
     private String getStorePage2() {
 
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+        //Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         String value = ""; // value to be returned
         boolean valid = false; // initialize to not valid
+        try {
+            while (!valid) { // loop while an invalid value is entered
+                this.store();
+                this.console.println(this.promptMessage1);
+                this.console.println(this.promptMessage2);
 
-        while (!valid) { // loop while an invalid value is entered
-            this.store();
-            System.out.print(" " + this.promptMessage1);
-            System.out.print(" " + this.promptMessage2);
+                value = keyboard.readLine(); // get next line typed on keyboard
+                value = value.trim().toUpperCase(); // trim off leading and trailing blanks
 
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim().toUpperCase(); // trim off leading and trailing blanks
+                if (value.length() < 1) { // value is blank
+                    ErrorView.display(this.getClass().getName(), "You must enter a value.");
+                    continue;
+                }
 
-            if (value.length() < 1) { // value is blank
-                System.out.println("\n Don´t forget you´ll need oxen to pull your wagon");
-                continue;
+                break; // end the loop
+
             }
 
-            break; // end the loop
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
 
         }
-
-        return value; // return the value entered      
+        return value; // return the value entered 
     }
 
     private void oxenChoice() {
-        //this.storeTest();
+
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
         int oxenQuantity = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getQuantityInStock();
         boolean done = false;
-        do {
-            try {
-                System.out.print("\nPlease enter the Quantity: ");
-                String quantity = keyboard.nextLine();
-                oxenQuantity = Integer.parseInt(quantity);
-                InventoryControl.checkInventoryLimits();
-                done = true;
-            } catch (InventoryControlException e) {
-                System.out.println(e.getMessage());
-            } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
-                sleep(2500);
-            }
-        } while (!done);
+        try {
+            do {
+                try {
+                    InventoryControl.checkInventoryLimits();
+                    this.console.println("\nPlease enter the Quantity: ");
+                    String quantity = keyboard.readLine();
 
+                    try {
+                        // parse and convert number from text to an integer
+                        oxenQuantity = Integer.parseInt(quantity);
+                        quantity(oxenQuantity);
+                        InventoryControl.checkInventoryLimits();
+                    } catch (NumberFormatException nf) {
+                        ErrorView.display(this.getClass().getName(), "***You must enter a valid number***");
+//                        sleep(2500);
+                    }
+                } catch (InventoryControlException ice) {
+                    this.console.println(ice.getMessage());
+
+                }
+                done = true;
+            } while (!done);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "***Error reading input***");
+        }
         // get the oxenAmount entered from keyboard
         // trim off leading and trailing blanks
         InventoryItem item = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()]; // get item from array
@@ -270,35 +218,35 @@ public class GeneralStoreView extends View {
         item.setQuantityInStock(newQuantity); // sets new amount of inventory item
         oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()] = item; // good practice - sets updated inventory item to inventory array
 
-        System.out.println("\n*** You have purchased " + newQuantity + " " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
-        sleep(2500);
-//        System.out.println(this.storePage2);
-//        System.out.print(" " + this.promptMessage1);
-//        System.out.print(" " + this.promptMessage2);
-//        System.out.println("\n*** Quantity of " + item.getDescription() + " from current game: " + item.getQuantityInStock());
-//        this.store();
-
+        this.console.println("\n*** You have purchased " + newQuantity + " " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
+//            sleep(2500);
     }
 
     private void clothChoice() {
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
         int clothQuantity = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()].getQuantityInStock();
         boolean done = true;
-        do {
-            try {
-                System.out.print("\nPlease enter the Quantity: ");
-                String quantity = keyboard.nextLine();
-                clothQuantity = Integer.parseInt(quantity);
-                InventoryControl.checkInventoryLimits();
-                done = true;
-            } catch (InventoryControlException e) {
-                System.out.println(e.getMessage());
-            } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
-                sleep(2500);
-            }
-        } while (!done);
+        try {
+            do {
+                try {
+                    InventoryControl.checkInventoryLimits();
+                    this.console.println("\nPlease enter the Quantity: ");
+                    String quantity = keyboard.readLine();
+                    try { // parse and convert number from text to an integer
+                        clothQuantity = Integer.parseInt(quantity);
+                    } catch (NumberFormatException nf) {
+                        this.console.println(nf.getMessage());
+//                        sleep(2500);
+                    }
+                } catch (InventoryControlException e) {
+                    this.console.println("\nPlease enter the Quantity: ");
+                }
+            } while (!done);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "***Error reading input***");
+        }
+
         // get the clothiing quantity entered from keyboard
         // trim off leading and trailing blanks
         InventoryItem item = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()]; // get item from array
@@ -306,34 +254,35 @@ public class GeneralStoreView extends View {
         item.setQuantityInStock(newQuantity); // sets new amount of inventory item
         oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()] = item; // good practice - sets updated inventory item to inventory array
 
-        System.out.println("\n*** You have purchased " + newQuantity + " sets of " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
-        sleep(2500);
-//        System.out.println(this.storePage2);
-//        System.out.print(" " + this.promptMessage1);
-////        System.out.print(" " + this.promptMessage2);
-//        System.out.println("\n*** Quantity of " + item.getDescription() + " from current game: " + item.getQuantityInStock());
-//        this.store();
+        this.console.println("\n*** You have purchased " + newQuantity + " sets of " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
+//            sleep(2500);
     }
 
     private void ammoChoice() {
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
         int ammoQuantity = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getQuantityInStock();
         boolean done = true;
-        do {
-            try {
-                System.out.print("\nPlease enter the Quantity: ");
-                String quantity = keyboard.nextLine();
-                ammoQuantity = Integer.parseInt(quantity);
-                InventoryControl.checkInventoryLimits();
-                done = true;
-            } catch (InventoryControlException e) {
-                System.out.println(e.getMessage());
-            } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
-                sleep(2500);
-            }
-        } while (!done);
+        try {
+            do {
+                try {
+                    InventoryControl.checkInventoryLimits();
+                    this.console.println("\nPlease enter the Quantity: ");
+                    String quantity = keyboard.readLine();
+                    try { // parse and convert number from text to an integer
+                        ammoQuantity = Integer.parseInt(quantity);
+                    } catch (NumberFormatException nf) {
+                        this.console.println(nf.getMessage());
+//                        sleep(2500);
+                    }
+                } catch (InventoryControlException ice) {
+                    this.console.println(ice.getMessage());
+                }
+            } while (!done);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "***Error reading input***");
+        }
+
         // get the ammo quantity entered from keyboard
         // trim off leading and trailing blanks
         InventoryItem item = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()]; // get item from array
@@ -341,34 +290,33 @@ public class GeneralStoreView extends View {
         item.setQuantityInStock(newQuantity); // sets new amount of inventory item
         oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()] = item; // good practice - sets updated inventory item to inventory array
 
-        System.out.println("\n*** You have purchased " + newQuantity + " boxes of " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
-        sleep(2500);
-//        System.out.println(this.storePage2);
-//        System.out.print(" " + this.promptMessage1);
-//        System.out.print(" " + this.promptMessage2);
-//        System.out.println("\n*** Quantity of " + item.getDescription() + " from current game: " + item.getQuantityInStock());
-//        this.store();
+        this.console.println("\n*** You have purchased " + newQuantity + " boxes of " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
+//            sleep(2500);
     }
 
     private void foodChoice() {
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
         int foodQuantity = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getQuantityInStock();
         boolean done = false;
-        do {
-            try {
-                System.out.print("\nPlease enter the Quantity: ");
-                String quantity = keyboard.nextLine();
-                foodQuantity = Integer.parseInt(quantity);
-                InventoryControl.checkInventoryLimits();
-                done = true;
-            } catch (InventoryControlException e) {
-                System.out.println(e.getMessage());
-            } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
-                sleep(2500);
-            }
-        } while (!done);
+        try {
+            do {
+                try {
+                    InventoryControl.checkInventoryLimits();
+                    this.console.println("\nPlease enter the Quantity: ");
+                    String quantity = keyboard.readLine();
+                    foodQuantity = Integer.parseInt(quantity);
+                    done = true;
+                } catch (InventoryControlException e) {
+                    this.console.println(e.getMessage());
+                } catch (NumberFormatException nf) {
+                    this.console.println("\nYou must enter a valid number.");
+//                    sleep(2500);
+                }
+            } while (!done);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "***Error reading input***");
+        }
         // get the food quantity entered from keyboard
         // trim off leading and trailing blanks
         InventoryItem item = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()]; // get item from array
@@ -376,34 +324,35 @@ public class GeneralStoreView extends View {
         item.setQuantityInStock(newQuantity); // sets new amount of inventory item
         oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()] = item; // good practice - sets updated inventory item to inventory array
 
-        System.out.println("\n*** You have purchased " + newQuantity + "lbs of " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
-        sleep(2500);
-//        System.out.println(this.storePage2);
-//        System.out.print(" " + this.promptMessage1);
-//        System.out.print(" " + this.promptMessage2);
-//        System.out.println("\n*** Quantity of " + item.getDescription() + " from current game: " + item.getQuantityInStock());
-//        this.store();
+        this.console.println("\n*** You have purchased " + newQuantity + "lbs of " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
+//            sleep(2500);
     }
 
     private void wheelsChoice() {
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
         int wheelQuantity = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getQuantityInStock();
         boolean done = true;
-        do {
-            try {
-                System.out.print("\nPlease enter the Quantity: ");
-                String quantity = keyboard.nextLine();
-                wheelQuantity = Integer.parseInt(quantity);
-                InventoryControl.checkInventoryLimits();
-                done = true;
-            } catch (InventoryControlException e) {
-                System.out.println(e.getMessage());
-            } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
-                sleep(2500);
-            }
-        } while (!done);
+        try {
+            do {
+                try {
+                    InventoryControl.checkInventoryLimits();
+                    this.console.println("\nPlease enter the Quantity: ");
+                    String quantity = keyboard.readLine();
+                    try { // parse and convert number from text to an integer
+                        wheelQuantity = Integer.parseInt(quantity);
+                    } catch (NumberFormatException nf) {
+                        this.console.println("\nYou must enter a valid number.");
+//                        sleep(2500);
+                    }
+                } catch (InventoryControlException ice) {
+                    this.console.println(ice.getMessage());
+                }
+            } while (!done);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "***Error reading input***");
+        }
+
         // get the wheel quantity entered from keyboard
         // trim off leading and trailing blanks
         InventoryItem item = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()]; // get item from array
@@ -411,31 +360,35 @@ public class GeneralStoreView extends View {
         item.setQuantityInStock(newQuantity); // sets new amount of inventory item
         oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()] = item; // good practice - sets updated inventory item to inventory array
 
-        System.out.println("\n*** You have purchased " + newQuantity + " " + item.getDescription() + "/s *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
-        sleep(2500);
-//        System.out.println("\n*** Quantity of " + item.getDescription() + " from current game: " + item.getQuantityInStock());
-//        this.store();
+        this.console.println("\n*** You have purchased " + newQuantity + " " + item.getDescription() + "/s *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
+//            sleep(2500);
     }
 
     private void axleChoice() {
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
         int axleQuantity = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getQuantityInStock();
         boolean done = true;
-        do {
-            try {
-                System.out.print("\nPlease enter the Quantity: ");
-                String quantity = keyboard.nextLine();
-                axleQuantity = Integer.parseInt(quantity);
-                InventoryControl.checkInventoryLimits();
-                done = true;
-            } catch (InventoryControlException e) {
-                System.out.println(e.getMessage());
-            } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
-                sleep(2500);
-            }
-        } while (!done);
+        try {
+            do {
+                try {
+                    InventoryControl.checkInventoryLimits();
+                    this.console.println("\nPlease enter the Quantity: ");
+                    String quantity = keyboard.readLine();
+                    try { // parse and convert number from text to an integer
+                        axleQuantity = Integer.parseInt(quantity);
+                    } catch (NumberFormatException nf) {
+                        this.console.println("\nYou must enter a valid number.");
+//                        sleep(2500);
+                    }
+                } catch (InventoryControlException e) {
+                    this.console.println(e.getMessage());
+                }
+            } while (!done);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "***Error reading input***");
+        }
+
         // get the axle quantity entered from keyboard
         // trim off leading and trailing blanks
         InventoryItem item = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()]; // get item from array
@@ -443,13 +396,8 @@ public class GeneralStoreView extends View {
         item.setQuantityInStock(newQuantity); // sets new amount of inventory item
         oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()] = item; // good practice - sets updated inventory item to inventory array
 
-        System.out.println("\n*** You have purchased " + newQuantity + " " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
-        sleep(2500);
-//        System.out.println(this.storePage2);
-//        System.out.print(" " + this.promptMessage1);
-//        System.out.print(" " + this.promptMessage2);
-//        System.out.println("\n*** Quantity of " + item.getDescription() + " from current game: " + item.getQuantityInStock());
-//        this.store();
+        this.console.println("\n*** You have purchased " + newQuantity + " " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
+//            sleep(2500);
     }
 
     private void tongueChoice() {
@@ -457,42 +405,41 @@ public class GeneralStoreView extends View {
         Scanner keyboard = new Scanner(System.in);
         int tongueQuantity = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getQuantityInStock();
         boolean done = true;
-        do {
-            try {
-                System.out.print("\nPlease enter the Quantity: ");
-                String quantity = keyboard.nextLine();
-                tongueQuantity = Integer.parseInt(quantity);
-                InventoryControl.checkInventoryLimits();
-                done = true;
-            } catch (InventoryControlException e) {
-                System.out.println(e.getMessage());
-            } catch (NumberFormatException nf) {
-                System.out.println("\nYou must enter a valid number.");
-                sleep(2500);
-            }
-        } while (!done);
+        try {
+            do {
+                try {
+                    InventoryControl.checkInventoryLimits();
+                    this.console.println("\nPlease enter the Quantity: ");
+                    String quantity = keyboard.nextLine();
+                    try { // parse and convert number from text to an integer
+                        tongueQuantity = Integer.parseInt(quantity);
+                    } catch (NumberFormatException nf) {
+                        this.console.println("\nYou must enter a valid number.");
+//                        sleep(2500);
+                    }
+                } catch (Exception e) {
+                    this.console.println(e.getMessage());
+                }
+            } while (!done);
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), "***Error reading input***");
+        }
         // get the tongue quantity entered from keyboard
         // trim off leading and trailing blanks
-
         InventoryItem item = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()]; // get item from array
         int newQuantity = item.getQuantityInStock() + tongueQuantity; // adds orginal to entered quantity
         item.setQuantityInStock(newQuantity); // sets new amount of inventory item
         oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()] = item; // good practice - sets updated inventory item to inventory array
 
-        System.out.println("\n*** You have purchased " + newQuantity + " " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
-        sleep(2500);
-//        System.out.println(this.storePage2);
-//        System.out.print(" " + this.promptMessage1);
-//        System.out.print(" " + this.promptMessage2);
-//        System.out.println("\n*** Quantity of " + item.getDescription() + " from current game: " + item.getQuantityInStock());
-//        this.store();
+        this.console.println("\n*** You have purchased " + newQuantity + " " + item.getDescription() + " *** costing " + decForm.format((item.getCost()) * (item.getQuantityInStock())));
+//            sleep(2500);
     }
 
     private void store() {
         InventoryItem[] inventory = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory();
         OccupationType[] occupation = oregontrailv2.OregonTrailv2.getCurrentGame().getOccupation();
 
-        System.out.println("\n===============Oregon Trail Game================="
+        this.console.println("\n===============Oregon Trail Game================="
                 + "\n\n                   Inventory                   "
                 + "\n-------------------------------------------------");
         StringBuilder line = new StringBuilder("                                                          ");
@@ -500,8 +447,8 @@ public class GeneralStoreView extends View {
         line.insert(15, "Quantity");
         line.insert(26, "Cost");
         line.insert(38, "Ext-Cost");
-        System.out.println(line.toString());
-        System.out.println("=================================================");
+        this.console.println(line.toString());
+        this.console.println("=================================================");
 
         // for each inventory item
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
@@ -518,22 +465,55 @@ public class GeneralStoreView extends View {
             line.insert(38, decForm.format(extCost));
             sumExCost += extCost;
             // DISPLAY the description, the amount in stock, the cost and the extended cost
-            System.out.println(line.toString() + "\n");
+            this.console.println(line.toString());
         }
-        double availableFunds = GameControl.getFundAmount();
+        double availableFunds = GameControl.getFundAmount(); // set this in the game so that it will be saved and recalled.
         double remainingFunds = availableFunds - sumExCost;
-        System.out.print("-------------------------------------------------");
-        System.out.print("\nCost of Bill                          " + decForm.format(sumExCost));
-        System.out.print("\nFunds in hand                         " + decForm.format(availableFunds));
-        System.out.print("\nFunds remaining                       " + decForm.format(remainingFunds));
-        System.out.println("\n=================================================");
+        this.console.println("-------------------------------------------------");
+        this.console.println("Cost of Bill                          " + decForm.format(sumExCost));
+        this.console.println("Funds in hand                         " + decForm.format(availableFunds));
+        this.console.println("Funds remaining                       " + decForm.format(remainingFunds));
+        this.console.println("=================================================");
 
+    }
+
+    private void stockInHand() {
+        InventoryItem[] inventory = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory();
+        OccupationType[] occupation = oregontrailv2.OregonTrailv2.getCurrentGame().getOccupation();
+
+        this.console.println("\n===============Oregon Trail Game================="
+                + "\n\n                   Inventory                   "
+                + "\n-------------------------------------------------");
+        StringBuilder line = new StringBuilder("                                                          ");
+        line.insert(0, "Description");
+        line.insert(38, "Quantity");
+        this.console.println(line.toString());
+        this.console.println("=================================================");
+
+        // for each inventory item
+        int num = 0;
+
+        for (InventoryItem inventoryItem : inventory) {
+            num += 1;
+            line = new StringBuilder("                                                          ");
+            line.insert(0, num + " - " + inventoryItem.getDescription());
+            line.insert(38, inventoryItem.getQuantityInStock());
+
+            // DISPLAY the description, the amount in stock, the cost and the extended cost
+            this.console.println(line.toString());
+            this.console.println("=================================================");
+        }
     }
 
     public static void sleep(int time) {
         try {
             Thread.sleep(time);
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
         }
+    }
+
+    public void quantity(int oxenQuantity) {
+        InventoryControl checkIt = new InventoryControl();
+        checkIt.check(checkIt);
     }
 }

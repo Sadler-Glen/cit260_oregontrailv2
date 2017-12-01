@@ -51,7 +51,7 @@ public class ChooseMonthView extends View {
             done = this.doAction(value);
         } while (!done);
         } catch(NumberFormatException nfe){
-            System.out.println("Invalid numer");
+            ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
         }
     }
 
@@ -84,7 +84,7 @@ public class ChooseMonthView extends View {
                 this.askAdvice();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
                 break;
         }
         return false;

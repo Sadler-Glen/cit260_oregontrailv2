@@ -28,12 +28,12 @@ public class AskForAdviceView extends View {
                 + "\n would still be cool. It´s your call.                       "
                 + "\n                                                            "
                 + "\n=================================================",
-                "\n Press 'C' to continue: ");
+                "\nPress 'C' to continue");
     }
 
     @Override
     public boolean doAction(String text) {
-        System.out.println("\n*** Invalid Selection. Try Again ***");
+        ErrorView.display(this.getClass().getName(), "***Invalid selection - Try again***");
         return false;
     }
 }

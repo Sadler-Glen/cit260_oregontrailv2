@@ -5,7 +5,9 @@
  */
 package byui.cit260.oregonTrail.view;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import oregontrailv2.OregonTrailv2;
 
 /**
  *
@@ -15,6 +17,9 @@ public abstract class View implements ViewInterface {
 
     protected String displayMessage;
     protected String displayPrompt;
+
+    protected final BufferedReader keyboard = OregonTrailv2.getInFile();
+    protected final PrintWriter console = OregonTrailv2.getOutFile();
 
     public View() {
     }
@@ -46,27 +51,32 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
 
-        Scanner keyboard = new Scanner(System.in);
+        //Scanner keyboard = new Scanner(System.in);
         boolean valid = false; // initialize to not valid
         String value = null;
+        try {
+            // while a valid name has not been retrieved
+            while (!valid) {
 
-        // while a valid name has not been retrieved
-        while (!valid) {
+                // prompt for input
+                this.console.println(this.displayMessage);
+                this.console.println(this.displayPrompt);
 
-            // prompt for input
-            System.out.println(" " + this.displayMessage);
-            System.out.print(" " + this.displayPrompt);
+                // get the value entered from keyboard
+                value = keyboard.readLine();
 
-            // get the value entered from keyboard
-            value = keyboard.nextLine();
-            // trim off leading and trailing blanks
-            value = value.trim();
+                // trim off leading and trailing blanks
+                value = value.trim();
 
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
+                if (value.length() < 1) { // value is blank
+                    ErrorView.display(this.getClass().getName(), "You must enter a value.");
+                    continue;
+                }
+                break; // end the loop
             }
-            break; // end the loop
+
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),"Error reading input: "+ e.getMessage());
         }
 
         return value; // return the value entered

@@ -27,13 +27,10 @@ public class MainMenuView extends View {
                 + "\n                   Main Menu                     "
                 + "\n                                                 "
                 + "\n  1 - Travel the trail                           "
-                + "\n  2 - Get and save an existing Game              "
+                + "\n  2 - Get and start a saved game                 "
                 + "\n  3 - Information about the trail                "
-                + "\n  4 - View Map                                   "
-                + "\n  5 - View inventory sorted by description       "
-                + "\n  6 - View inventory sorted by quantity in stock "
-                + "\n  7 - View inventory sorted by item cost         "
-                + "\n  8 - Save Game                                  "
+                + "\n  4 - Save Game                                  "
+//                + "\n  5 - Game Menu                                  "
                 + "\n  Q - Quit                                       "
                 + "\n                                                 "
                 + "\n=================================================",
@@ -50,11 +47,11 @@ public class MainMenuView extends View {
             String value = this.getInput();
             
             if (value.toUpperCase().equals("Q")){// user wants to quit
-                return; // exit game
+                System.exit(0); // exit game
             }
             done = this.doAction(value);
             }catch(NumberFormatException nfe){
-                System.out.println("Invalid number");
+                this.console.println("Invalid number");
             }
 
         } while (!done);
@@ -69,29 +66,18 @@ public class MainMenuView extends View {
             case "1": //create and start a new game
                 this.startNewGame();
                 break;
-            case "2": //get and start an existing game
-                this.startExistingGame();
+            case "2": //get and start a saved game
+                this.startSavedGame();
+                this.gameMenu();
                 break;
             case "3": //display information about the trail
                 this.displayHelpInfo();
                 break;
-            case "4": //display the map
-                this.viewMap();
-                break;
-            case "5": //display Inventory sorted by description
-                this.viewInventoryDescription();
-                break;
-            case "6": //display Inventory sorted by quantity in stock
-                this.viewInventoryInStock();
-                break;
-            case "7": //display Inventory sorted by item cost
-                this.viewInventoryCost();
-                break;
-            case "8": //save the current game
+            case "4": //save the current game
                 this.saveGame();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "***Invalid selection - Try again***");
                 break;
         }
         return false;
@@ -117,8 +103,21 @@ public class MainMenuView extends View {
         occupation.display();
     }
 
-    private void startExistingGame() {
-        System.out.println("\n*** startExistingGame function called ***");
+    private void startSavedGame() {
+        // prompt for and get the name of the file to save the game in
+        this.console.println("\n\nEnter the file path where the game"
+                + " is saved");
+        String filepath = this.getFileName();
+        try {
+            // start a saved game
+            GameControl.getSavedGame(filepath);
+        } catch (Exception e) {
+            ErrorView.display("MainMenuView", e.getMessage());
+        }
+
+        // display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpInfo() {
@@ -131,7 +130,51 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
+        //prompt for and get the name of the file to save the game in
+        this.console.println("\n\nEnter the file path for where the game"
+                + " is to be saved: ");
+        String filePath = this.getFileName();
+        
+        try {
+            // save the game to the specified file
+            GameControl.saveGame(OregonTrailv2.getCurrentGame(), filePath);
+            this.console.println("\nYour file has been saved in "+filePath);
+        } catch (Exception e) {
+            ErrorView.display("MainMenuView", e.getMessage());
+        }    
+    }
+
+    public String getFileName() {
+
+        //Scanner keyboard = new Scanner(System.in);
+        boolean valid = false; // initialize to not valid
+        String value = null;
+        try {
+            // while a valid name has not been retrieved
+            while (!valid) {
+
+                // prompt for input
+//                this.console.println(this.displayMessage);
+//                this.console.println(this.displayPrompt);
+
+                // get the value entered from keyboard
+                value = keyboard.readLine();
+
+                // trim off leading and trailing blanks
+                value = value.trim();
+
+                if (value.length() < 1) { // value is blank
+                    ErrorView.display(this.getClass().getName(), "You must enter a value.");
+                    continue;
+                }
+                break; // end the loop
+            }
+
+        } catch (Exception e) {
+            this.console.println("Error reading input: " + e.getMessage());
+        }
+
+        return value; // return the value entered
     }
 
     private void viewMap() {
@@ -156,29 +199,29 @@ public class MainMenuView extends View {
         for (int i = 0; i < locations.length; i++) {
             Location[] rowLocations = locations[i];
             this.printRowDivider(noColumns);
-            System.out.println(); // move down one i
+            this.console.println(); // move down one i
             if (i < 9) {
-                System.out.print(" " + (i + 1));
+                this.console.print(" " + (i + 1));
             } else {
-                System.out.print(i + 1);
+                this.console.print(i + 1);
             }
 
             // for every column in the row
             for (int column = 0; column < noColumns; column++) {
-                System.out.print("|"); // print column divider
+                this.console.print("|"); // print column divider
                 Location location = rowLocations[column];
                 if (location.isVisited() || location == null) { // if location is visited 
                     Scene scene = location.getScene();
-                    System.out.print(scene.getMapSymbol());
+                    this.console.print(scene.getMapSymbol());
                 } else {
-                    System.out.print(" ?? ");
+                    this.console.print(" ?? ");
                 }
 
                 Scene scene = location.getScene();
-                System.out.print("");//(scene.getMapSymbol());
+                this.console.print("");//(scene.getMapSymbol());
 
             }
-            System.out.print("|"); // print column divider
+            this.console.print("|"); // print column divider
         }
 
         this.printRowDivider(noColumns);
@@ -187,20 +230,20 @@ public class MainMenuView extends View {
     private void printColumnHeaders(int noOfColumns) {
         for (int i = 1; i < noOfColumns + 1; i++) {
             if (i < 10) {
-                System.out.print("   " + i + " ");
+                this.console.print("   " + i + " ");
             } else {
-                System.out.print("  " + i + " ");
+                this.console.print("  " + i + " ");
             }
         }
     }
 
     private void printRowDivider(int noColumns) {
-        System.out.println();
-        System.out.print("  ");
+        this.console.println();
+        this.console.print("  ");
         for (int i = 0; i < noColumns; i++) { // print row divider
-            System.out.print("-----");
+            this.console.print("-----");
         }
-        System.out.print("-");
+        this.console.print("-");
     }
 
     private void printTitle(int noOfColumns, String title) {
@@ -208,12 +251,12 @@ public class MainMenuView extends View {
         int titleLength = title.length();
         int lineLength = noOfColumns * 5 + 3;
         int startPosition = (lineLength / 2) - (titleLength / 2);
-        System.out.println("\n");
+        this.console.println("\n");
         for (int i = 0; i < startPosition; i++) {
-            System.out.print(" ");
+            this.console.print(" ");
         }
-        System.out.print(title);
-        System.out.println("\n");
+        this.console.print(title);
+        this.console.println("\n");
 
     }
 
@@ -234,7 +277,7 @@ public class MainMenuView extends View {
         // get the sorted list of inventory items for the current game
         InventoryItem[] inventory = GameControl.getSortedInventoryListDescription();
 
-        System.out.println("\n===============Oregon Trail Game================="
+        this.console.println("\n===============Oregon Trail Game================="
                 + "\n\n   Sorted List of Inventory Items(Description)   "
                 + "\n-------------------------------------------------");
         StringBuilder line = new StringBuilder("                                                          ");
@@ -242,8 +285,8 @@ public class MainMenuView extends View {
         line.insert(15, "In Stock");
         line.insert(26, "Cost");
         line.insert(38, "Ext-Cost");
-        System.out.println(line.toString());
-        System.out.println("=================================================");
+        this.console.println(line.toString());
+        this.console.println("=================================================");
 
         // for each inventory item
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
@@ -257,11 +300,11 @@ public class MainMenuView extends View {
             line.insert(38, decForm.format(extCost));
             sumExCost += extCost;
             // DISPLAY the description, the amount in stock, the cost and the extended cost
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
-        System.out.print("-------------------------------------------------");
-        System.out.print("\nCost of Bill                          " + decForm.format(sumExCost));
-        System.out.println("\n=================================================");
+        this.console.print("-------------------------------------------------");
+        this.console.print("\nCost of Bill                          " + decForm.format(sumExCost));
+        this.console.println("\n=================================================");
     }
 
     //function calling bubble sort on inventory cost and displaying to user
@@ -275,7 +318,7 @@ public class MainMenuView extends View {
         // get the sorted list of inventory items for the current game
         InventoryItem[] inventory = GameControl.getSortedInventoryListCost();
 
-        System.out.println("\n===============Oregon Trail Game================="
+        this.console.println("\n===============Oregon Trail Game================="
                 + "\n\n    Sorted List of Inventory Items(Item Cost)    "
                 + "\n-------------------------------------------------");
         StringBuilder line = new StringBuilder("                                                          ");
@@ -283,8 +326,8 @@ public class MainMenuView extends View {
         line.insert(15, "In Stock");
         line.insert(26, "Cost");
         line.insert(38, "Ext-Cost");
-        System.out.println(line.toString());
-        System.out.println("=================================================");
+        this.console.println(line.toString());
+        this.console.println("=================================================");
 
         // for each inventory item
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
@@ -299,12 +342,12 @@ public class MainMenuView extends View {
             sumExCost += extCost;
 
             // DISPLAY the description, the amount in stock, the cost and the extended cost
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
 
-        System.out.print("-------------------------------------------------");
-        System.out.print("\nCost of Bill                          " + decForm.format(sumExCost));
-        System.out.println("\n=================================================");
+        this.console.print("-------------------------------------------------");
+        this.console.print("\nCost of Bill                          " + decForm.format(sumExCost));
+        this.console.println("\n=================================================");
     }
     // L10 individual assignment - calls bubble sort in gamecontrol line 298
     // 
@@ -318,7 +361,7 @@ public class MainMenuView extends View {
         // get the sorted list of inventory items for the current game
         InventoryItem[] inventory = GameControl.getSortedInventoryListInStock();
 
-        System.out.println("\n===============Oregon Trail Game================="
+        this.console.println("\n===============Oregon Trail Game================="
                 + "\n\n  Sorted List of Inventory Items (QTY in Stock)  "
                 + "\n-------------------------------------------------");
         StringBuilder line = new StringBuilder("                                                          ");
@@ -326,8 +369,8 @@ public class MainMenuView extends View {
         line.insert(15, "In Stock");
         line.insert(26, "Cost");
         line.insert(38, "Ext-Cost");
-        System.out.println(line.toString());
-        System.out.println("=================================================");
+        this.console.println(line.toString());
+        this.console.println("=================================================");
 
         // for each inventory item
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
@@ -344,11 +387,16 @@ public class MainMenuView extends View {
             sumExCost += extCost;
 
             // DISPLAY the description, the amount in stock, the cost and the extended cost
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
 
-        System.out.print("-------------------------------------------------");
-        System.out.print("\nCost of Bill                          " + decForm.format(sumExCost));
-        System.out.println("\n=================================================");
+        this.console.print("-------------------------------------------------");
+        this.console.print("\nCost of Bill                          " + decForm.format(sumExCost));
+        this.console.println("\n=================================================");
+    }
+
+    private void gameMenu() {
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 }

@@ -8,7 +8,9 @@ package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
+
 
 /**
  *
@@ -22,48 +24,17 @@ public class Game implements Serializable {
     private String climate;
     private InventoryItem[] inventory;
     private OccupationType[] occupation;
-    private Map map;
-
-    public InventoryItem[] getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(InventoryItem[] inventory) {
-        this.inventory = inventory;
-    }
-
-    public OccupationType[] getOccupation() {
-        return occupation;
-    }
-
-//    public void setOccupation(OccupationType[] occupation) {
-//        this.occupation = occupation;
-//    }
-
-    // relationship instance variables
+    private Map map; 
     private Player player;
-    private ArrayList<Actor> actors = new ArrayList<Actor>(); // 1..* relationship
-
+    private List<Actor> actors = new ArrayList<Actor>(); // 1..* relationship
+    private String startMonth;
+    
     // constructor
     public Game() {
     }
-
+    
     // getter and setter functions
-    public ArrayList<Actor> getActors() {
-        return actors;
-    }
-
-    public void setActors(ArrayList<Actor> actors) {
-        this.actors = actors;
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
+    
 
     public int getNoPeople() {
         return noPeople;
@@ -88,6 +59,14 @@ public class Game implements Serializable {
     public void setClimate(String climate) {
         this.climate = climate;
     }
+    
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
 
     public Map getMap() {
         return map;
@@ -97,16 +76,50 @@ public class Game implements Serializable {
         this.map = map;
     }
 
+    public OccupationType[] getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(OccupationType[] occupation) {
+        this.occupation = occupation;
+    }
+
+    public List<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
+    }
+    
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+
+
+
+
+    @Override
+    public String toString() {
+        return "Game{" + "noPeople=" + noPeople + ", totalTime=" + totalTime + ", climate=" + climate + ", inventory=" + inventory + ", occupation=" + occupation + ", map=" + map + ", player=" + player + ", actors=" + actors + '}';
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + this.noPeople;
-        hash = 47 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
-        hash = 47 * hash + Objects.hashCode(this.climate);
-        hash = 47 * hash + Arrays.deepHashCode(this.inventory);
-        hash = 47 * hash + Objects.hashCode(this.map);
-        hash = 47 * hash + Objects.hashCode(this.player);
-        hash = 47 * hash + Objects.hashCode(this.actors);
+        hash = 97 * hash + this.noPeople;
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.climate);
+        hash = 97 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 97 * hash + Arrays.deepHashCode(this.occupation);
+        hash = 97 * hash + Objects.hashCode(this.map);
+        hash = 97 * hash + Objects.hashCode(this.player);
+        hash = 97 * hash + Objects.hashCode(this.actors);
         return hash;
     }
 
@@ -134,6 +147,9 @@ public class Game implements Serializable {
         if (!Arrays.deepEquals(this.inventory, other.inventory)) {
             return false;
         }
+        if (!Arrays.deepEquals(this.occupation, other.occupation)) {
+            return false;
+        }
         if (!Objects.equals(this.map, other.map)) {
             return false;
         }
@@ -144,11 +160,6 @@ public class Game implements Serializable {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Game{" + "noPeople=" + noPeople + ", totalTime=" + totalTime + ", climate=" + climate + ", inventory=" + inventory + ", map=" + map + ", player=" + player + ", actors=" + actors + '}';
     }
 
 }

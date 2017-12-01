@@ -6,14 +6,16 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
+import java.text.DecimalFormat;
 
 /**
  *
  * @author sadss
  */
 public class StartMonthView extends View {
-
+    
     public StartMonthView() {
+        
         super("\n"
                 + "\n===============Oregon Trail Game================="
                 + "\n                                                 "
@@ -27,7 +29,7 @@ public class StartMonthView extends View {
                 + "\n                 Use it wisely.                  "
                 + "\n                                                 "
                 + "\n=================================================",
-                "Please press 'C' to continue:  ");
+                "Press 'C' to continue: ");
     }
 
     @Override
@@ -51,7 +53,7 @@ public class StartMonthView extends View {
         store.displayStorePage();
 
         return false;
-//        System.out.println("\n*** Invalid Selection. Try Again ***");
+//        this.console.println("\n*** Invalid Selection. Try Again ***");
 //        return false;
     }
 }

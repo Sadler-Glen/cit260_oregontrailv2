@@ -29,12 +29,12 @@ public class OccupationHelpInfoView extends View {
                 + "\n                                                 "
                 + "\n                                                 "
                 + "\n=================================================",
-                "\nPlease press 'C' to continue: ");
+                "\nPress 'C' to continue: ");
     }
 
     @Override
     public boolean doAction(String choice) {
-        System.out.println("\n*** Invalid selection *** Try again");
+        ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
         return false;
     }
 }

@@ -7,7 +7,11 @@ package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
 import byui.cit260.oregonTrail.model.Actor;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import oregontrailv2.OregonTrailv2;
 
 /**
  *
@@ -15,10 +19,12 @@ import java.util.Scanner;
  */
 public class WagonPartyView {
 
-    private String partyList;
-    private String promptMessage;
-    private String promptMessage1;
-
+    private final String partyList;
+    private final String promptMessage;
+    private final String promptMessage1;
+    protected final BufferedReader keyboard = OregonTrailv2.getInFile();
+    protected final PrintWriter console = OregonTrailv2.getOutFile();
+    
     public WagonPartyView() {
 
         this.partyList = "\n"
@@ -32,14 +38,15 @@ public class WagonPartyView {
                 + "\n  4 - "
                 + "\n  5 - "
                 + "\n                                                 "
-                + "\n=================================================";
+                + "\n================================================="
+                + "Please enter party members";
 
         this.promptMessage = "\nPlease enter party member ";
         this.promptMessage1 = "\nPlease press 'C' to continue: ";
 
     }
 
-    public void displayPartyList() {
+    public void displayPartyList() throws IOException {
         boolean done = false; // set flag to not done
         do {
             // continue will exit loop
@@ -56,9 +63,9 @@ public class WagonPartyView {
         chooseMonth.display();
     }
 
-    private String getPartyList() {
-        String value = "";
-        System.out.println("\n===============Oregon Trail Game================="
+    private String getPartyList() throws IOException {
+        String actorName = null;
+        this.console.println("\n===============Oregon Trail Game================="
                 + "\n                                                 "
                 + "\n      Enter the names of those in your party     "
                 + "\n                                                 "
@@ -70,10 +77,20 @@ public class WagonPartyView {
                 + "\n                                                 "
                 + "\n=================================================");
 
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
+        
         for (int i = 0; i < 5; i++) {
-            System.out.print("\nPlease enter party member " + (i + 1) + ": ");
-            String actorName = keyboard.nextLine();
+            
+            this.console.println("\nPlease enter party member " + (i + 1) + ": ");
+            actorName = keyboard.readLine();
+            boolean valid = false;
+            while(!valid){
+                if (actorName.length() < 1) { // value is blank
+                    ErrorView.display(this.getClass().getName(), "You must enter a value.");
+                    return "";
+                    
+                }valid = true;
+            }
             // get the actorName entered from keyboard
             // trim off leading and trailing blanks
             actorName = actorName.trim();
@@ -82,7 +99,7 @@ public class WagonPartyView {
             actor.setName(actorName);
             GameControl.createActor(actor);
             if (i == 0) {
-                System.out.println("\n===============Oregon Trail Game================="
+                this.console.println("\n===============Oregon Trail Game================="
                         + "\n                                                 "
                         + "\n      Enter the names of those in your party     "
                         + "\n                                                 "
@@ -94,7 +111,7 @@ public class WagonPartyView {
                         + "\n                                                 "
                         + "\n=================================================");
             } else if (i == 1) {
-                System.out.println("\n===============Oregon Trail Game================="
+                this.console.println("\n===============Oregon Trail Game================="
                         + "\n                                                 "
                         + "\n      Enter the names of those in your party     "
                         + "\n                                                 "
@@ -106,7 +123,7 @@ public class WagonPartyView {
                         + "\n                                                 "
                         + "\n=================================================");
             } else if (i == 2) {
-                System.out.println("\n===============Oregon Trail Game================="
+                this.console.println("\n===============Oregon Trail Game================="
                         + "\n                                                 "
                         + "\n      Enter the names of those in your party     "
                         + "\n                                                 "
@@ -118,7 +135,7 @@ public class WagonPartyView {
                         + "\n                                                 "
                         + "\n=================================================");
             } else if (i == 3) {
-                System.out.println("\n===============Oregon Trail Game================="
+                this.console.println("\n===============Oregon Trail Game================="
                         + "\n                                                 "
                         + "\n      Enter the names of those in your party     "
                         + "\n                                                 "
@@ -130,7 +147,7 @@ public class WagonPartyView {
                         + "\n                                                 "
                         + "\n=================================================");
             } else if (i == 4) {
-                System.out.println("\n===============Oregon Trail Game================="
+                this.console.println("\n===============Oregon Trail Game================="
                         + "\n                                                 "
                         + "\n      Enter the names of those in your party     "
                         + "\n                                                 "
@@ -144,13 +161,13 @@ public class WagonPartyView {
             }
         }
 
-        System.out.print(this.promptMessage1);
-        String prompt = keyboard.nextLine();
-        return value = "X";
+        this.console.println(this.promptMessage1);
+        String prompt = keyboard.readLine();
+        return actorName = "X";
     }
 
     private boolean doAction(String choice) {
-        System.out.println("\n*** Invalid selection *** Try again");
+        ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
         return false;
     }
 }

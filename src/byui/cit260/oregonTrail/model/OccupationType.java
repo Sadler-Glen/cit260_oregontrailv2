@@ -97,8 +97,6 @@ public class OccupationType implements Serializable{
             return false;
         }
         return true;
-    }
-
-   
+    }  
     
 }

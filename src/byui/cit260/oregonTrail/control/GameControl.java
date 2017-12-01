@@ -5,6 +5,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.exceptions.GameControlException;
 import byui.cit260.oregonTrail.model.Actor;
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.InventoryItem;
@@ -14,6 +15,10 @@ import byui.cit260.oregonTrail.model.Map;
 import byui.cit260.oregonTrail.model.Occupation;
 import byui.cit260.oregonTrail.model.OccupationType;
 import byui.cit260.oregonTrail.model.Player;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import oregontrailv2.OregonTrailv2;
@@ -74,9 +79,13 @@ public class GameControl {
         System.out.println("\n*** Invalid actor " + actor.toString() + "***");
         return -1;
     }
-
+    
     public static List<Actor> getActors() {
         return actors;
+    }
+
+    public static void setActors(List<Actor> actors) {
+        GameControl.actors = actors;
     }
 
     private static boolean isActorValid(Actor actor) {
@@ -278,5 +287,33 @@ public class GameControl {
             }
         }
         return inventoryList;
+    }
+    
+    public static void saveGame(Game game, String filePath)
+            throws GameControlException {
+        try( FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game);// write the game object out to file
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+    
+    public static void getSavedGame(String filePath)
+            throws GameControlException {
+        Game game = null;
+        
+    try (FileInputStream fips = new FileInputStream(filePath)) {
+        ObjectInputStream input = new ObjectInputStream(fips);
+        
+        game = (Game) input.readObject(); // read the game object from file
+    }
+    catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+    }
+    
+    // close the output file
+    OregonTrailv2.setCurrentGame(game);
     }
 }

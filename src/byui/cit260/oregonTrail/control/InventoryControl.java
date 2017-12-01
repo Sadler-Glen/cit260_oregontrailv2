@@ -7,6 +7,7 @@ package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.exceptions.InventoryControlException;
 import byui.cit260.oregonTrail.model.ItemType;
+import byui.cit260.oregonTrail.view.GeneralStoreView;
 
 
 /**
@@ -15,10 +16,17 @@ import byui.cit260.oregonTrail.model.ItemType;
  */
 public class InventoryControl {
 
+    public void check(InventoryControl Oxenquantity){
+        
+    }    
+    public int quantityPass;
+    
+        
+
     public static void checkInventoryLimits(/*int oxen, int food, int clothing, int ammo, int wheel, int axle, int tongue*/)
             throws InventoryControlException {
 
-        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getQuantityInStock() > 8 
+        if ( oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getQuantityInStock()  > 8 
                 || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getQuantityInStock() < 0) {
             throw new InventoryControlException("Oxen out of range: >0 and <= 8");
         }

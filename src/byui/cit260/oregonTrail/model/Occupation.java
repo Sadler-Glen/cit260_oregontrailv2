@@ -10,7 +10,25 @@ package byui.cit260.oregonTrail.model;
  * @author sadss
  */
 public enum Occupation {
-    Banker,
-    Carpenter,
-    Farmer;
+    Banker("Banker", 1600),
+    Carpenter("Carpenter", 800),
+    Farmer ("Farmer", 400);
+    
+    private final String desc;
+    private final int funds;
+    
+    Occupation(String description, int fundAmount) {
+        desc = description;
+        funds = fundAmount;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public int getFunds() {
+        return funds;
+    }
+    
+    
 }

@@ -57,12 +57,12 @@ public class HelpInfoView extends View {
                 + "\n  Glen Sadler                                    "
                 + "\n                                                 "
                 + "\n=================================================",
-                "\nPlease press 'C' to continue: ");
+                "\nPress 'C' to continue: ");
     }
 
     @Override
     public boolean doAction(String choice) {
-        System.out.println("\n*** Invalid selection *** Try again");
+        this.console.println("\n*** Invalid selection *** Try again");
         return false;
     }
 
