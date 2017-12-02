@@ -75,8 +75,8 @@ public abstract class View implements ViewInterface {
                 break; // end the loop
             }
 
-        } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(),"Error reading input: "+ e.getMessage());
+        } catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(),"Error reading input: "+ ex.getMessage());
         }
 
         return value; // return the value entered

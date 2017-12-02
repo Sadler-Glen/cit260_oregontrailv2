@@ -6,7 +6,6 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
-import java.util.Scanner;
 
 /**
  *
@@ -87,6 +86,7 @@ public class ChooseMonthView extends View {
                 ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
                 break;
         }
+       
         return false;
     }
 

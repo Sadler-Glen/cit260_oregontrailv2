@@ -12,7 +12,6 @@ import byui.cit260.oregonTrail.model.InventoryItem;
 import byui.cit260.oregonTrail.model.ItemType;
 import byui.cit260.oregonTrail.model.OccupationType;
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 /**
  *
@@ -236,12 +235,12 @@ public class GeneralStoreView extends View {
                     try { // parse and convert number from text to an integer
                         clothQuantity = Integer.parseInt(quantity);
                     } catch (NumberFormatException nf) {
-                        this.console.println(nf.getMessage());
-//                        sleep(2500);
+                        ErrorView.display(this.getClass().getName(), "***You must enter a valid number***");//                        sleep(2500);
                     }
-                } catch (InventoryControlException e) {
-                    this.console.println("\nPlease enter the Quantity: ");
+                } catch (InventoryControlException ice) {
+                    this.console.println(ice.getMessage());;
                 }
+                done = true;
             } while (!done);
         } catch (Exception e) {
             ErrorView.display(this.getClass().getName(), "***Error reading input***");
@@ -272,12 +271,12 @@ public class GeneralStoreView extends View {
                     try { // parse and convert number from text to an integer
                         ammoQuantity = Integer.parseInt(quantity);
                     } catch (NumberFormatException nf) {
-                        this.console.println(nf.getMessage());
-//                        sleep(2500);
+                        ErrorView.display(this.getClass().getName(), "***You must enter a valid number***");//                        sleep(2500);
                     }
                 } catch (InventoryControlException ice) {
-                    this.console.println(ice.getMessage());
+                    this.console.println(ice.getMessage());;
                 }
+                done = true;
             } while (!done);
         } catch (Exception e) {
             ErrorView.display(this.getClass().getName(), "***Error reading input***");
@@ -305,14 +304,15 @@ public class GeneralStoreView extends View {
                     InventoryControl.checkInventoryLimits();
                     this.console.println("\nPlease enter the Quantity: ");
                     String quantity = keyboard.readLine();
-                    foodQuantity = Integer.parseInt(quantity);
-                    done = true;
-                } catch (InventoryControlException e) {
-                    this.console.println(e.getMessage());
-                } catch (NumberFormatException nf) {
-                    this.console.println("\nYou must enter a valid number.");
-//                    sleep(2500);
+                    try { // parse and convert number from text to an integer
+                        foodQuantity = Integer.parseInt(quantity);
+                    } catch (NumberFormatException nf) {
+                        ErrorView.display(this.getClass().getName(), "***You must enter a valid number***");//                        sleep(2500);
+                    }
+                } catch (InventoryControlException ice) {
+                    this.console.println(ice.getMessage());;
                 }
+                done = true;
             } while (!done);
         } catch (Exception e) {
             ErrorView.display(this.getClass().getName(), "***Error reading input***");
@@ -342,12 +342,12 @@ public class GeneralStoreView extends View {
                     try { // parse and convert number from text to an integer
                         wheelQuantity = Integer.parseInt(quantity);
                     } catch (NumberFormatException nf) {
-                        this.console.println("\nYou must enter a valid number.");
-//                        sleep(2500);
+                        ErrorView.display(this.getClass().getName(), "***You must enter a valid number***");//                        sleep(2500);
                     }
                 } catch (InventoryControlException ice) {
-                    this.console.println(ice.getMessage());
+                    this.console.println(ice.getMessage());;
                 }
+                done = true;
             } while (!done);
         } catch (Exception e) {
             ErrorView.display(this.getClass().getName(), "***Error reading input***");
@@ -378,12 +378,12 @@ public class GeneralStoreView extends View {
                     try { // parse and convert number from text to an integer
                         axleQuantity = Integer.parseInt(quantity);
                     } catch (NumberFormatException nf) {
-                        this.console.println("\nYou must enter a valid number.");
-//                        sleep(2500);
+                        ErrorView.display(this.getClass().getName(), "***You must enter a valid number***");//                        sleep(2500);
                     }
-                } catch (InventoryControlException e) {
-                    this.console.println(e.getMessage());
+                } catch (InventoryControlException ice) {
+                    this.console.println(ice.getMessage());;
                 }
+                done = true;
             } while (!done);
         } catch (Exception e) {
             ErrorView.display(this.getClass().getName(), "***Error reading input***");
@@ -402,7 +402,7 @@ public class GeneralStoreView extends View {
 
     private void tongueChoice() {
         DecimalFormat decForm = new DecimalFormat("$#,##0.00");
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
         int tongueQuantity = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getQuantityInStock();
         boolean done = true;
         try {
@@ -410,16 +410,16 @@ public class GeneralStoreView extends View {
                 try {
                     InventoryControl.checkInventoryLimits();
                     this.console.println("\nPlease enter the Quantity: ");
-                    String quantity = keyboard.nextLine();
+                    String quantity = keyboard.readLine();
                     try { // parse and convert number from text to an integer
                         tongueQuantity = Integer.parseInt(quantity);
                     } catch (NumberFormatException nf) {
-                        this.console.println("\nYou must enter a valid number.");
-//                        sleep(2500);
+                        ErrorView.display(this.getClass().getName(), "***You must enter a valid number***");//                        sleep(2500);
                     }
-                } catch (Exception e) {
-                    this.console.println(e.getMessage());
+                } catch (InventoryControlException ice) {
+                    this.console.println(ice.getMessage());;
                 }
+                done = true;
             } while (!done);
         } catch (Exception e) {
             ErrorView.display(this.getClass().getName(), "***Error reading input***");

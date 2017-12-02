@@ -13,8 +13,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -54,7 +52,7 @@ public class OregonTrailv2 {
             System.out.println("Exception: " + te.toString()+
                                 "\nCause: " + te.getCause() +
                                 "\nMessage: "+ te.getMessage());
-            te.printStackTrace();;
+            te.printStackTrace();
         }
         
         finally {

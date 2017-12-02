@@ -5,8 +5,6 @@
  */
 package byui.cit260.oregonTrail.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Ignacio

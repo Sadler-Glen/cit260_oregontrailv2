@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
  * @author sadss
  */
 public class MainMenuView extends View {
-
+    
     public MainMenuView() {
 
         super("\n"
@@ -30,7 +30,6 @@ public class MainMenuView extends View {
                 + "\n  2 - Get and start a saved game                 "
                 + "\n  3 - Information about the trail                "
                 + "\n  4 - Save Game                                  "
-//                + "\n  5 - Game Menu                                  "
                 + "\n  Q - Quit                                       "
                 + "\n                                                 "
                 + "\n=================================================",
@@ -75,7 +74,7 @@ public class MainMenuView extends View {
                 break;
             case "4": //save the current game
                 this.saveGame();
-                break;
+                break;             
             default:
                 ErrorView.display(this.getClass().getName(), "***Invalid selection - Try again***");
                 break;
@@ -152,11 +151,6 @@ public class MainMenuView extends View {
         try {
             // while a valid name has not been retrieved
             while (!valid) {
-
-                // prompt for input
-//                this.console.println(this.displayMessage);
-//                this.console.println(this.displayPrompt);
-
                 // get the value entered from keyboard
                 value = keyboard.readLine();
 
@@ -398,5 +392,5 @@ public class MainMenuView extends View {
     private void gameMenu() {
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
-    }
+    }   
 }
