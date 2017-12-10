@@ -8,6 +8,7 @@ package oregontrailv2;
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.view.StartProgramView;
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -27,7 +28,7 @@ public class OregonTrailv2 {
     private static BufferedReader inFile = null;
     
     private static PrintWriter logFile = null;
-
+    
     public static void main(String[] args) {
 
         
@@ -65,6 +66,7 @@ public class OregonTrailv2 {
                 
                 if(OregonTrailv2.logFile !=null)
                    OregonTrailv2.logFile.close();
+                    
                 
             } catch (IOException ex) {
                 System.out.println("Error closing files");
@@ -113,5 +115,6 @@ public class OregonTrailv2 {
     public static void setLogFile(PrintWriter logFile) {
         OregonTrailv2.logFile = logFile;
     }
+    public Point getCoordinates;
 
 }

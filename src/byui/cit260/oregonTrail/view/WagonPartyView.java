@@ -17,13 +17,13 @@ import oregontrailv2.OregonTrailv2;
  *
  * @author sadss
  */
-public class WagonPartyView {
+public class WagonPartyView extends View{
 
     private final String partyList;
     private final String promptMessage;
     private final String promptMessage1;
-    protected final BufferedReader keyboard = OregonTrailv2.getInFile();
-    protected final PrintWriter console = OregonTrailv2.getOutFile();
+//    protected final BufferedReader keyboard = OregonTrailv2.getInFile();
+//    protected final PrintWriter console = OregonTrailv2.getOutFile();
     
     public WagonPartyView() {
 
@@ -69,7 +69,7 @@ public class WagonPartyView {
                 + "\n                                                 "
                 + "\n      Enter the names of those in your party     "
                 + "\n                                                 "
-                + "\n  1 - "
+                + "\n  1 - " + OregonTrailv2.getPlayer().getName() + " - The "+GameControl.getOccupation()
                 + "\n  2 - "
                 + "\n  3 - "
                 + "\n  4 - "
@@ -79,9 +79,9 @@ public class WagonPartyView {
 
 //        Scanner keyboard = new Scanner(System.in);
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 1; i < 5; i++) {
             
-            this.console.println("\nPlease enter party member " + (i + 1) + ": ");
+            this.console.printf("\nPlease enter party member " + (i + 1) + ": ");
             actorName = keyboard.readLine();
             boolean valid = false;
             while(!valid){
@@ -98,25 +98,25 @@ public class WagonPartyView {
             Actor actor = new Actor();
             actor.setName(actorName);
             GameControl.createActor(actor);
-            if (i == 0) {
+//            if (i == 0) {
+//                this.console.println("\n===============Oregon Trail Game================="
+//                        + "\n                                                 "
+//                        + "\n      Enter the names of those in your party     "
+//                        + "\n                                                 "
+//                        + "\n  1 - " + OregonTrailv2.getPlayer().getName() + " - The "+GameControl.getOccupation()
+//                        + "\n  2 - "
+//                        + "\n  3 - "
+//                        + "\n  4 - "
+//                        + "\n  5 - "
+//                        + "\n                                                 "
+//                        + "\n=================================================");
+            if (i == 1) {
                 this.console.println("\n===============Oregon Trail Game================="
                         + "\n                                                 "
                         + "\n      Enter the names of those in your party     "
                         + "\n                                                 "
-                        + "\n  1 - " + GameControl.getActors().get(0).getName()
-                        + "\n  2 - "
-                        + "\n  3 - "
-                        + "\n  4 - "
-                        + "\n  5 - "
-                        + "\n                                                 "
-                        + "\n=================================================");
-            } else if (i == 1) {
-                this.console.println("\n===============Oregon Trail Game================="
-                        + "\n                                                 "
-                        + "\n      Enter the names of those in your party     "
-                        + "\n                                                 "
-                        + "\n  1 - " + GameControl.getActors().get(0).getName()
-                        + "\n  2 - " + GameControl.getActors().get(1).getName()
+                        + "\n  1 - " + OregonTrailv2.getPlayer().getName() + " - The "+GameControl.getOccupation()
+                        + "\n  2 - " + GameControl.getActors().get(0).getName()
                         + "\n  3 - "
                         + "\n  4 - "
                         + "\n  5 - "
@@ -127,9 +127,9 @@ public class WagonPartyView {
                         + "\n                                                 "
                         + "\n      Enter the names of those in your party     "
                         + "\n                                                 "
-                        + "\n  1 - " + GameControl.getActors().get(0).getName()
-                        + "\n  2 - " + GameControl.getActors().get(1).getName()
-                        + "\n  3 - " + GameControl.getActors().get(2).getName()
+                        + "\n  1 - " + OregonTrailv2.getPlayer().getName() + " - The "+GameControl.getOccupation()
+                        + "\n  2 - " + GameControl.getActors().get(0).getName()
+                        + "\n  3 - " + GameControl.getActors().get(1).getName()
                         + "\n  4 - "
                         + "\n  5 - "
                         + "\n                                                 "
@@ -139,10 +139,10 @@ public class WagonPartyView {
                         + "\n                                                 "
                         + "\n      Enter the names of those in your party     "
                         + "\n                                                 "
-                        + "\n  1 - " + GameControl.getActors().get(0).getName()
-                        + "\n  2 - " + GameControl.getActors().get(1).getName()
-                        + "\n  3 - " + GameControl.getActors().get(2).getName()
-                        + "\n  4 - " + GameControl.getActors().get(3).getName()
+                        + "\n  1 - " + OregonTrailv2.getPlayer().getName() + " - The "+GameControl.getOccupation()
+                        + "\n  2 - " + GameControl.getActors().get(0).getName()
+                        + "\n  3 - " + GameControl.getActors().get(1).getName()
+                        + "\n  4 - " + GameControl.getActors().get(2).getName()
                         + "\n  5 - "
                         + "\n                                                 "
                         + "\n=================================================");
@@ -151,22 +151,22 @@ public class WagonPartyView {
                         + "\n                                                 "
                         + "\n      Enter the names of those in your party     "
                         + "\n                                                 "
-                        + "\n  1 - " + GameControl.getActors().get(0).getName()
-                        + "\n  2 - " + GameControl.getActors().get(1).getName()
-                        + "\n  3 - " + GameControl.getActors().get(2).getName()
-                        + "\n  4 - " + GameControl.getActors().get(3).getName()
-                        + "\n  5 - " + GameControl.getActors().get(4).getName()
+                        + "\n  1 - " + OregonTrailv2.getPlayer().getName() + " - The "+GameControl.getOccupation()
+                        + "\n  2 - " + GameControl.getActors().get(0).getName()
+                        + "\n  3 - " + GameControl.getActors().get(1).getName()
+                        + "\n  4 - " + GameControl.getActors().get(2).getName()
+                        + "\n  5 - " + GameControl.getActors().get(3).getName()
                         + "\n                                                 "
                         + "\n=================================================");
             }
         }
 
-        this.console.println(this.promptMessage1);
+        this.console.printf(this.promptMessage1);
         String prompt = keyboard.readLine();
         return actorName = "X";
     }
 
-    private boolean doAction(String choice) {
+    public boolean doAction(String choice) {
         ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
         return false;
     }

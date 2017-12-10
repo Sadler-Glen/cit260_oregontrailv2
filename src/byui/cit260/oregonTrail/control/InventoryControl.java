@@ -6,53 +6,56 @@
 package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.exceptions.InventoryControlException;
-import byui.cit260.oregonTrail.model.ItemType;
-import byui.cit260.oregonTrail.view.GeneralStoreView;
+import java.io.Serializable;
 
 
 /**
  *
  * @author Ignacio
  */
-public class InventoryControl {
-
-    public void check(InventoryControl Oxenquantity){
-        
-    }    
-    public int quantityPass;
+public class InventoryControl implements Serializable{
     
         
 
-    public static void checkInventoryLimits(/*int oxen, int food, int clothing, int ammo, int wheel, int axle, int tongue*/)
+    public static void checkInventoryLimits(int oxenQuantity, int clothQuantity,
+            int ammoQuantity, int foodQuantity, int axleQuantity, int wheelQuantity,
+            int tongueQuantity)
             throws InventoryControlException {
 
-        if ( oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getQuantityInStock()  > 8 
-                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Oxen.ordinal()].getQuantityInStock() < 0) {
-            throw new InventoryControlException("Oxen out of range: >0 and <= 8");
+        if ( oxenQuantity > 8 || oxenQuantity < 0) {
+            throw new InventoryControlException("Oxen out of range: "
+                    + "Cannot be negative and cannot be more than 8");
         }
-        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getQuantityInStock() > 2000 
-                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Food.ordinal()].getQuantityInStock() < 0) {
-            throw new InventoryControlException("Food out of range: > 0lbs and <= 2000lbs");
+        
+        if (clothQuantity  < 0) {
+            throw new InventoryControlException("Clothiing out of range: "
+                    + "Cannot be negative");
+        }
+        
+        if (ammoQuantity  > 20 || ammoQuantity  < 0) {
+            throw new InventoryControlException("Ammunition out of range: "
+                    + "Cannot be negative or more than 20 boxes");
+        }
+        
+        if (foodQuantity > 2000 || foodQuantity < 0) {
+            throw new InventoryControlException("Food out of range: "
+                    + "Cannot be negative or more than 2000lbs");
         }
 
-        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Clothing.ordinal()].getQuantityInStock()  < 0) {
-            throw new InventoryControlException("Clothiing out of range: >0 items");
+        if (axleQuantity  > 8 || axleQuantity  < 0) {
+            throw new InventoryControlException("Axles out of range: "
+                    + "Cannot be negative or more than 8 axles");
         }
-        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getQuantityInStock()  > 10 
-                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Ammunition.ordinal()].getQuantityInStock()  < 0) {
-            throw new InventoryControlException("Ammunition out of range: > 0 boxes and <= 10 boxes");
+        
+        if (wheelQuantity  > 8 || wheelQuantity  < 0) {
+            throw new InventoryControlException("Wheels out of range: "
+                    + "Cannot be negative or more than 8 wheels");
         }
-        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getQuantityInStock()  > 3 
-                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Wheel.ordinal()].getQuantityInStock()  < 0) {
-            throw new InventoryControlException("Wheels out of range: > 0 wheels and <= 3 wheels");
-        }
-        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getQuantityInStock()  > 3 
-                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Axle.ordinal()].getQuantityInStock()  < 0) {
-            throw new InventoryControlException("Axles out of range: > 0 axles and <= 3 axles");
-        }
-        if (oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getQuantityInStock()  > 3 
-                || oregontrailv2.OregonTrailv2.getCurrentGame().getInventory()[ItemType.Tongue.ordinal()].getQuantityInStock()  < 0) {
-            throw new InventoryControlException("Tongues out of range: > 0 tongues or <= 3 togues");
+        
+        if (tongueQuantity  > 8 || tongueQuantity  < 0) {
+            throw new InventoryControlException("Tongues out of range: "
+                    + "Cannot be negative or more than 8 togues");
         }
     }
+
 }

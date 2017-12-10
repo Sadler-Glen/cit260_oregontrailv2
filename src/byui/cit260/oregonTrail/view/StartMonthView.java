@@ -7,6 +7,7 @@ package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
 import java.text.DecimalFormat;
+import sun.util.calendar.LocalGregorianCalendar.Date;
 
 /**
  *
@@ -14,12 +15,16 @@ import java.text.DecimalFormat;
  */
 public class StartMonthView extends View {
     
+
+    
     public StartMonthView() {
+    
         
         super("\n"
                 + "\n===============Oregon Trail Game================="
                 + "\n                                                 "
-                + "\n     You have chosen to leave in " + GameControl.getStartMonth()
+                + "\n           You have chosen to leave on "
+                + "\n          " + GameControl.getStartDate()
                 + "\n                                                 "
                 + "\n    Before leaving your current location,        "
                 + "\n    first you should step by Glen´s store        "
@@ -29,7 +34,7 @@ public class StartMonthView extends View {
                 + "\n                 Use it wisely.                  "
                 + "\n                                                 "
                 + "\n=================================================",
-                "Press 'C' to continue: ");
+                "\nPress 'C' to continue: ");
     }
 
     @Override

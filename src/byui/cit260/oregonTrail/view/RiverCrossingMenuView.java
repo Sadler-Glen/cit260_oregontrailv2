@@ -21,7 +21,8 @@ class RiverCrossingMenuView extends View{
                 + "\n2 - Caulk the wagon and float it across          "
                 + "\n3 - Take a ferry across                          "
                 + "\n4 - Wait to see if conditions improve            "
-                + "\n5 - Get helpful information                      "
+                + "\n5 - Ask a local Indian to guide you across       "
+                + "\n6 - Get helpful information                      "
                 + "\nX - Exit                                         "
                 + "\n=================================================",
                 "\nPlease enter your choice: ");
@@ -66,8 +67,11 @@ class RiverCrossingMenuView extends View{
                 this.waitForImprovements();                
                 break;
             case "5":
-                this.helpInfo();
+                this.askForHelp();
                 break;        
+            case "6":
+                this.helpInfo();
+                break; 
             default:
                 ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
                 break;
@@ -84,7 +88,8 @@ class RiverCrossingMenuView extends View{
     }
 
     private void takeFerry() {
-        this.console.println("***takeFerry() function stub called***");
+        TakeFerryView takeFerry = new TakeFerryView();
+        takeFerry.display();
     }
 
     private void waitForImprovements() {
@@ -92,6 +97,14 @@ class RiverCrossingMenuView extends View{
     }
 
     private void helpInfo() {
-        this.console.println("***HelpInfo() function stub called***");
+        RiverCrossingHelpInfoView helpInfo = new RiverCrossingHelpInfoView();
+        helpInfo.display();
+    }
+
+    private void askForHelp() {
+        this.console.println("***You have been guided safely across the river***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+          
     }
 }

@@ -46,13 +46,13 @@ public class DisplayMapView {
                 this.console.print("|"); // print column divider
                 Location location = rowLocations[column];
                 if (location.isVisited() || location == null) { // if location is visited 
-                    Scene scene = location.getScene();
+                    Scene scene = location.getSceneType();
                     this.console.print(scene.getMapSymbol());
                 } else {
                     this.console.print(" ?? ");
                 }
 
-                Scene scene = location.getScene();
+                Scene scene = location.getSceneType();
                 this.console.print("");//(scene.getMapSymbol());
 
             }
@@ -94,8 +94,8 @@ public class DisplayMapView {
         this.console.println("\n");
     }
     
-//    private void viewLocation() {
-//        ViewLocationView viewLocationView = new ViewLocationView();
-//        viewLocationView.display();
-//    }
+    private void viewLocation() {
+        ViewLocationView viewLocationView = new ViewLocationView();
+        viewLocationView.display();
+    }
 }

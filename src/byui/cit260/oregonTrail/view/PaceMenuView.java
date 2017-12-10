@@ -5,27 +5,30 @@
  */
 package byui.cit260.oregonTrail.view;
 
-/**
- *
- * @author sadss
- */
-public class PaceMenuView extends View{
-    
+import byui.cit260.oregonTrail.control.GameControl;
+import byui.cit260.oregonTrail.model.ItemType;
+import byui.cit260.oregonTrail.model.Pace;
+import byui.cit260.oregonTrail.model.PaceType;
 
 /**
  *
  * @author sadss
  */
+public class PaceMenuView extends View {
 
+    /**
+     *
+     * @author sadss
+     */
     public PaceMenuView() {
         super("\n"
                 + "\n===============Oregon Trail Game================="
                 + "\n                                                 "
                 + "\n                Set Pace Menu                    "
                 + "\n                                                 "
-                + "\n1 - Steady                                       "
-                + "\n2 - Strenuous                                    "
-                + "\n3 - Gruelling                                    "
+                + "\n1 - " + PaceType.Steady.name()
+                + "\n2 - " + PaceType.Strenuous.name()
+                + "\n3 - " + PaceType.Gruelling.name()
                 + "\n4 - Find out what these different paces mean     "
                 + "\nX - Exit                                         "
                 + "\n"
@@ -46,9 +49,11 @@ public class PaceMenuView extends View{
                 // do the requested action and display the next view
                 {
                     return; // exit view
+
                 }
                 done = this.doAction(value);
             } while (!done);
+
         } catch (NumberFormatException nfe) {
             ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
         }
@@ -70,32 +75,40 @@ public class PaceMenuView extends View{
                 break;
             case "4":
                 this.paceHelp();
-                break; 
-            case "5":
-                
-                break;        
+                break;
             default:
                 ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
                 break;
         }
+        new GameMenuView();
         return false;
-    }  
+    }
 
     private void steadyPace() {
-        this.console.println("***steadyPace() function stub called***");
+        GameControl.setPace("Steady");
+        this.console.println("Your pace has been set to steady");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void strenuousPace() {
-        this.console.println("***strenuousPace() function stub called***");
+        GameControl.setPace("Strenuous");
+        this.console.println("Your pace has been set to strenuous.");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
 
     }
 
     private void gruellingPace() {
-        this.console.println("***gruellingPace() function stub called***");
+        GameControl.setPace("Gruelling");
+        this.console.println("Your pace has been set to gruelling.");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void paceHelp() {
-        this.console.println("***paceHelp() function stub called***");
+        PaceHelpView paceHelp = new PaceHelpView();
+        paceHelp.display();
     }
-    
+
 }

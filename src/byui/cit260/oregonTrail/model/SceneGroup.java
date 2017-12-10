@@ -5,13 +5,13 @@
  */
 package byui.cit260.oregonTrail.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Glen Sadler
  */
-public enum SceneGroup {
+public enum SceneGroup implements Serializable {
     regular,
-    knowledge,
-    resource,
     generalStore;  
 }

@@ -7,7 +7,7 @@ package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
 import byui.cit260.oregonTrail.model.InventoryItem;
-import byui.cit260.oregonTrail.model.OccupationType;
+import byui.cit260.oregonTrail.model.Occupation;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -113,12 +113,12 @@ public class ReportMenuView extends View {
         return value; // return the value entered
     }
 
-    private void fileInventoryDescription() { // L12: Individual assignment Report as per requirement - Glen Sadler
+    private void fileInventoryDescription() {
         PrintWriter bw = null;
         FileWriter fw = null;
 
         //prompt for and get the name of the file to save the reort in
-        this.console.println("\n\nEnter the path to save report: ");
+        this.console.printf("\n\nEnter the path to save report: ");
         File filePath = new File(this.getFileName());
 
         try {
@@ -182,12 +182,12 @@ public class ReportMenuView extends View {
         }
     }
 
-    private void fileInventoryCost() { // L12: Individual Assignment - Ignacio Pineda report
+    private void fileInventoryCost() {
         PrintWriter bw = null;
         FileWriter fw = null;
 
         //prompt for and get the name of the file to save the game in
-        this.console.println("\n\nEnter the path to save report: ");
+        this.console.printf("\n\nEnter the path to save report: ");
         File filePath = new File(this.getFileName());
 
         try {
@@ -401,7 +401,7 @@ public class ReportMenuView extends View {
 
     private void Inventory() {
         InventoryItem[] inventory = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory();
-        OccupationType[] occupation = oregontrailv2.OregonTrailv2.getCurrentGame().getOccupation();
+        Occupation[] occupation = oregontrailv2.OregonTrailv2.getCurrentGame().getOccupation();
 
         this.console.println("\n===============Oregon Trail Game================="
                 + "\n\n                   Inventory                   "
@@ -443,7 +443,7 @@ public class ReportMenuView extends View {
 
     private void stockInHand() {
         InventoryItem[] inventory = oregontrailv2.OregonTrailv2.getCurrentGame().getInventory();
-        OccupationType[] occupation = oregontrailv2.OregonTrailv2.getCurrentGame().getOccupation();
+        Occupation[] occupation = oregontrailv2.OregonTrailv2.getCurrentGame().getOccupation();
 
         this.console.println("\n===============Oregon Trail Game================="
                 + "\n\n          Inventory - Stock in Hand            "
@@ -471,7 +471,7 @@ public class ReportMenuView extends View {
     }
 
     private void occupation() {
-        OccupationType[] occupation = oregontrailv2.OregonTrailv2.getCurrentGame().getOccupation();
+        Occupation[] occupation = oregontrailv2.OregonTrailv2.getCurrentGame().getOccupation();
 
         this.console.println("\n===============Oregon Trail Game================="
                 + "\n\n       Occupation types & Initial Funds        "
@@ -485,7 +485,7 @@ public class ReportMenuView extends View {
         // for each inventory item
         int num = 0;
 
-        for (OccupationType job : occupation) {
+        for (Occupation job : occupation) {
             num += 1;
             line = new StringBuilder("                                                          ");
             line.insert(0, num + " - " + job.getDescription());
@@ -496,14 +496,6 @@ public class ReportMenuView extends View {
         }
         this.console.println("=================================================");
 
-    }
-
-    private void viewLocation() {
-        this.console.println("\n*** viewLocation() function stub called ***");
-    }
-
-    private void moveActors() {
-        this.console.println("\n*** moveActors() function stub called ***");
     }
 
 }

@@ -51,7 +51,7 @@ public class HuntMenuView extends View {
 
     @Override
     public boolean doAction(String menu) {
-        menu = menu.toUpperCase(); // convert choice to upper cas
+        //menu = menu.toUpperCase(); // convert choice to upper case
 
         switch (menu) {
             case "1":

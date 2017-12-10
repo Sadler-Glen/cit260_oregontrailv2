@@ -20,7 +20,7 @@ public abstract class View implements ViewInterface {
 
     protected final BufferedReader keyboard = OregonTrailv2.getInFile();
     protected final PrintWriter console = OregonTrailv2.getOutFile();
-
+    
     public View() {
     }
 
@@ -59,8 +59,8 @@ public abstract class View implements ViewInterface {
             while (!valid) {
 
                 // prompt for input
-                this.console.println(this.displayMessage);
-                this.console.println(this.displayPrompt);
+                this.console.printf(this.displayMessage);
+                this.console.printf(this.displayPrompt);
 
                 // get the value entered from keyboard
                 value = keyboard.readLine();

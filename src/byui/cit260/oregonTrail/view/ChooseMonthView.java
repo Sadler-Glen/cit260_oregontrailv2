@@ -6,6 +6,11 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -60,23 +65,79 @@ public class ChooseMonthView extends View {
 
         switch (menu) {
             case "1": //Select March
-                GameControl.setStartMonth("March");
+                
+                Date date = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
+		String strdate = "01-MAR-1848";
+		try {
+			Date startDate = sdf.parse(strdate);
+//                        this.console.println("StringDate: " + strdate); // test
+			GameControl.setStartDate(startDate);
+//                        this.console.println("Start Date2: " + GameControl.getStartDate()); // test
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+                GameControl.setWeather("Cold");
                 this.monthStartGame();
                 break;
             case "2": //Select April
-                GameControl.setStartMonth("April");
+                Date date2 = new Date();
+                SimpleDateFormat sdf2 = new SimpleDateFormat("dd-MMM-yyyy");
+		String strdate2 = "01-APR-1848";
+		try {
+			Date startDate = sdf2.parse(strdate2);
+//                        this.console.println("Start Date1: " + startDate);// test
+			GameControl.setStartDate(startDate);
+//                        this.console.println("Start Date2: " + GameControl.getStartDate());// test
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+                GameControl.setWeather("Cold");
                 this.monthStartGame();
                 break;
             case "3": //Select May
-                GameControl.setStartMonth("May");
+                Date date3 = new Date();
+                SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MMM-yyyy");
+		String strdate3 = "01-MAY-1848";
+		try {
+			Date startDate = sdf3.parse(strdate3);
+//                        this.console.println("Start Date1: " + startDate);// test
+			GameControl.setStartDate(startDate);
+//                        this.console.println("Start Date2: " + GameControl.getStartDate());// test
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+                GameControl.setWeather("Freezing");
                 this.monthStartGame();
                 break;
             case "4": //Select June
-                GameControl.setStartMonth("June");
+                Date date4 = new Date();
+                SimpleDateFormat sdf4 = new SimpleDateFormat("dd-MMM-yyyy");
+		String strdate4 = "01-JUNE-1848";
+		try {
+			Date startDate = sdf4.parse(strdate4);
+//                        this.console.println("Start Date1: " + startDate);// test
+			GameControl.setStartDate(startDate);
+//                        this.console.println("Start Date2: " + GameControl.getStartDate());// test
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+                GameControl.setWeather("Cool");
                 this.monthStartGame();
                 break;
             case "5": //Select July
-                GameControl.setStartMonth("July");
+                Date date5 = new Date();
+                SimpleDateFormat sdf5 = new SimpleDateFormat("dd-MMM-yyyy");
+		String strdate5 = "01-JUL-1848";
+		try {
+			Date startDate = sdf5.parse(strdate5);
+//                        this.console.println("Start Date1: " + startDate);// test
+			GameControl.setStartDate(startDate);
+//                        this.console.println("Start Date2: " + GameControl.getStartDate());// test
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+                GameControl.setWeather("Warm");
                 this.monthStartGame();
                 break;
             case "6": //Go to the advice information page
@@ -91,6 +152,10 @@ public class ChooseMonthView extends View {
     }
 
     private void monthStartGame() {
+        GameControl.setPace("Steady");
+        GameControl.setRation("Filling");
+        
+        GameControl.setHealth("Good");
         StartMonthView startMonth = new StartMonthView();
         startMonth.display();
     }

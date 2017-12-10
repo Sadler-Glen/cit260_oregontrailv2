@@ -5,8 +5,8 @@
  */
 package byui.cit260.oregonTrail.control;
 
-import byui.cit260.oregonTrail.exceptions.FoodControlException;
 import byui.cit260.oregonTrail.exceptions.MapControlException;
+import byui.cit260.oregonTrail.model.Actor;
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.InventoryItem;
 import byui.cit260.oregonTrail.model.Location;
@@ -16,23 +16,32 @@ import byui.cit260.oregonTrail.model.QuestionType;
 import byui.cit260.oregonTrail.model.Scene;
 import byui.cit260.oregonTrail.model.SceneGroup;
 import byui.cit260.oregonTrail.model.SceneType;
-import static byui.cit260.oregonTrail.model.SceneType.start;
 import java.awt.Point;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import oregontrailv2.OregonTrailv2;
 
 /**
  *
  * @author Glen Sadler
  */
-public class MapControl {
+public class MapControl implements Serializable{
 
     public static Map createMap() {
         // create the map
-        Map map = new Map(5, 5);
+        Map map = new Map(20, 20);
+        
+        // create a list of different scenes in the game
+//        Scene[] scenes = createScenes();
+        
+//        assign different scenes to locations in the map
+//        assignScenesToLocations(map, scenes);
         return map;
     }
 
-    public static Location[][] createLocations(int rows, int columns) {
+    public static Location[][] createLocations(int rows, int columns) throws Exception{
 //        IF rows < 1 OR columns < 1 THEN
 //            RETURN null
 //        ENDIF
@@ -47,13 +56,24 @@ public class MapControl {
 //        RETURN locations
 
         if (rows < 1 || columns < 1) {
-        }
-        int noOfRows = 5;
-        int noOfColumns = 5;
-        Location[][] locations = new Location[noOfRows][noOfColumns];
 
-//        for(int i = 0; i < noOfRows.length; i++ ){
-//            for(int j = 0; j < noOfColumns.length; j++ ){
+        }
+        
+        Location[][] locations = new Location[rows][columns];
+        
+        
+        for (int rowCount = 0; rowCount < rows; rowCount++) {
+            for (int colCount = 0; colCount < columns; colCount++) {
+               
+                Location area = new Location();
+                area.setVisited(false);
+                
+                locations[rowCount][colCount] = area;
+            }
+        }
+
+//        for(int i = 0; i < rowCount.length; i++ ){
+//            for(int j = 0; j < colCount.length; j++ ){
 //                Location[][] location = new Location[][];
 //                
 //            }
@@ -66,121 +86,205 @@ public class MapControl {
         Game game = OregonTrailv2.getCurrentGame();
         Scene[] scenes = new Scene[SceneType.values().length];
 
-        Scene start = new Scene();
-        start.setSceneType(0);
-        start.setDescription("Start");
-        start.setBlocked(false);
-        start.setMapSymbol("");
-        start.setTravelTime(0);
-        scenes[SceneType.start.ordinal()] = start;
+        Scene Start = new Scene();
+        Start.setDescription("Start - Indepence");
+        Start.setBlocked(false);
+        Start.setMapSymbol("*ST*");
+        Start.setTravelTime(0);
+        Start.setLocation(new Point(18, 20));
+        scenes[SceneType.Start.ordinal()] = Start;
 
-        Scene store = new Scene();
-        store.setSceneType(0);
-        store.setDescription("Store");
-        store.setBlocked(false);
-        store.setMapSymbol("");
-        store.setTravelTime(0);
-        scenes[SceneType.store.ordinal()] = store;
+        Scene KansasRiverCrossing = new Scene();
+        KansasRiverCrossing.setDescription("Kansas River Crossing");
+        KansasRiverCrossing.setBlocked(false);
+        KansasRiverCrossing.setMapSymbol("}=={");
+        KansasRiverCrossing.setTravelTime(0);
+        KansasRiverCrossing.setLocation(new Point(15, 20));
+        scenes[SceneType.KansasRiverCrossing.ordinal()] = KansasRiverCrossing;
+        
+        Scene BigBlueRiverCrossing = new Scene();
+        BigBlueRiverCrossing.setDescription("Big Blue River Crossing");
+        BigBlueRiverCrossing.setBlocked(false);
+        BigBlueRiverCrossing.setMapSymbol("}=={");
+        BigBlueRiverCrossing.setTravelTime(0);
+        BigBlueRiverCrossing.setLocation(new Point(8, 19));
+        scenes[SceneType.BigBlueRiverCrossing.ordinal()] = BigBlueRiverCrossing;
 
-        Scene mountain = new Scene();
-        mountain.setSceneType(0);
-        mountain.setDescription("Mountain");
-        mountain.setBlocked(false);
-        mountain.setMapSymbol("");
-        mountain.setTravelTime(0);
-        scenes[SceneType.mountain.ordinal()] = mountain;
+        Scene FortKearney = new Scene();
+        FortKearney.setDescription("Fort Kearney");
+        FortKearney.setBlocked(false);
+        FortKearney.setMapSymbol("*FT*");
+        FortKearney.setTravelTime(0);
+        FortKearney.setLocation(new Point(8, 19));
+        scenes[SceneType.FortKearney.ordinal()] = FortKearney;
 
-        Scene river = new Scene();
-        river.setSceneType(0);
-        river.setDescription("River");
-        river.setBlocked(false);
-        river.setMapSymbol("");
-        river.setTravelTime(0);
-        scenes[SceneType.river.ordinal()] = river;
+        Scene ChimneyRock = new Scene();
+        ChimneyRock.setDescription("ChimneyRock");
+        ChimneyRock.setBlocked(false);
+        ChimneyRock.setMapSymbol("*^^*");
+        ChimneyRock.setTravelTime(0);
+        ChimneyRock.setLocation(new Point(10, 17));
+        scenes[SceneType.ChimneyRock.ordinal()] = ChimneyRock;
 
-        Scene wilderness = new Scene();
-        wilderness.setSceneType(0);
-        wilderness.setDescription("Wilderness");
-        wilderness.setBlocked(false);
-        wilderness.setMapSymbol("");
-        wilderness.setTravelTime(0);
-        scenes[SceneType.wilderness.ordinal()] = wilderness;
+        Scene FortLaramie = new Scene();
+        FortLaramie.setDescription("FortLaramie");
+        FortLaramie.setBlocked(false);
+        FortLaramie.setMapSymbol("||||");
+        FortLaramie.setTravelTime(0);
+        FortLaramie.setLocation(new Point(16, 13));  
+        scenes[SceneType.FortLaramie.ordinal()] = FortLaramie;
+        
+        Scene IndependenceRock = new Scene();
+        IndependenceRock.setDescription("IndependenceRock");
+        IndependenceRock.setBlocked(false);
+        IndependenceRock.setMapSymbol("*^^*");
+        IndependenceRock.setTravelTime(0);
+        IndependenceRock.setLocation(new Point(10, 17));
+        scenes[SceneType.IndependenceRock.ordinal()] = IndependenceRock;
+        
+        Scene SouthPass = new Scene();
+        SouthPass.setDescription("SouthPass");
+        SouthPass.setBlocked(false);
+        SouthPass.setMapSymbol("^--^");
+        SouthPass.setTravelTime(0);
+        SouthPass.setLocation(new Point(8, 11));
+        scenes[SceneType.SouthPass.ordinal()] = SouthPass;
+        
+        Scene FortBridger = new Scene();
+        FortBridger.setDescription("FortBridger");
+        FortBridger.setBlocked(false);
+        FortBridger.setMapSymbol("||||");
+        FortLaramie.setTravelTime(0);
+        FortLaramie.setLocation(new Point(5, 9));  
+        scenes[SceneType.FortBridger.ordinal()] = FortBridger;
+        
+        Scene SodaSprings = new Scene();
+        SodaSprings.setDescription("SodaSprings");
+        SodaSprings.setBlocked(false);
+        SodaSprings.setMapSymbol("*TN*");
+        SodaSprings.setTravelTime(0);
+        SodaSprings.setLocation(new Point(9, 8));  
+        scenes[SceneType.SodaSprings.ordinal()] = SodaSprings;
+        
+        Scene FortHall = new Scene();
+        FortHall.setDescription("FortHall");
+        FortHall.setBlocked(false);
+        FortHall.setMapSymbol("||||");
+        FortHall.setTravelTime(0);
+        FortHall.setLocation(new Point(15, 7));  
+        scenes[SceneType.FortHall.ordinal()] = FortHall;
+        
+        Scene SnakeRiverCrossing = new Scene();
+        SnakeRiverCrossing.setDescription("SnakeRiverCrossing");
+        SnakeRiverCrossing.setBlocked(false);
+        SnakeRiverCrossing.setMapSymbol("}=={");
+        SnakeRiverCrossing.setTravelTime(0);
+        SnakeRiverCrossing.setLocation(new Point(18, 4));
+        scenes[SceneType.SnakeRiverCrossing.ordinal()] = SnakeRiverCrossing;
+        
+        Scene FortBoise = new Scene();
+        FortBoise.setDescription("FortBoise");
+        FortBoise.setBlocked(false);
+        FortBoise.setMapSymbol("||||");
+        FortBoise.setTravelTime(0);
+        FortBoise.setLocation(new Point(15, 7));  
+        scenes[SceneType.FortBoise.ordinal()] = FortBoise;
+        
+        Scene BlueMountains = new Scene();
+        BlueMountains.setDescription("BlueMountains");
+        BlueMountains.setBlocked(false);
+        BlueMountains.setMapSymbol("||||");
+        BlueMountains.setTravelTime(0);
+        BlueMountains.setLocation(new Point(15, 0));  
+        scenes[SceneType.BlueMountains.ordinal()] = BlueMountains;
 
-        Scene hunt = new Scene();
-        hunt.setSceneType(0);
-        hunt.setDescription("Hunt");
-        hunt.setBlocked(false);
-        hunt.setMapSymbol("");
-        hunt.setTravelTime(0);
-        scenes[SceneType.hunt.ordinal()] = hunt;
-
-        Scene fort = new Scene();
-        fort.setSceneType(0);
-        fort.setDescription("Fort");
-        fort.setBlocked(false);
-        fort.setMapSymbol("");
-        fort.setTravelTime(0);
-        scenes[SceneType.fort.ordinal()] = fort;
-
-        Scene bridge = new Scene();
-        bridge.setSceneType(0);
-        bridge.setDescription("Bridge");
-        bridge.setBlocked(false);
-        bridge.setMapSymbol("");
-        bridge.setTravelTime(0);
-        scenes[SceneType.bridge.ordinal()] = bridge;
-
-        Scene finish = new Scene();
-        finish.setSceneType(0);
-        finish.setDescription("finish");
-        finish.setBlocked(false);
-        finish.setMapSymbol("");
-        finish.setTravelTime(0);
-        scenes[SceneType.finish.ordinal()] = finish;
+        Scene FortWallaWalla = new Scene();
+        FortWallaWalla.setDescription("FortBoise");
+        FortWallaWalla.setBlocked(false);
+        FortWallaWalla.setMapSymbol("||||");
+        FortWallaWalla.setTravelTime(0);
+        FortWallaWalla.setLocation(new Point(12, 3));  
+        scenes[SceneType.FortWallaWalla.ordinal()] = FortWallaWalla;
+        
+        Scene TheDalles = new Scene();
+        TheDalles.setDescription("TheDalles");
+        TheDalles.setBlocked(false);
+        TheDalles.setMapSymbol("*TN*");
+        TheDalles.setTravelTime(0);
+        TheDalles.setLocation(new Point(9, 4));  
+        scenes[SceneType.TheDalles.ordinal()] = TheDalles;
+        
+        Scene BarlowTollRoad = new Scene();
+        BarlowTollRoad.setDescription("BarlowTollRoad");
+        BarlowTollRoad.setBlocked(false);
+        BarlowTollRoad.setMapSymbol("^--^");
+        BarlowTollRoad.setTravelTime(0);
+        BarlowTollRoad.setLocation(new Point(9, 4));  
+        scenes[SceneType.BarlowTollRoad.ordinal()] = BarlowTollRoad;
+        
+        Scene WillametteValley = new Scene();
+        WillametteValley.setDescription("Finish - Willamete Valley");
+        WillametteValley.setBlocked(false);
+        WillametteValley.setMapSymbol("^--^");
+        WillametteValley.setTravelTime(0);
+        WillametteValley.setLocation(new Point(9, 4));  
+        scenes[SceneType.WillametteValley.ordinal()] = WillametteValley;
 
         return scenes;
+
     }
 
-//    public static Question[] createQuestions(){
-//        Question[] questions = new Question[QuestionType.values().length];
-//        
-//        Question start = new Question();
-//        start.setQuestion("What month should I leave?");
-//        start.setAnswer("Don't leave too late or too early?");
-//        questions[QuestionType.start.ordinal()] = start;
-//        
-//        Question riverCross = new Question();
-//        riverCross.setQuestion("How much is it to cross");
-//        riverCross.setAnswer("It will cost $5.00");
-//        questions[QuestionType.riverCross.ordinal()] = riverCross;
-//        
-//        Question trade = new Question();
-//        trade.setQuestion("What can you give me");
-//        trade.setAnswer("Whatever you want");
-//        questions[QuestionType.trade.ordinal()] = trade;
-//        
-//        return questions;
-//    }
-//    
-//    public static void assignQuestionsToScenes(Question[] questions, 
-//                                                Scene[] scenes){
-//        System.out.println("\n*** assignQuestionsToScenes called ***");
-//    }
-//    
-//    public static void assignItemsToScenes(InventoryItem[] items,
-//                                            Scene[] scenes){
-//        System.out.println("\n*** assignItemsToScenes called ***");
-//    }
-//    
-//    public static void assignScenesToLocations(Scene[] scenes, 
-//                                                Location[][] locations){
-//        System.out.println("\n*** assignScensToLocations called ***");
-//    }
+    public static Question[] createQuestions(){
+        Question[] questions = new Question[QuestionType.values().length];
+        
+        Question start = new Question();
+        start.setQuestion("What month should I leave?");
+        start.setAnswer("Don't leave too late or too early?");
+        questions[QuestionType.start.ordinal()] = start;
+        
+        Question riverCross = new Question();
+        riverCross.setQuestion("How much is it to cross");
+        riverCross.setAnswer("It will cost $5.00");
+        questions[QuestionType.riverCross.ordinal()] = riverCross;
+        
+        Question trade = new Question();
+        trade.setQuestion("What can you give me");
+        trade.setAnswer("Whatever you want");
+        questions[QuestionType.trade.ordinal()] = trade;
+        
+        return questions;
+    }
+    
+    public static void assignQuestionsToScenes(Question[] questions, 
+                                                Scene[] scenes){
+        System.out.println("\n*** assignQuestionsToScenes called ***");
+    }
+    
+    public static void assignItemsToScenes(InventoryItem[] items,
+                                            Scene[] scenes){
+        System.out.println("\n*** assignItemsToScenes called ***");
+    }
+
+    public static void assignScenesToLocations(Map map, Scene[] locations) {
+        Location[][] location = map.getLocations();
+        Point coordinate;
+
+        HashMap<String, ArrayList<Point>> sceneLocations = new HashMap<String, ArrayList<Point>>();
+
+//        Brother Westensee and I worked toether and found that there was an
+//        issue with adding this for next loop - we removed a huge amount of code
+//        and replaced it with this two liner. Hopefully we will get to check it
+//        out next week.
+//        for(Scene scene: locations){
+//        location[scene.getLocation().x,scene.getLocation().y];
+//        }
+      
+    }
 
 //    public static int moveActorsToStartingLocation(Map map) {
 //        // for every actor
 //        Actor[] actors = Actor.values();
-//
+//        List<Actor> actors = GameControl.getActors();
 //        for (Actor actor : actors) {
 //            int returnValue = MapControl.moveActorToLocation(actor, actor.getCoordinates());
 //            if (returnValue < 0) {
@@ -188,52 +292,55 @@ public class MapControl {
 //            }
 //        }
 //        return 0;
-//        
+//
 //    }
-//    
-//    
-//        
-//    
-//    public static void moveActorToLocation(OregonTrailv2 actor, Point coordinates)
-//                            throws MapControlException{
-//        
-//        Map map = OregonTrailv2.getCurrentGame().getMap();
-//        int newRow = coordinates.x-1;
-//        int newColumn = coordinates.y-1;
-//        
-//        if (newRow < 0  || newRow >= map.getNoOfRows() ||
-//            newColumn < 0  || newColumn >= map.getNoOfColumns()) {
-//            throw new MapControlException("Cannot move actor to location"
-//                    + coordinates.x + ", " + coordinates.y
-//                    + " because the location is outside"
-//                    + "the bounds of the map.");
-//        }
-//        
-//        Location newLocation = map.getLocations()[newRow][newColumn];
-//        Point actorCoordinates = actor.getCoordinates();
-//        Location oldLocation = map.getLocations()[actorCoordinates.x][actorCoordinates.y];
-//        
-//        // check to see if the actor is in the current location
+   
+    
+        
+    
+    public static void moveActorToLocation(Point playerCoordinates)
+                            throws MapControlException{
+        
+        Map map = OregonTrailv2.getCurrentGame().getMap();
+        int newRow = playerCoordinates.x-1;
+        int newColumn = playerCoordinates.y-1;
+        
+        if (newRow < 0  || newRow >= map.getNoOfRows() ||
+            newColumn < 0  || newColumn >= map.getNoOfColumns()) {
+            throw new MapControlException("Cannot move player to location"
+                    + playerCoordinates.x + ", " + playerCoordinates.y
+                    + " because the location is outside"
+                    + "the bounds of the map.");
+        }
+        
+        
+        
+        // We can now move player to new location
+        Location newLocation = map.getLocations()[newRow][newColumn];
+        Point oldLocation = map.getPlayerCordinates();
+        // mark new locations as visited on arrival  
+        
+        // check to see if the actor is in the current location
 //        if (oldLocation != null) {
-//            oldLocation.removeActor(actor); // remove actor from old location
+//            oldLocation.removePlayer player; // remove actor from old location
 //        }
-//        
+        
 //        newLocation.addActor(actor); // add actor to new location
-//        actorCoordinates.x = newRow;
-//        actorCoordinates.y = newColumn; // set actor to new location
-//        newLocation.setVisited(true); // mark as a visted locations
-//        
-//    }
-//    
-//    
-//    
-//    public static Location getLocation(Point coordinates) {
-//        System.out.println("*** getLocation() called");
-//        Location location = new Location();
-//        location.setRow(coordinates.x);
-//        location.setScene(new Scene(SceneGroup.regular, "You are in the ocean", "~~~", 0, true));
-//        location.setColumn(coordinates.y);
-//        return location;
-//    }
+        playerCoordinates.x = newRow;
+        playerCoordinates.y = newColumn; // set actor to new location
+        newLocation.setVisited(true); // mark as a visted location
+        
+    }
+    
+    
+    
+    public static Location getLocation(Point coordinates) {
+        System.out.println("*** getLocation() called");
+        Location location = new Location();
+        location.setRow(coordinates.x);
+        location.setSceneType(new Scene(SceneGroup.regular, "You are in the ocean", "~~~", 0, true));
+        location.setColumn(coordinates.y);
+        return location;
+    }
     
 }

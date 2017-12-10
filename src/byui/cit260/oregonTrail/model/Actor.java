@@ -5,6 +5,7 @@
  */
 package byui.cit260.oregonTrail.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,18 +17,16 @@ import java.util.Objects;
  */
 public class Actor implements Serializable {
 
-//    static Iterable<Actor> values() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
 
     // class instance variables
     private String name;
     private int health = 100;
-    private int coordinates;
+    private Point coordinates;
+    
     // relationship instances
     private Game game;
     private ArrayList<RandomEvent> events = new ArrayList<RandomEvent>();
-
+    
     // constructor function
     public Actor() {
     }
@@ -61,14 +60,20 @@ public class Actor implements Serializable {
         return health;
     }
 
-    // hashcode function
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + this.health;
-        return hash;
+    public void setHealth(int health) {
+    this.health = health;
     }
+
+    public Point getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Point coordinates) {
+        this.coordinates = coordinates;
+    }
+    
+    
+
     // toString function
 
     @Override
@@ -76,7 +81,19 @@ public class Actor implements Serializable {
         return "Actor{" + "name=" + name + ", health=" + health + ", game=" + game + ", events=" + events + '}';
     }
 
-    // equals function
+    // equals nad Hash function
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + this.health;
+        hash = 97 * hash + Objects.hashCode(this.coordinates);
+        hash = 97 * hash + Objects.hashCode(this.game);
+        hash = 97 * hash + Objects.hashCode(this.events);
+        return hash;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -95,10 +112,19 @@ public class Actor implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
+        if (!Objects.equals(this.coordinates, other.coordinates)) {
+            return false;
+        }
+        if (!Objects.equals(this.game, other.game)) {
+            return false;
+        }
+        if (!Objects.equals(this.events, other.events)) {
+            return false;
+        }
         return true;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
-    }
+    
+
+
 }

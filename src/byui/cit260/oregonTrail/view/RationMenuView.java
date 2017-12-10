@@ -5,6 +5,9 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import byui.cit260.oregonTrail.control.GameControl;
+import byui.cit260.oregonTrail.model.RationType;
+
 /**
  *
  * @author sadss
@@ -14,12 +17,12 @@ class RationMenuView extends View {
         super("\n"
                 + "\n===============Oregon Trail Game================="
                 + "\n                                                 "
-                + "\n                Hunt Menu                        "
+                + "\n                Ration Menu                        "
                 + "\n                                                 "
-                + "\n1 - Filling    - meals are large and generous    "
-                + "\n2 - Meagre     - meals are small, but adequate   "
-                + "\n3 - Bare bones - meals are very small; everyone  "
-                + "\n                 stays hungry                    "
+                + "\n1 - "+ RationType.Filling.name()+"    - meals are large and generous    "
+                + "\n2 - "+ RationType.Meagre.name()+"     - meals are small, but adequate   "
+                + "\n3 - "+ RationType.BareBones.name()+"  - meals are very small; everyone  "
+                + "\n    stays hungry                                "
                 + "\nX - Exit                                         "
                 + "\n"
                 + "\n=================================================",
@@ -66,19 +69,28 @@ class RationMenuView extends View {
                 break;
         }
         return false;
+        
     }  
 
     private void fillingRation() {
-        this.console.println("***fillingRation() function stub called***");
+        GameControl.setRation("Filling");
+        this.console.println("*** Rations are set to filling ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void meagreRation() {
-        this.console.println("***meagreRation() function stub called***");
+        GameControl.setRation("Meagre");
+        this.console.println("*** Rations are set to Meagre ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
     
     private void bareBonesRation() {
-        this.console.println("***bareBonesRation() function stub called***");
-        
+        GameControl.setRation("Bare bones");
+        this.console.println("*** Rations are set to Bare bones ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
 

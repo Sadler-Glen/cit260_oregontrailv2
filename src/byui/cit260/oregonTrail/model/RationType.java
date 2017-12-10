@@ -5,18 +5,15 @@
  */
 package byui.cit260.oregonTrail.model;
 
+import byui.cit260.oregonTrail.view.*;
 import java.io.Serializable;
 
 /**
  *
  * @author sadss
  */
-public enum ItemType implements Serializable{
-    Oxen,
-    Food,
-    Clothing,
-    Ammunition,
-    Wheel,
-    Axle,
-    Tongue;
+public enum RationType implements Serializable{
+   Filling,
+   Meagre,
+   BareBones;
 }

@@ -5,9 +5,11 @@
  */
 package byui.cit260.oregonTrail.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,18 +25,31 @@ public class Game implements Serializable {
     private double totalTime;
     private String climate;
     private InventoryItem[] inventory;
-    private OccupationType[] occupation;
+    private Occupation[] occupation;
     private Map map; 
     private Player player;
     private List<Actor> actors = new ArrayList<Actor>(); // 1..* relationship
-    private String startMonth;
+    private Date startDate;
+    private Wagon wagon;
+    private Weather weather;
+    private Pace pace;
+    private Ration ration;
+    public Point playerCoordinates;
     
     // constructor
     public Game() {
     }
     
     // getter and setter functions
-    
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
 
     public int getNoPeople() {
         return noPeople;
@@ -76,11 +91,11 @@ public class Game implements Serializable {
         this.map = map;
     }
 
-    public OccupationType[] getOccupation() {
+    public Occupation[] getOccupation() {
         return occupation;
     }
 
-    public void setOccupation(OccupationType[] occupation) {
+    public void setOccupation(Occupation[] occupation) {
         this.occupation = occupation;
     }
 
@@ -99,27 +114,69 @@ public class Game implements Serializable {
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
 
+    public Wagon getWagon() {
+        return wagon;
+    }
 
+    public void setWagon(Wagon wagon) {
+        this.wagon = wagon;
+    }
 
+    public Weather getWeather() {
+        return weather;
+    }
+
+    public void setWeather(Weather weather) {
+        this.weather = weather;
+    }
+
+    public Pace getPace() {
+        return pace;
+    }
+
+    public void setPace(Pace pace) {
+        this.pace = pace;
+    }
+
+    public Ration getRation() {
+        return ration;
+    }
+
+    public void setRation(Ration ration) {
+        this.ration = ration;
+    }
+
+    public Point getPlayerCoordinates() {
+        return playerCoordinates;
+    }
+
+    public void setPlayerCoordinates(Point playerCoordinates) {
+        this.playerCoordinates = playerCoordinates;
+    }
 
     @Override
     public String toString() {
-        return "Game{" + "noPeople=" + noPeople + ", totalTime=" + totalTime + ", climate=" + climate + ", inventory=" + inventory + ", occupation=" + occupation + ", map=" + map + ", player=" + player + ", actors=" + actors + '}';
+        return "Game{" + "noPeople=" + noPeople + ", totalTime=" + totalTime + ", climate=" + climate + ", inventory=" + inventory + ", occupation=" + occupation + ", map=" + map + ", player=" + player + ", actors=" + actors + ", startDate=" + startDate + ", wagon=" + wagon + ", weather=" + weather + ", pace=" + pace + ", ration=" + ration + ", playerCoordinates=" + playerCoordinates + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.noPeople;
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
-        hash = 97 * hash + Objects.hashCode(this.climate);
-        hash = 97 * hash + Arrays.deepHashCode(this.inventory);
-        hash = 97 * hash + Arrays.deepHashCode(this.occupation);
-        hash = 97 * hash + Objects.hashCode(this.map);
-        hash = 97 * hash + Objects.hashCode(this.player);
-        hash = 97 * hash + Objects.hashCode(this.actors);
+        int hash = 5;
+        hash = 47 * hash + this.noPeople;
+        hash = 47 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
+        hash = 47 * hash + Objects.hashCode(this.climate);
+        hash = 47 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 47 * hash + Arrays.deepHashCode(this.occupation);
+        hash = 47 * hash + Objects.hashCode(this.map);
+        hash = 47 * hash + Objects.hashCode(this.player);
+        hash = 47 * hash + Objects.hashCode(this.actors);
+        hash = 47 * hash + Objects.hashCode(this.startDate);
+        hash = 47 * hash + Objects.hashCode(this.wagon);
+        hash = 47 * hash + Objects.hashCode(this.weather);
+        hash = 47 * hash + Objects.hashCode(this.pace);
+        hash = 47 * hash + Objects.hashCode(this.ration);
+        hash = 47 * hash + Objects.hashCode(this.playerCoordinates);
         return hash;
     }
 
@@ -159,7 +216,28 @@ public class Game implements Serializable {
         if (!Objects.equals(this.actors, other.actors)) {
             return false;
         }
+        if (!Objects.equals(this.startDate, other.startDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.wagon, other.wagon)) {
+            return false;
+        }
+        if (!Objects.equals(this.weather, other.weather)) {
+            return false;
+        }
+        if (!Objects.equals(this.pace, other.pace)) {
+            return false;
+        }
+        if (!Objects.equals(this.ration, other.ration)) {
+            return false;
+        }
+        if (!Objects.equals(this.playerCoordinates, other.playerCoordinates)) {
+            return false;
+        }
         return true;
     }
 
+    
+    
+    
 }

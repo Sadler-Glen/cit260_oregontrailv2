@@ -65,7 +65,7 @@ public class StartProgramView {
         boolean valid = false; // initialize to not valid
         try {
             while (!valid) { // loop while an invalid value is entered
-                this.console.println(this.promptMessage);/*(this.promptMessage)*/
+                this.console.printf(this.promptMessage);/*(this.promptMessage)*/
 
 
                 value = keyboard.readLine(); // get next line typed on keyboard

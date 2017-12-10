@@ -5,18 +5,29 @@
  */
 package byui.cit260.oregonTrail.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author sadss
  */
-public enum SceneType {
-    start, //0
-    store, //1
-    mountain, //2
-    river, //3
-    wilderness, //4
-    hunt, //5
-    fort, //6
-    bridge, //7
-    finish;         //8
+public enum SceneType implements Serializable{
+    Start,
+    KansasRiverCrossing,
+    BigBlueRiverCrossing,
+    FortKearney,
+    ChimneyRock,
+    FortLaramie,
+    IndependenceRock,
+    SouthPass,
+    FortBridger,
+    SodaSprings,
+    FortHall,
+    SnakeRiverCrossing,
+    FortBoise,
+    BlueMountains,
+    FortWallaWalla,
+    TheDalles,
+    BarlowTollRoad,
+    WillametteValley;
 }

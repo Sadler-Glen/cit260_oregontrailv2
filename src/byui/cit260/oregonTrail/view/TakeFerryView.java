@@ -9,23 +9,20 @@ package byui.cit260.oregonTrail.view;
  *
  * @author sadss
  */
-public class GatherFoodMenuView extends View{
-    
-    public GatherFoodMenuView(){
-        super("\n"
-                + "\n===============Oregon Trail Game================="
-                + "\n                                                 "
-                + "\n             Gather Food Menu                    "
-                + "\n                                                 "
-                + "\n1 - Berries                                      "
-                + "\n2 - etc                                          "
-                + "\n3 - etc                                          "
-                + "\n2 - Gather food help information                        "
-                + "\nX - Exit                                         "
-                + "\n=================================================",
-                "\nPlease enter your choice: ");
-
-    }
+public class TakeFerryView extends View {
+    public TakeFerryView() {
+        
+    super("\n===============Oregon Trail Game================="
+            + "\n                                                 "
+            + "\n              Ferry Crossing                     "
+            + "\n                                                 "
+            + "\n  The ferry operator says that he will charge    "
+            + "\n  you $5.00 and that you will have to wait x?    "
+            + "\n  days. "
+            + "\n                                                 "
+            + "\n=================================================",
+            "\nAre you Willing to do this (Y/N)?: ");
+}
 
     @Override
     public void display() {
@@ -49,22 +46,16 @@ public class GatherFoodMenuView extends View{
 
     @Override
     public boolean doAction(String menu) {
-        menu = menu.toUpperCase(); // convert choice to upper cas
-
+        menu = menu.toUpperCase(); // convert choice to upper case
         switch (menu) {
-            case "1":
+            case "Y":
+                this.console.println("\n*** The ferry has successfully carried you across the river *** ");
+                this.takeFerryRide();
                 break;
-            case "2":
-                break;
-            case "3":
-                
-                break;
-            case "4":
-                
-                break; 
-            case "5":
-                
-                break;        
+            case "N":
+                this.console.println("\n*** Try another option to cross the river *** ");
+                this.takeFerryRide();
+                break;               
             default:
                 ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
                 break;
@@ -72,4 +63,8 @@ public class GatherFoodMenuView extends View{
         return false;
     }  
 
+    private void takeFerryRide() {
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
 }

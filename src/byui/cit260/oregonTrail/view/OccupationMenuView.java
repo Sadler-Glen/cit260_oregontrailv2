@@ -6,6 +6,8 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
+import byui.cit260.oregonTrail.model.Game;
+import byui.cit260.oregonTrail.model.Occupation;
 import byui.cit260.oregonTrail.model.Player;
 import java.io.IOException;
 
@@ -13,7 +15,7 @@ import java.io.IOException;
  *
  * @author sadss
  */
-public class OccupationMenuView extends View {
+public class OccupationMenuView extends View { //
 
     public OccupationMenuView() {
 
@@ -72,12 +74,15 @@ public class OccupationMenuView extends View {
                     break;
                 case "3":
                     //choose to be a farmer
+                    this.farmer();
                     break;
                 case "4": //display information abouteach occupation
                     this.occupationHelpInfo();
                     break;
                 default:
                     ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
+                    OccupationMenuView occupation = new OccupationMenuView();
+                    occupation.display();
                     break;
             }
         } catch (Exception e) {
@@ -89,18 +94,23 @@ public class OccupationMenuView extends View {
 
     private void banker() throws Exception {
         GameControl.setFundAmount(1600);
+        GameControl.setOccupation("Banker");
+        this.console.println();
+        this.console.println("Funds: "+ GameControl.getFundAmount()+ " Occupation: " + GameControl.getOccupation());
         WagonPartyView partyMember = new WagonPartyView();
         partyMember.displayPartyList();
     }
 
     private void carpenter() throws Exception {
         GameControl.setFundAmount(800);
+        GameControl.setOccupation("Carpenter");
         WagonPartyView partyMember = new WagonPartyView();
         partyMember.displayPartyList();
     }
 
     private void farmer() throws Exception {
         GameControl.setFundAmount(400);
+        GameControl.setOccupation("Farmer");
         WagonPartyView partyMember = new WagonPartyView();
         partyMember.displayPartyList();
     }

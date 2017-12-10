@@ -6,12 +6,13 @@
 package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.exceptions.RiverCrossingControlException;
+import java.io.Serializable;
 
 /**
  *
  * @author Casper
  */
-public class RiverCrossingControl  {
+public class RiverCrossingControl  implements Serializable{
 
     public void riverCrossing(int river, int crossingType) throws RiverCrossingControlException{
         int success = 1;

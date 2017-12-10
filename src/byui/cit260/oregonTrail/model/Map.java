@@ -6,6 +6,7 @@
  */
 package byui.cit260.oregonTrail.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -13,61 +14,54 @@ import java.util.Arrays;
  *
  * @author Felix Achina
  */
-public class Map implements Serializable {
 
+public class Map implements Serializable {
+    
     private int noOfRows;
     private int noOfColumns;
-    private int currentRow;
-    private int currentColumn;
     private Location[][] locations;
+    private Point playerCoordinates;
 
-    public Map() {
+    public Map() {     
     }
-
+    
     public Map(int noOfRows, int noOfColumns) {
-
+        
         if (noOfRows < 1 || noOfColumns < 1) {
             System.out.println("The number of rows and columns must be > zero");
             return;
         }
-
+        
         this.noOfRows = noOfRows;
         this.noOfColumns = noOfColumns;
-
+        
         // create 2-D array for Location objects
         this.locations = new Location[noOfRows][noOfColumns];
-
+        
         for (int row = 0; row < noOfRows; row++) {
-            for (int column = 0; column < noOfColumns; column++) {
+            for(int column = 0; column < noOfColumns; column++) {
                 // create and initialize new Location object instance
                 Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
                 location.setVisited(false);
-
+                
                 // assign the Location object to the current position in array
-                locations[row][column] = location;
+                locations[row][column] = location;          
             }
         }
     }
 
-    public int getCurrentRow() {
-        return currentRow;
+    public Point getPlayerCordinates() {
+        return playerCoordinates;
     }
 
-    public void setCurrentRow(int currentRow) {
-        this.currentRow = currentRow;
+    public void setPlayerCordinates(Point playerCordinates) {
+        this.playerCoordinates = playerCordinates;
     }
 
-    public int getCurrentColumn() {
-        return currentColumn;
-    }
-
-    public void setCurrentColumn(int currentColumn) {
-        this.currentColumn = currentColumn;
-    }
-
-    public int getNoOfRows() {
+    
+    public long getNoOfRows() {
         return noOfRows;
     }
 
@@ -75,7 +69,7 @@ public class Map implements Serializable {
         this.noOfRows = noOfRows;
     }
 
-    public int getNoOfColumns() {
+    public long getNoOfColumns() {
         return noOfColumns;
     }
 
@@ -90,28 +84,25 @@ public class Map implements Serializable {
     public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
+    
+    
+    
 
     @Override
     public String toString() {
-        return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", locations=" + locations + '}';
+        return "Map{" + "rowCount=" + noOfRows + ", columnCount=" + noOfColumns + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + this.noOfRows;
-        hash = 67 * hash + this.noOfColumns;
-        hash = 67 * hash + this.currentRow;
-        hash = 67 * hash + this.currentColumn;
-        hash = 67 * hash + Arrays.deepHashCode(this.locations);
+        hash = 37 * hash + (int) (this.noOfRows ^ (this.noOfRows >>> 32));
+        hash = 37 * hash + (int) (this.noOfColumns ^ (this.noOfColumns >>> 32));
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
@@ -125,16 +116,10 @@ public class Map implements Serializable {
         if (this.noOfColumns != other.noOfColumns) {
             return false;
         }
-        if (this.currentRow != other.currentRow) {
-            return false;
-        }
-        if (this.currentColumn != other.currentColumn) {
-            return false;
-        }
-        if (!Arrays.deepEquals(this.locations, other.locations)) {
-            return false;
-        }
         return true;
     }
-
+    
+    
+    
 }
+

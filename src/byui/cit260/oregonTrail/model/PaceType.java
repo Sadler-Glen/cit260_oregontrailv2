@@ -11,12 +11,8 @@ import java.io.Serializable;
  *
  * @author sadss
  */
-public enum ItemType implements Serializable{
-    Oxen,
-    Food,
-    Clothing,
-    Ammunition,
-    Wheel,
-    Axle,
-    Tongue;
+public enum PaceType implements Serializable{
+    Steady,
+    Strenuous,
+    Gruelling,
 }

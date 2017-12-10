@@ -6,12 +6,13 @@
 package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.exceptions.HealthLevelControlException;
+import java.io.Serializable;
 
 /**
  *
  * @author Glen Sadler
  */
-public class HealthLevelControl {
+public class HealthLevelControl implements Serializable{
 
     public void evalHealthLevel(int days, int ration, int pace) throws HealthLevelControlException {
         int health = 0;
