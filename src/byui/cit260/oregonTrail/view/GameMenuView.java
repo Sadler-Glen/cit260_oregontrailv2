@@ -96,7 +96,7 @@ public class GameMenuView extends View {
             case 'I': // inventory report
                 this.inventoryReport();
                 break;
-            case 'A': // display the help menu
+            case 'H': // display the help menu
                 this.displayHelpMenu();
                 break;
             case 'Q':
