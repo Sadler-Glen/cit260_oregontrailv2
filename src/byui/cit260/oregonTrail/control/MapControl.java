@@ -86,15 +86,15 @@ public class MapControl implements Serializable{
         Game game = OregonTrailv2.getCurrentGame();
         Scene[] scenes = new Scene[SceneType.values().length];
 
-        Scene Start = new Scene();
-        Start.setDescription("Start - Indepence");
+        Scene Start = new Scene();//1
+        Start.setDescription("Start - Independence");
         Start.setBlocked(false);
         Start.setMapSymbol("*ST*");
         Start.setTravelTime(0);
         Start.setLocation(new Point(18, 19));
-        scenes[SceneType.Start.ordinal()] = Start;
-
-        Scene KansasRiverCrossing = new Scene();
+        scenes[SceneType.Independence.ordinal()] = Start;
+        
+        Scene KansasRiverCrossing = new Scene();//2
         KansasRiverCrossing.setDescription("Kansas River Crossing");
         KansasRiverCrossing.setBlocked(false);
         KansasRiverCrossing.setMapSymbol("}=={");
@@ -102,7 +102,7 @@ public class MapControl implements Serializable{
         KansasRiverCrossing.setLocation(new Point(15, 19));
         scenes[SceneType.KansasRiverCrossing.ordinal()] = KansasRiverCrossing;
         
-        Scene BigBlueRiverCrossing = new Scene();
+        Scene BigBlueRiverCrossing = new Scene();//3
         BigBlueRiverCrossing.setDescription("Big Blue River Crossing");
         BigBlueRiverCrossing.setBlocked(false);
         BigBlueRiverCrossing.setMapSymbol("}=={");
@@ -110,23 +110,23 @@ public class MapControl implements Serializable{
         BigBlueRiverCrossing.setLocation(new Point(8, 19));
         scenes[SceneType.BigBlueRiverCrossing.ordinal()] = BigBlueRiverCrossing;
 
-        Scene FortKearney = new Scene();
+        Scene FortKearney = new Scene();//4
         FortKearney.setDescription("Fort Kearney");
         FortKearney.setBlocked(false);
         FortKearney.setMapSymbol("*FT*");
         FortKearney.setTravelTime(0);
-        FortKearney.setLocation(new Point(10, 19));
+        FortKearney.setLocation(new Point(10, 17));
         scenes[SceneType.FortKearney.ordinal()] = FortKearney;
 
-        Scene ChimneyRock = new Scene();
+        Scene ChimneyRock = new Scene();//5
         ChimneyRock.setDescription("ChimneyRock");
         ChimneyRock.setBlocked(false);
         ChimneyRock.setMapSymbol("*^^*");
         ChimneyRock.setTravelTime(0);
-        ChimneyRock.setLocation(new Point(10, 17));
+        ChimneyRock.setLocation(new Point(15, 16));
         scenes[SceneType.ChimneyRock.ordinal()] = ChimneyRock;
 
-        Scene FortLaramie = new Scene();
+        Scene FortLaramie = new Scene();//6
         FortLaramie.setDescription("FortLaramie");
         FortLaramie.setBlocked(false);
         FortLaramie.setMapSymbol("||||");
@@ -134,31 +134,32 @@ public class MapControl implements Serializable{
         FortLaramie.setLocation(new Point(16, 13));  
         scenes[SceneType.FortLaramie.ordinal()] = FortLaramie;
         
-        Scene IndependenceRock = new Scene();
+        Scene IndependenceRock = new Scene();//7
         IndependenceRock.setDescription("IndependenceRock");
         IndependenceRock.setBlocked(false);
         IndependenceRock.setMapSymbol("*^^*");
         IndependenceRock.setTravelTime(0);
-        IndependenceRock.setLocation(new Point(10, 17));
+        IndependenceRock.setLocation(new Point(11, 13));
         scenes[SceneType.IndependenceRock.ordinal()] = IndependenceRock;
         
-        Scene SouthPass = new Scene();
-        SouthPass.setDescription("SouthPass");
+            
+        Scene SouthPass = new Scene();//8
+        SouthPass.setDescription("South Pass");
         SouthPass.setBlocked(false);
         SouthPass.setMapSymbol("^--^");
         SouthPass.setTravelTime(0);
         SouthPass.setLocation(new Point(8, 11));
         scenes[SceneType.SouthPass.ordinal()] = SouthPass;
         
-        Scene FortBridger = new Scene();
+        Scene FortBridger = new Scene();//8
         FortBridger.setDescription("FortBridger");
         FortBridger.setBlocked(false);
         FortBridger.setMapSymbol("||||");
-        FortLaramie.setTravelTime(0);
-        FortLaramie.setLocation(new Point(5, 9));  
+        FortBridger.setTravelTime(0);
+        FortBridger.setLocation(new Point(5, 9));
         scenes[SceneType.FortBridger.ordinal()] = FortBridger;
         
-        Scene SodaSprings = new Scene();
+        Scene SodaSprings = new Scene();//10
         SodaSprings.setDescription("SodaSprings");
         SodaSprings.setBlocked(false);
         SodaSprings.setMapSymbol("*TN*");
@@ -166,7 +167,7 @@ public class MapControl implements Serializable{
         SodaSprings.setLocation(new Point(9, 8));  
         scenes[SceneType.SodaSprings.ordinal()] = SodaSprings;
         
-        Scene FortHall = new Scene();
+        Scene FortHall = new Scene();//11
         FortHall.setDescription("FortHall");
         FortHall.setBlocked(false);
         FortHall.setMapSymbol("||||");
@@ -174,7 +175,7 @@ public class MapControl implements Serializable{
         FortHall.setLocation(new Point(15, 7));  
         scenes[SceneType.FortHall.ordinal()] = FortHall;
         
-        Scene SnakeRiverCrossing = new Scene();
+        Scene SnakeRiverCrossing = new Scene();//12
         SnakeRiverCrossing.setDescription("SnakeRiverCrossing");
         SnakeRiverCrossing.setBlocked(false);
         SnakeRiverCrossing.setMapSymbol("}=={");
@@ -182,23 +183,23 @@ public class MapControl implements Serializable{
         SnakeRiverCrossing.setLocation(new Point(18, 4));
         scenes[SceneType.SnakeRiverCrossing.ordinal()] = SnakeRiverCrossing;
         
-        Scene FortBoise = new Scene();
+        Scene FortBoise = new Scene();//13
         FortBoise.setDescription("FortBoise");
         FortBoise.setBlocked(false);
         FortBoise.setMapSymbol("||||");
         FortBoise.setTravelTime(0);
-        FortBoise.setLocation(new Point(16, 7));  
+        FortBoise.setLocation(new Point(19, 1));  
         scenes[SceneType.FortBoise.ordinal()] = FortBoise;
         
-        Scene BlueMountains = new Scene();
+        Scene BlueMountains = new Scene();//14
         BlueMountains.setDescription("BlueMountains");
         BlueMountains.setBlocked(false);
-        BlueMountains.setMapSymbol("||||");
+        BlueMountains.setMapSymbol("^^^^");
         BlueMountains.setTravelTime(0);
         BlueMountains.setLocation(new Point(15, 0));  
         scenes[SceneType.BlueMountains.ordinal()] = BlueMountains;
 
-        Scene FortWallaWalla = new Scene();
+        Scene FortWallaWalla = new Scene();//15
         FortWallaWalla.setDescription("FortBoise");
         FortWallaWalla.setBlocked(false);
         FortWallaWalla.setMapSymbol("||||");
@@ -206,7 +207,7 @@ public class MapControl implements Serializable{
         FortWallaWalla.setLocation(new Point(12, 3));  
         scenes[SceneType.FortWallaWalla.ordinal()] = FortWallaWalla;
         
-        Scene TheDalles = new Scene();
+        Scene TheDalles = new Scene();//16
         TheDalles.setDescription("TheDalles");
         TheDalles.setBlocked(false);
         TheDalles.setMapSymbol("*TN*");
@@ -214,20 +215,20 @@ public class MapControl implements Serializable{
         TheDalles.setLocation(new Point(9, 4));  
         scenes[SceneType.TheDalles.ordinal()] = TheDalles;
         
-        Scene BarlowTollRoad = new Scene();
+        Scene BarlowTollRoad = new Scene();//17
         BarlowTollRoad.setDescription("BarlowTollRoad");
         BarlowTollRoad.setBlocked(false);
         BarlowTollRoad.setMapSymbol("^--^");
         BarlowTollRoad.setTravelTime(0);
-        BarlowTollRoad.setLocation(new Point(12, 4));  
+        BarlowTollRoad.setLocation(new Point(4, 6));  
         scenes[SceneType.BarlowTollRoad.ordinal()] = BarlowTollRoad;
         
-        Scene WillametteValley = new Scene();
+        Scene WillametteValley = new Scene();//18
         WillametteValley.setDescription("Finish - Willamete Valley");
         WillametteValley.setBlocked(false);
-        WillametteValley.setMapSymbol("^--^");
+        WillametteValley.setMapSymbol("*FN*");
         WillametteValley.setTravelTime(0);
-        WillametteValley.setLocation(new Point(7, 4));  
+        WillametteValley.setLocation(new Point(3, 0));  
         scenes[SceneType.WillametteValley.ordinal()] = WillametteValley;
 
         return scenes;
@@ -275,11 +276,11 @@ public class MapControl implements Serializable{
 //        out next week.
 
         for(Scene scene: scenes){
-            double x = scene.getLocation().getX();
+            int x = scene.getLocation().x;
             int y = scene.getLocation().y;
-            Location sceneLocation = location[(int)x][y];
+            Location sceneLocation = location[x][y];
             sceneLocation.setSceneType(scene);
-            location[(int)x][y] = sceneLocation;
+            location[x][y] = sceneLocation;
       
         }
     }    
@@ -330,11 +331,9 @@ public class MapControl implements Serializable{
 //        newLocation.addActor(actor); // add actor to new location
         playerCoordinates.x = newRow;
         playerCoordinates.y = newColumn; // set actor to new location
-        newLocation.setVisited(true); // mark as a visted location
-        
+        newLocation.setVisited(true); // mark as a visted location        
     }
-    
-    
+  
     
     public static Location getLocation(Point coordinates) {
         System.out.println("*** getLocation() called");

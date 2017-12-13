@@ -11,24 +11,31 @@ import java.io.Serializable;
  *
  * @author sadss
  */
-public enum LocationType implements Serializable{
-    
-    Independence, //1
-    KansasRiverCrossing, //2
-    BigBlueRiverCrossing,//3
-    FortKearney, //4
-    ChimneyRock, //5
-    FortLaramie, //6
-    IndependenceRock, //7
-    SouthPass,//8
-    FortBridger,//9
-    SodaSprings,//10
-    FortHall,//11
-    SnakeRiverCrossing,//12
-    FortBoise,//13
-    BlueMountains,//14
-    FortWallaWalla,//15
-    TheDalles,//16
-    BarlowTollRoad,//17
-    WillametteValley;//18
+public enum LocationType implements Serializable {
+//    Start,
+//    RiverCrossing,
+//    Town,
+//    Fort,
+//    Pass,
+//    LandMark,
+//    Mountains,
+//    Finish;
+//    Independence,
+//    KansasRiverCrossing,
+//    BigBlueRiverCrossing,
+//    FortKearney,
+//    ChimneyRock,
+//    FortLaramie,
+//    IndependenceRock,
+//    SouthPass,
+//    FortBridger,
+//    SodaSprings,
+//    FortHall,
+//    SnakeRiverCrossing,
+//    FortBoise,
+//    BlueMountains,
+//    FortWallaWalla,
+//    TheDalles,
+//    BarlowTollRoad,
+//    WillametteValley;    
 }

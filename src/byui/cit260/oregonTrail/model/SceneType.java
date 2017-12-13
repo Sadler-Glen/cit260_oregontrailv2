@@ -12,7 +12,15 @@ import java.io.Serializable;
  * @author sadss
  */
 public enum SceneType implements Serializable{
-    Start,
+//    Start,
+//    RiverCrossing,
+//    Town,
+//    Fort,
+//    Pass,
+//    LandMark,
+//    Mountains,
+//    Finish;
+    Independence,
     KansasRiverCrossing,
     BigBlueRiverCrossing,
     FortKearney,

@@ -304,157 +304,157 @@ public class GameControl implements Serializable{
         
     }
     
-        public static Location[] createLocation(){
-        // create array list of Ration types
-        Location[] location = new Location[18];
-        
-        Location Independence = new Location();
-        Independence.setDescription("Independence");
-        Independence.setRow(18);
-        Independence.setColumn(20);
-        Independence.setVisited(false);
-        Independence.setDistanceTravelled(0);
-        location[LocationType.Independence.ordinal()] = Independence;
-        
-        Location KansasRiverCrossing = new Location();
-        KansasRiverCrossing.setDescription("Kansas River Crossing");
-        KansasRiverCrossing.setRow(15);
-        KansasRiverCrossing.setColumn(20);
-        KansasRiverCrossing.setVisited(false);
-        KansasRiverCrossing.setDistanceTravelled(102);
-        location[LocationType.KansasRiverCrossing.ordinal()] = KansasRiverCrossing;
-        
-        Location BigBlueRiverCrossing = new Location();
-        BigBlueRiverCrossing.setDescription("Big Blue River Crossing");
-        BigBlueRiverCrossing.setRow(8);
-        BigBlueRiverCrossing.setColumn(19);
-        BigBlueRiverCrossing.setVisited(false);
-        BigBlueRiverCrossing.setDistanceTravelled(185);
-        location[LocationType.BigBlueRiverCrossing.ordinal()] = BigBlueRiverCrossing;
-        
-        Location FortKearney = new Location();
-        FortKearney.setDescription("Fort Kearney");
-        FortKearney.setRow(10);
-        FortKearney.setColumn(17);
-        FortKearney.setVisited(false);
-        FortKearney.setDistanceTravelled(304);
-        location[LocationType.FortKearney.ordinal()] = FortKearney;
-        
-        Location ChimneyRock = new Location();
-        ChimneyRock.setDescription("Chimney Rock");
-        ChimneyRock.setRow(15);
-        ChimneyRock.setColumn(16);
-        ChimneyRock.setVisited(false);
-        ChimneyRock.setDistanceTravelled(554);
-        location[LocationType.ChimneyRock.ordinal()] = ChimneyRock;
-        
-        Location FortLaramie = new Location();
-        FortLaramie.setDescription("Fort Laramie");
-        FortLaramie.setRow(16);
-        FortLaramie.setColumn(13);
-        FortLaramie.setVisited(false);
-        FortLaramie.setDistanceTravelled(640);
-        location[LocationType.FortLaramie.ordinal()] = FortLaramie;
-        
-        Location IndependenceRock = new Location();
-        IndependenceRock.setDescription("Independence Rock");
-        IndependenceRock.setRow(11);
-        IndependenceRock.setColumn(13);
-        IndependenceRock.setVisited(false);
-        IndependenceRock.setDistanceTravelled(830);
-        location[LocationType.IndependenceRock.ordinal()] = IndependenceRock;
-        
-        Location SouthPass = new Location();
-        SouthPass.setDescription("South Pass");
-        SouthPass.setRow(8);
-        SouthPass.setColumn(11);
-        SouthPass.setVisited(false);
-        SouthPass.setDistanceTravelled(932);
-        location[LocationType.SouthPass.ordinal()] = SouthPass;
-        
-        Location FortBridger = new Location();
-        FortBridger.setDescription("Fort Bridger");
-        FortBridger.setRow(5);
-        FortBridger.setColumn(9);
-        FortBridger.setVisited(false);
-        FortBridger.setDistanceTravelled(1057);
-        location[LocationType.FortBridger.ordinal()] = FortBridger;
-        
-        Location SodaSprings = new Location();
-        SodaSprings.setDescription("Soda Springs");
-        SodaSprings.setRow(9);
-        SodaSprings.setColumn(8);
-        SodaSprings.setVisited(false);
-        SodaSprings.setDistanceTravelled(1219);
-        location[LocationType.SodaSprings.ordinal()] = SodaSprings;
-        
-        Location FortHall = new Location();
-        FortHall.setDescription("Fort Hall");
-        FortHall.setRow(15);
-        FortHall.setColumn(7);
-        FortHall.setVisited(false);
-        FortHall.setDistanceTravelled(1277);
-        location[LocationType.FortHall.ordinal()] = FortHall;
-        
-        Location SnakeRiverCrossing = new Location();
-        SnakeRiverCrossing.setDescription("Snake River Crossing");
-        SnakeRiverCrossing.setRow(18);
-        SnakeRiverCrossing.setColumn(4);
-        SnakeRiverCrossing.setVisited(false);
-        SnakeRiverCrossing.setDistanceTravelled(1458);
-        location[LocationType.SnakeRiverCrossing.ordinal()] = SnakeRiverCrossing;
-        
-        Location FortBoise = new Location();
-        FortBoise.setDescription("FortB oise");
-        FortBoise.setRow(19);
-        FortBoise.setColumn(1);
-        FortBoise.setVisited(false);
-        FortBoise.setDistanceTravelled(1572);
-        location[LocationType.FortBoise.ordinal()] = FortBoise;
-        
-        Location BlueMountains = new Location();
-        BlueMountains.setDescription("Blue Mountains");
-        BlueMountains.setRow(15);
-        BlueMountains.setColumn(0);
-        BlueMountains.setVisited(false);
-        BlueMountains.setDistanceTravelled(1732);
-        location[LocationType.BlueMountains.ordinal()] = BlueMountains;
-        
-        Location FortWallaWalla = new Location();
-        FortWallaWalla.setDescription("Fort Walla Walla");
-        FortWallaWalla.setRow(12);
-        FortWallaWalla.setColumn(3);
-        FortWallaWalla.setVisited(false);
-        FortWallaWalla.setDistanceTravelled(1787);
-        location[LocationType.FortWallaWalla.ordinal()] = FortWallaWalla;
-        
-        Location TheDalles = new Location();
-        TheDalles.setDescription("The Dalles");
-        TheDalles.setRow(9);
-        TheDalles.setColumn(4);
-        TheDalles.setVisited(false);
-        TheDalles.setDistanceTravelled(1907);
-        location[LocationType.TheDalles.ordinal()] = TheDalles;
-        
-        Location BarlowTollRoad = new Location();
-        BarlowTollRoad.setDescription("BarlowTollRoad");
-        BarlowTollRoad.setRow(4);
-        BarlowTollRoad.setColumn(6);
-        BarlowTollRoad.setVisited(false);
-        BarlowTollRoad.setDistanceTravelled(2007);
-        location[LocationType.BarlowTollRoad.ordinal()] = BarlowTollRoad;
-        
-        Location WillametteValley = new Location();
-        WillametteValley.setDescription("WillametteValley");
-        WillametteValley.setRow(1);
-        WillametteValley.setColumn(0);
-        WillametteValley.setVisited(false);
-        WillametteValley.setDistanceTravelled(2107);
-        location[LocationType.WillametteValley.ordinal()] = WillametteValley;
-
-        return location;
-            
-        }
+//        public static Location[] createLocation(){
+//        // create array list of Ration types
+//        Location[] location = new Location[18];
+//        
+//        Location Independence = new Location();
+//        Independence.setDescription("Independence");
+//        Independence.setRow(18);
+//        Independence.setColumn(20);
+//        Independence.setVisited(false);
+//        Independence.setDistanceTravelled(0);
+//        location[LocationType.Independence.ordinal()] = Independence;
+//        
+//        Location KansasRiverCrossing = new Location();
+//        KansasRiverCrossing.setDescription("Kansas River Crossing");
+//        KansasRiverCrossing.setRow(15);
+//        KansasRiverCrossing.setColumn(20);
+//        KansasRiverCrossing.setVisited(false);
+//        KansasRiverCrossing.setDistanceTravelled(102);
+//        location[LocationType.KansasRiverCrossing.ordinal()] = KansasRiverCrossing;
+//        
+//        Location BigBlueRiverCrossing = new Location();
+//        BigBlueRiverCrossing.setDescription("Big Blue River Crossing");
+//        BigBlueRiverCrossing.setRow(8);
+//        BigBlueRiverCrossing.setColumn(19);
+//        BigBlueRiverCrossing.setVisited(false);
+//        BigBlueRiverCrossing.setDistanceTravelled(185);
+//        location[LocationType.BigBlueRiverCrossing.ordinal()] = BigBlueRiverCrossing;
+//        
+//        Location FortKearney = new Location();
+//        FortKearney.setDescription("Fort Kearney");
+//        FortKearney.setRow(10);
+//        FortKearney.setColumn(17);
+//        FortKearney.setVisited(false);
+//        FortKearney.setDistanceTravelled(304);
+//        location[LocationType.FortKearney.ordinal()] = FortKearney;
+//        
+//        Location ChimneyRock = new Location();
+//        ChimneyRock.setDescription("Chimney Rock");
+//        ChimneyRock.setRow(15);
+//        ChimneyRock.setColumn(16);
+//        ChimneyRock.setVisited(false);
+//        ChimneyRock.setDistanceTravelled(554);
+//        location[LocationType.ChimneyRock.ordinal()] = ChimneyRock;
+//        
+//        Location FortLaramie = new Location();
+//        FortLaramie.setDescription("Fort Laramie");
+//        FortLaramie.setRow(16);
+//        FortLaramie.setColumn(13);
+//        FortLaramie.setVisited(false);
+//        FortLaramie.setDistanceTravelled(640);
+//        location[LocationType.FortLaramie.ordinal()] = FortLaramie;
+//        
+//        Location IndependenceRock = new Location();
+//        IndependenceRock.setDescription("Independence Rock");
+//        IndependenceRock.setRow(11);
+//        IndependenceRock.setColumn(13);
+//        IndependenceRock.setVisited(false);
+//        IndependenceRock.setDistanceTravelled(830);
+//        location[LocationType.IndependenceRock.ordinal()] = IndependenceRock;
+//        
+//        Location SouthPass = new Location();
+//        SouthPass.setDescription("South Pass");
+//        SouthPass.setRow(8);
+//        SouthPass.setColumn(11);
+//        SouthPass.setVisited(false);
+//        SouthPass.setDistanceTravelled(932);
+//        location[LocationType.SouthPass.ordinal()] = SouthPass;
+//        
+//        Location FortBridger = new Location();
+//        FortBridger.setDescription("Fort Bridger");
+//        FortBridger.setRow(5);
+//        FortBridger.setColumn(9);
+//        FortBridger.setVisited(false);
+//        FortBridger.setDistanceTravelled(1057);
+//        location[LocationType.FortBridger.ordinal()] = FortBridger;
+//        
+//        Location SodaSprings = new Location();
+//        SodaSprings.setDescription("Soda Springs");
+//        SodaSprings.setRow(9);
+//        SodaSprings.setColumn(8);
+//        SodaSprings.setVisited(false);
+//        SodaSprings.setDistanceTravelled(1219);
+//        location[LocationType.SodaSprings.ordinal()] = SodaSprings;
+//        
+//        Location FortHall = new Location();
+//        FortHall.setDescription("Fort Hall");
+//        FortHall.setRow(15);
+//        FortHall.setColumn(7);
+//        FortHall.setVisited(false);
+//        FortHall.setDistanceTravelled(1277);
+//        location[LocationType.FortHall.ordinal()] = FortHall;
+//        
+//        Location SnakeRiverCrossing = new Location();
+//        SnakeRiverCrossing.setDescription("Snake River Crossing");
+//        SnakeRiverCrossing.setRow(18);
+//        SnakeRiverCrossing.setColumn(4);
+//        SnakeRiverCrossing.setVisited(false);
+//        SnakeRiverCrossing.setDistanceTravelled(1458);
+//        location[LocationType.SnakeRiverCrossing.ordinal()] = SnakeRiverCrossing;
+//        
+//        Location FortBoise = new Location();
+//        FortBoise.setDescription("FortB oise");
+//        FortBoise.setRow(19);
+//        FortBoise.setColumn(1);
+//        FortBoise.setVisited(false);
+//        FortBoise.setDistanceTravelled(1572);
+//        location[LocationType.FortBoise.ordinal()] = FortBoise;
+//        
+//        Location BlueMountains = new Location();
+//        BlueMountains.setDescription("Blue Mountains");
+//        BlueMountains.setRow(15);
+//        BlueMountains.setColumn(0);
+//        BlueMountains.setVisited(false);
+//        BlueMountains.setDistanceTravelled(1732);
+//        location[LocationType.BlueMountains.ordinal()] = BlueMountains;
+//        
+//        Location FortWallaWalla = new Location();
+//        FortWallaWalla.setDescription("Fort Walla Walla");
+//        FortWallaWalla.setRow(12);
+//        FortWallaWalla.setColumn(3);
+//        FortWallaWalla.setVisited(false);
+//        FortWallaWalla.setDistanceTravelled(1787);
+//        location[LocationType.FortWallaWalla.ordinal()] = FortWallaWalla;
+//        
+//        Location TheDalles = new Location();
+//        TheDalles.setDescription("The Dalles");
+//        TheDalles.setRow(9);
+//        TheDalles.setColumn(4);
+//        TheDalles.setVisited(false);
+//        TheDalles.setDistanceTravelled(1907);
+//        location[LocationType.TheDalles.ordinal()] = TheDalles;
+//        
+//        Location BarlowTollRoad = new Location();
+//        BarlowTollRoad.setDescription("BarlowTollRoad");
+//        BarlowTollRoad.setRow(4);
+//        BarlowTollRoad.setColumn(6);
+//        BarlowTollRoad.setVisited(false);
+//        BarlowTollRoad.setDistanceTravelled(2007);
+//        location[LocationType.BarlowTollRoad.ordinal()] = BarlowTollRoad;
+//        
+//        Location WillametteValley = new Location();
+//        WillametteValley.setDescription("WillametteValley");
+//        WillametteValley.setRow(1);
+//        WillametteValley.setColumn(0);
+//        WillametteValley.setVisited(false);
+//        WillametteValley.setDistanceTravelled(2107);
+//        location[LocationType.WillametteValley.ordinal()] = WillametteValley;
+//
+//        return location;
+//            
+//        }
         
         public static Pace[] createPace(){
         // create array list of Ration types
