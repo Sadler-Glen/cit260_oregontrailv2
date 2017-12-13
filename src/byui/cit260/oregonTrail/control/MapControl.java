@@ -34,10 +34,10 @@ public class MapControl implements Serializable{
         Map map = new Map(20, 20);
         
         // create a list of different scenes in the game
-//        Scene[] scenes = createScenes();
+        Scene[] scenes = createScenes();
         
 //        assign different scenes to locations in the map
-//        assignScenesToLocations(map, scenes);
+        assignScenesToLocations(map, scenes);
         return map;
     }
 
@@ -91,7 +91,7 @@ public class MapControl implements Serializable{
         Start.setBlocked(false);
         Start.setMapSymbol("*ST*");
         Start.setTravelTime(0);
-        Start.setLocation(new Point(18, 20));
+        Start.setLocation(new Point(18, 19));
         scenes[SceneType.Start.ordinal()] = Start;
 
         Scene KansasRiverCrossing = new Scene();
@@ -99,7 +99,7 @@ public class MapControl implements Serializable{
         KansasRiverCrossing.setBlocked(false);
         KansasRiverCrossing.setMapSymbol("}=={");
         KansasRiverCrossing.setTravelTime(0);
-        KansasRiverCrossing.setLocation(new Point(15, 20));
+        KansasRiverCrossing.setLocation(new Point(15, 19));
         scenes[SceneType.KansasRiverCrossing.ordinal()] = KansasRiverCrossing;
         
         Scene BigBlueRiverCrossing = new Scene();
@@ -115,7 +115,7 @@ public class MapControl implements Serializable{
         FortKearney.setBlocked(false);
         FortKearney.setMapSymbol("*FT*");
         FortKearney.setTravelTime(0);
-        FortKearney.setLocation(new Point(8, 19));
+        FortKearney.setLocation(new Point(10, 19));
         scenes[SceneType.FortKearney.ordinal()] = FortKearney;
 
         Scene ChimneyRock = new Scene();
@@ -187,7 +187,7 @@ public class MapControl implements Serializable{
         FortBoise.setBlocked(false);
         FortBoise.setMapSymbol("||||");
         FortBoise.setTravelTime(0);
-        FortBoise.setLocation(new Point(15, 7));  
+        FortBoise.setLocation(new Point(16, 7));  
         scenes[SceneType.FortBoise.ordinal()] = FortBoise;
         
         Scene BlueMountains = new Scene();
@@ -219,7 +219,7 @@ public class MapControl implements Serializable{
         BarlowTollRoad.setBlocked(false);
         BarlowTollRoad.setMapSymbol("^--^");
         BarlowTollRoad.setTravelTime(0);
-        BarlowTollRoad.setLocation(new Point(9, 4));  
+        BarlowTollRoad.setLocation(new Point(12, 4));  
         scenes[SceneType.BarlowTollRoad.ordinal()] = BarlowTollRoad;
         
         Scene WillametteValley = new Scene();
@@ -227,7 +227,7 @@ public class MapControl implements Serializable{
         WillametteValley.setBlocked(false);
         WillametteValley.setMapSymbol("^--^");
         WillametteValley.setTravelTime(0);
-        WillametteValley.setLocation(new Point(9, 4));  
+        WillametteValley.setLocation(new Point(7, 4));  
         scenes[SceneType.WillametteValley.ordinal()] = WillametteValley;
 
         return scenes;
@@ -265,22 +265,24 @@ public class MapControl implements Serializable{
         System.out.println("\n*** assignItemsToScenes called ***");
     }
 
-    public static void assignScenesToLocations(Map map, Scene[] locations) {
+    public static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] location = map.getLocations();
-        Point coordinate;
-
-        HashMap<String, ArrayList<Point>> sceneLocations = new HashMap<String, ArrayList<Point>>();
+    
 
 //        Brother Westensee and I worked toether and found that there was an
 //        issue with adding this for next loop - we removed a huge amount of code
 //        and replaced it with this two liner. Hopefully we will get to check it
 //        out next week.
-//        for(Scene scene: locations){
-//        location[scene.getLocation().x,scene.getLocation().y];
-//        }
-      
-    }
 
+        for(Scene scene: scenes){
+            double x = scene.getLocation().getX();
+            int y = scene.getLocation().y;
+            Location sceneLocation = location[(int)x][y];
+            sceneLocation.setSceneType(scene);
+            location[(int)x][y] = sceneLocation;
+      
+        }
+    }    
 //    public static int moveActorsToStartingLocation(Map map) {
 //        // for every actor
 //        Actor[] actors = Actor.values();

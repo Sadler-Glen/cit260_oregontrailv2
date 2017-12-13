@@ -97,9 +97,7 @@ public class MainMenuView extends View {
         MapControl.createScenes();
         
 //       MapControl.createQuestions();
-//       MapControl.assignQuestionsToScenes(questions, scenes);
-//       MapControl.assignQuestionsToScenes(questions, scenes);
-//       MapControl.assignScenesToLocations(scenes, locations);
+   
 
         //Create OccupationMenuView Object
         OccupationMenuView occupation = new OccupationMenuView();

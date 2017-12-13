@@ -45,7 +45,7 @@ public class DisplayMapView {
             for (int column = 0; column < noColumns; column++) {
                 this.console.print("|"); // print column divider
                 Location location = rowLocations[column];
-                if (location.isVisited() || location == null) { // if location is visited 
+                if (/*location.isVisited() ||*/ location !=null && location.getSceneType()!=null) { // if location is visited 
                     Scene scene = location.getSceneType();
                     this.console.print(scene.getMapSymbol());
                 } else {
