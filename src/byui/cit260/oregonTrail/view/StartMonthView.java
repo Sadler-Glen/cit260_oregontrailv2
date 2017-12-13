@@ -26,6 +26,8 @@ public class StartMonthView extends View {
                 + "\n           You have chosen to leave on "
                 + "\n          " + GameControl.getStartDate()
                 + "\n                                                 "
+                + "\n             The weather is "+ GameControl.getWeather()
+                + "\n"
                 + "\n    Before leaving your current location,        "
                 + "\n    first you should step by Glen´s store        "
                 + "\n    and buy supplies for your journey            "
