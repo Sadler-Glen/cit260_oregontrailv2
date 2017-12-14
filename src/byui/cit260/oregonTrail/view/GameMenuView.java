@@ -124,10 +124,10 @@ public class GameMenuView extends View {
     }
 
     private void travelTheTrail() {
-        MoveActorView moveActor = new MoveActorView();
-        moveActor.display();
-//        this.console.println("\n***travelTheTrail function stub called***");
-//        this.console.println("\n***We are almost completed this function***");
+//        MoveActorView moveActor = new MoveActorView();
+//        moveActor.display();
+        this.console.println("\n***travelTheTrail function stub called***");
+        this.console.println("\n***We are almost completed this function***");
     }
 
     private void riverCrossing() {

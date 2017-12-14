@@ -38,9 +38,9 @@ public class MapControl implements Serializable{
         
 //        assign different scenes to locations in the map
         assignScenesToLocations(map, scenes);
-        return map;
+        return map;        
     }
-
+        
     public static Location[][] createLocations(int rows, int columns) throws Exception{
 //        IF rows < 1 OR columns < 1 THEN
 //            RETURN null
@@ -71,6 +71,8 @@ public class MapControl implements Serializable{
                 locations[rowCount][colCount] = area;
             }
         }
+        
+        
 
 //        for(int i = 0; i < rowCount.length; i++ ){
 //            for(int j = 0; j < colCount.length; j++ ){
@@ -301,7 +303,7 @@ public class MapControl implements Serializable{
     
         
     
-    public static void moveActorToLocation(Point playerCoordinates)
+    public void moveActorToLocation(Point playerCoordinates)
                             throws MapControlException{
         
         Map map = OregonTrailv2.getCurrentGame().getMap();
@@ -324,11 +326,11 @@ public class MapControl implements Serializable{
         // mark new locations as visited on arrival  
         
         // check to see if the actor is in the current location
-//        if (oldLocation != null) {
+        if (oldLocation != null) {
 //            oldLocation.removePlayer player; // remove actor from old location
-//        }
+        }
         
-//        newLocation.addActor(actor); // add actor to new location
+        newLocation.getPlayer(); // add actor to new location
         playerCoordinates.x = newRow;
         playerCoordinates.y = newColumn; // set actor to new location
         newLocation.setVisited(true); // mark as a visted location        

@@ -87,7 +87,7 @@ public class ReportMenuView extends View {
 
     public String getFileName() {
 
-        //Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
         boolean valid = false; // initialize to not valid
         String value = null;
         try {

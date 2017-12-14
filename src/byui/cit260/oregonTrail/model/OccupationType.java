@@ -10,7 +10,7 @@ package byui.cit260.oregonTrail.model;
  * @author sadss
  */
 public enum OccupationType {
-        Banker,
+    Banker,
     Carpenter,
     Farmer;    
 }

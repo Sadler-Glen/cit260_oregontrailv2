@@ -9,119 +9,167 @@ import byui.cit260.oregonTrail.control.MapControl;
 import byui.cit260.oregonTrail.exceptions.MapControlException;
 import byui.cit260.oregonTrail.model.Actor;
 import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import oregontrailv2.OregonTrailv2;
 
 /**
  *
  * @author sadss
  */
-public class MoveActorView extends View{
-    
+public class MoveActorView {
+    protected final BufferedReader keyboard = OregonTrailv2.getInFile();
+    protected final PrintWriter console = OregonTrailv2.getOutFile();
 
-/**
- *
- * @author sadss
- */
-
-
+    /**
+     *
+     * @author sadss
+     */
     public MoveActorView() {
-        super("\n"
-                + "\n===============Oregon Trail Game================="
+//        super("\n"
+//                + "\n===============Oregon Trail Game================="
+//                + "\n                                                 "
+//                + "\n                Move Actor Menu                    "
+//                + "\n                                                 "
+//                + "\n1 - "+ oregontrailv2.OregonTrailv2.getCurrentGame().getPlayer().getName()
+//                + "\n2 - "
+//                + "\n3 - "
+//                + "\n4 - "
+//                + "\n5 - "
+//                + "\nX - Exit                                         "
+//                + "\n"
+//                + "\n=================================================",
+//                "\nPlease enter your choice: ");
+
+
+    
+            this.console.println("\n"
+                 + "\n===============Oregon Trail Game================="
                 + "\n                                                 "
-                + "\n                Move Actor Menu                    "
+                + "\n                Move Actor Menu                  "
                 + "\n                                                 "
-                + "\n1 - "+ oregontrailv2.OregonTrailv2.getCurrentGame().getPlayer().getName()
-                + "\n2 - "
-                + "\n3 - "
-                + "\n4 - "
-                + "\n5 - "
-                + "\nX - Exit                                         "
+                + "\n  The map is a 20 x 20 matrix with x, and y      "
+                + "\n  coordinates at the top left hand corner of     "
+                + "\n  0,0 and at the bottom right hand corner of     "
+                + "\n  19, 19. To navigate the map you must enter     "
+                + "\n  coordinates in this range.                     "                   
+                + "\n  Please enter the coordinates for where you     "
+                + "\n  would like to move to. or press X to Exit      "
                 + "\n"
-                + "\n=================================================",
-                "\nPlease enter your choice: ");
-
+                + "\n"
+                + "\n  X - Exit                                         "
+                + "\n"
+                + "\n=================================================");
     }
 
-    @Override
+    public String[] getInputs() {
+        String[] inputs = new String[1];
+        inputs[0] = this.getInput("\nEnter a menu item");
+        
+        return inputs;
+    }
     public void display() {
+        String[] inputs = null;
+        boolean endOfView = false;
 
-        boolean done = false; // set flag to not done
-        try {
-            do {
-                // prompt for and get menu option
-                String value = this.getInput();
-                if (value.toUpperCase().equals("X"))// user wants to exit view                
-                // do the requested action and display the next view
-                {
-                    return; // exit view
-                }
-                done = this.doAction(value);
-            } while (!done);
-        } catch (NumberFormatException nfe) {
-            ErrorView.display(this.getClass().getName(), "*** Invalid selection *** Try again");
-        }
+        do {
+            inputs = this.getInputs(); // get the user's selection
+            if (  inputs == null
+               || inputs.length < 1
+               || inputs[0].toUpperCase().equals("Q")) {
+                return;
+            }
+            endOfView = this.doAction(inputs); // do action based on selection
+
+        } while (!endOfView);
+
     }
 
-//    
-    public boolean doAction(String[] inputs) {
-        String actor1 = oregontrailv2.OregonTrailv2.getCurrentGame().getActors().get(0).getName();
-        String actor2 = oregontrailv2.OregonTrailv2.getCurrentGame().getActors().get(1).getName();
-        String actor3 = oregontrailv2.OregonTrailv2.getCurrentGame().getActors().get(2).getName();
-        String actor4 = oregontrailv2.OregonTrailv2.getCurrentGame().getActors().get(3).getName();
-        String actor5 = oregontrailv2.OregonTrailv2.getCurrentGame().getActors().get(4).getName();
-        String actor = " ";
-        
-        
-        
+
+    public String getInput(String promptMessage) {
+
+        Scanner keyboard = new Scanner(System.in);
+        boolean valid = false;
+        String selection = null;
+
+        // while a valid name has not been retrieved
+        while (!valid) {
+            System.out.println(promptMessage);
+            
+            // get the value entered from the keyboard
+            selection = keyboard.nextLine();
+            selection = selection.trim();
+
+            if (selection.length() < 1) { // blank value entered
+                System.out.println("\n*** You must enter a non-blank value");
+                continue;
+            }
+
+            break;
+        }
+
+        return selection; // return the name        
+    }
+
+    public void clearConsole() {
+        try {
+            final String os = System.getProperty("os.name");
+
+            if (os.contains("Windows")) {
+                Runtime.getRuntime().exec("cls");
+            } else {
+                Runtime.getRuntime().exec("clear");
+            }
+        } catch (final Exception e) {
+            //  Handle any exceptions.
+        }
+
+    }
+    
+        public boolean doAction(String[] inputs) {
+
+        Actor actor;
+
         String choice = inputs[0].trim().toUpperCase(); // trim blanks and uppercase
 
         // check for valid actor
         switch (choice) {
             case "1":
-                actor = actor1;
-                break;
-            case "2":
-                actor = actor2;
-                break;
-            case "3":
-                actor = actor3;
-                break;
-            case "4":
-                actor = actor4;
-                break;
-            case "5":
-                actor = actor5;
-                break;
-            case "Q":
+                this.getCoordinates("  ");
+                return true;
+            case "X":
                 return true;
             default:
                 System.out.println("Invalid selection");
                 return false;
         }
 
-        Point coordinates = this.getCoordinates(inputs[1]); // get the row and column
-        if (coordinates == null) // entered "Q" to quit
-        {
-            System.out.println("\nERROR" + actor
-                    + " could not be moved to location: "
-                    + coordinates.x + ", " + coordinates.y);
-            return false;
-        }
 
-        try {
-            // move actor to specified location
-            MapControl.moveActorToLocation(coordinates);
-        } catch (MapControlException ex) {
-            Logger.getLogger(MoveActorView.class.getName()).log(Level.SEVERE, ex.getMessage(),ex);
-            return false;
-        }
+//        Point coordinates = this.getCoordinates(inputs[1]); // get the row and column
+//        if (coordinates == null) // entered "Q" to quit
+//        {
+//            System.out.println("\nERROR" + actor
+//                    + " could not be moved to location: "
+//                    + coordinates.x + ", " + coordinates.y);
+//            return false;
+//        }
+//
+//        // move actor to specified location
+//        int returnValue = MapControl.moveActorToLocation(actor, coordinates);
+//        if (returnValue < 0) {
+//            System.out.println("\nERROR" + actor
+//                    + " could not be moved to location: "
+//                    + coordinates.x + ", " + coordinates.y);
+//            return false;
 
-        System.out.println("\n" + actor
-                + " was successfully moved to location: "
-                + coordinates.x + ", " + coordinates.y);
-
-        return true;
+//        this.console.println("\n" + actor
+//                + " was successfully moved to location: "
+//                + coordinates.x + ", " + coordinates.y);
+//
+//        return true;
     }
 
     public Point getCoordinates(String value) {
@@ -144,30 +192,7 @@ public class MoveActorView extends View{
         int column = Integer.parseInt(values[1]);
         return new Point(row, column);
 
-    }      
-
-    private void actor1() {
-        this.console.println("\n***actor1() function stub called***");
     }
 
-    private void actor2() {
-        this.console.println("\n***actor2() function stub called***");
-    }
-
-    private void actor3() {
-        this.console.println("\n***actor3() function stub called***");
-    }
-
-    private void actor4() {
-        this.console.println("\n***actor4() function stub called***");
-    }
-
-    private void acttor5() {
-        this.console.println("\n***actor5() function stub called***");
-    }
-
-    @Override
-    public boolean doAction(String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
+

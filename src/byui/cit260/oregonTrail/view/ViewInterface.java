@@ -12,10 +12,8 @@ package byui.cit260.oregonTrail.view;
 public interface ViewInterface {
 
     public void display();
-
+    
     public String getInput();
 
     public boolean doAction(String value);
-    
-    String  keyboard = null;
 }

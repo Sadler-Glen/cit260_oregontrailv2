@@ -25,6 +25,7 @@ public class Location implements Serializable {
     private Scene sceneType;
     private int distanceTravelled;
     private ArrayList<Actor> actors;
+    private Player player;
 
     // default constructor function
     public Location() {
@@ -33,21 +34,17 @@ public class Location implements Serializable {
     public Location(int row, int column) {
         this.actors = new ArrayList<Actor>();
     }
-    
-    public Location(String decription, int row, int column, boolean visited, Scene scene, int distanceTravelled, ArrayList<Actor> actors) {
-        this.description = "";
-        this.row = row;
-        this.column = column;
-        this.visited = false;
-        this.sceneType = sceneType;
-        this.distanceTravelled = 0;
-        this.actors = actors;
-    }
 
     public void Location(int row, int column) {
         this.row = row;
         this.column = column;
     }
+
+    public Location(Player player) {
+        this.player = player;
+    }
+    
+    
 
     // getters and setters
 
@@ -107,12 +104,22 @@ public class Location implements Serializable {
     public void setActors(ArrayList<Actor> actors) {
         this.actors = actors;
     }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
     
-        public void removeActor(Actor actor) {
-        if (actor == null) {
+    
+    
+        public void removePlayer() {
+        if (player == null) {
             return;
         }
-        this.actors.remove(actor);
+//        this.actors.remove(actor);
     }
     
         
@@ -126,19 +133,20 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Location{" + "description=" + description + ", row=" + row + ", column=" + column + ", visited=" + visited + ", sceneType=" + sceneType + ", distanceTravelled=" + distanceTravelled + ", actors=" + actors + '}';
+        return "Location{" + "description=" + description + ", row=" + row + ", column=" + column + ", visited=" + visited + ", sceneType=" + sceneType + ", distanceTravelled=" + distanceTravelled + ", actors=" + actors + ", player=" + player + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.description);
-        hash = 59 * hash + this.row;
-        hash = 59 * hash + this.column;
-        hash = 59 * hash + (this.visited ? 1 : 0);
-        hash = 59 * hash + Objects.hashCode(this.sceneType);
-        hash = 59 * hash + this.distanceTravelled;
-        hash = 59 * hash + Objects.hashCode(this.actors);
+        hash = 41 * hash + Objects.hashCode(this.description);
+        hash = 41 * hash + this.row;
+        hash = 41 * hash + this.column;
+        hash = 41 * hash + (this.visited ? 1 : 0);
+        hash = 41 * hash + Objects.hashCode(this.sceneType);
+        hash = 41 * hash + this.distanceTravelled;
+        hash = 41 * hash + Objects.hashCode(this.actors);
+        hash = 41 * hash + Objects.hashCode(this.player);
         return hash;
     }
 
@@ -175,14 +183,9 @@ public class Location implements Serializable {
         if (!Objects.equals(this.actors, other.actors)) {
             return false;
         }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
         return true;
     }
-
-    
-    
-    public void removeActor(OregonTrailv2 actor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
 }
