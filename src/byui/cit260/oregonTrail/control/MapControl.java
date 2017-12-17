@@ -115,7 +115,7 @@ public class MapControl implements Serializable{
         Scene FortKearney = new Scene();//4
         FortKearney.setDescription("Fort Kearney");
         FortKearney.setBlocked(false);
-        FortKearney.setMapSymbol("*FT*");
+        FortKearney.setMapSymbol("||||");
         FortKearney.setTravelTime(0);
         FortKearney.setLocation(new Point(10, 17));
         scenes[SceneType.FortKearney.ordinal()] = FortKearney;
