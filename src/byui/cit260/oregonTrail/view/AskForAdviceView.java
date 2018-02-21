@@ -26,7 +26,7 @@ public class AskForAdviceView extends View {
                 + "\n would still be cool. It´s your call.                       "
                 + "\n                                                            "
                 + "\n=================================================",
-                "\nPress 'C' to continue");
+                "\nPress 'C' to continue: ");
     }
 
     @Override
